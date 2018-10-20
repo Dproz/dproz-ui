@@ -783,6 +783,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isemail__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(isemail__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _shared_services_places_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../shared/services/places.service */ "./src/app/shared/services/places.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_validators_professional_profile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../shared/validators/professional-profile */ "./src/app/shared/validators/professional-profile.ts");
+/* harmony import */ var _shared_constants_constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../shared/constants/constants */ "./src/app/shared/constants/constants.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -801,24 +803,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-//custom password validator 
-function passwordMatchValidator(password) {
-    return function (control) {
-        if (control.value !== undefined && ((password != control.value))) {
-            return { 'confirmedPassword': true };
-        }
-        return null;
-    };
-}
-//custom username exists validator 
-function usernameValidator(users) {
-    return function (control) {
-        if (control.value !== undefined && (isNaN(control.value))) {
-            return { 'validPassword': true };
-        }
-        return null;
-    };
-}
+
+
 var SignupComponent = /** @class */ (function () {
     function SignupComponent(fb, router, service, state, placesService) {
         this.fb = fb;
@@ -834,7 +820,6 @@ var SignupComponent = /** @class */ (function () {
         this.selectedState = '';
         this.selectedCity = '';
         this.selectedCounty = '';
-        this.passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
     }
     SignupComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -844,7 +829,7 @@ var SignupComponent = /** @class */ (function () {
             lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2)]],
             middleName: '',
             emailAddress: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email])],
-            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(this.passPattern)]],
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(_shared_constants_constants__WEBPACK_IMPORTED_MODULE_10__["PASS_PATTERN"])]],
             repeatPassword: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             // profilePictureUrl: null,
             lastChangedPasswordOn: null,
@@ -873,7 +858,7 @@ var SignupComponent = /** @class */ (function () {
         password.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["debounce"])(function () { return Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["timer"])(1000); }))
             .subscribe(function (pass) {
             console.log(pass);
-            repeatPassword.setValidators(passwordMatchValidator(pass));
+            repeatPassword.setValidators(Object(_shared_validators_professional_profile__WEBPACK_IMPORTED_MODULE_9__["passwordMatchValidator"])(pass));
         });
         this.placesService.getRegions().subscribe(function (regions) {
             _this.states = regions;
@@ -2228,7 +2213,7 @@ var BasicInfoComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div *ngIf=\"editForm\">\n  <form [formGroup]=\"credentialForm\">\n    <div  class=\"form-container\">\n      <!-- //*ngFor=\"let credential in credentials\" -->\n        <mat-form-field>\n            <mat-label>Credential Type</mat-label>\n            <mat-select  matInput formControlName=\"credentialType\" placeholder=\"Select Credential Type\">\n              <mat-option *ngFor=\"let credential of credentials\" [value]=\"credential.Id\" >{{credential.Name}}</mat-option>\n            \n            </mat-select>\n          </mat-form-field>\n\n          <mat-form-field >\n              <mat-label>Credential Description</mat-label>\n              <textarea matInput formControlName=\"credentialDescription\" placeholder=\"Enter Description\"></textarea>\n              <mat-error *ngIf=\"!credentialForm.controls['credentialDescription'].valid\">credentia description is required</mat-error>\n              <mat-icon matSuffix>adjust</mat-icon>\n              <mat-hint>credentia description</mat-hint>\n            </mat-form-field>\n\n      <mat-form-field >\n          <mat-label>Credential Id</mat-label>\n          <input matInput formControlName=\"CredentialId\" placeholder=\"Enter ID\">\n          <mat-error *ngIf=\"!credentialForm.controls['CredentialId'].valid\">credential id is required</mat-error>\n          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n          <mat-hint>project name</mat-hint>\n        </mat-form-field>\n      \n  \n        \n     \n        <mat-form-field >\n          <mat-label>Effective Date</mat-label>\n          <input matInput formControlName=\"startDate\" [matDatepicker]=\"startDate\" placeholder=\"Choose start date\">\n          <mat-datepicker-toggle matSuffix [for]=\"startDate\"></mat-datepicker-toggle>\n          <mat-datepicker #startDate></mat-datepicker>\n          <mat-error *ngIf=\"!credentialForm.controls['startDate'].valid\">start date is required</mat-error>\n          <mat-hint>start date</mat-hint>\n        </mat-form-field>\n      \n  \n  \n        <mat-form-field>\n          <mat-label>Expire Date</mat-label>\n          <input matInput formControlName=\"endDate\" [matDatepicker]=\"endDate\" placeholder=\"Choose end date\">\n          <mat-datepicker-toggle matSuffix [for]=\"endDate\"></mat-datepicker-toggle>\n          <mat-datepicker #endDate></mat-datepicker>\n          <mat-error *ngIf=\"!credentialForm.controls['endDate'].valid\">end date is required</mat-error>\n          <mat-hint>end date</mat-hint>\n        </mat-form-field>\n  \n  \n        <mat-form-field >\n            <mat-label>Issuing Authority</mat-label>\n            <input matInput formControlName=\"authorityName\" placeholder=\"Enter Authrity Name\">\n            <mat-error *ngIf=\"!credentialForm.controls['authorityName'].valid\">Issuing Authority is required</mat-error>\n            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n            <mat-hint>authority name</mat-hint>\n          </mat-form-field>\n        \n          <!-- <div style=\"width:100%; clear:both;\">\n              <div style=\"float:left; width:100%\">\n            \n                <input \n                style=\"display: none\" \n                type=\"file\" #attachment   (change)=\"onFileChanged($event)\">\n              <button [disabled] = hasAttachment mat-button (click)=\"attachment.click()\">Add Attachment</button>\n              \n               <button mat-button (click)=\"onUpload()\">Upload!</button>  \n             </div>\n             <div formArrayName=\"attachments\">\n\n          \n              <div *ngFor=\"let photo of credentialForm.get('attachments').controls; let i=index\" style=\"float:left; width: 50%; padding: 10px;\">\n                <div [formGroupName]=\"i\">  \n              \n                 \n                    <div style=\"float:left; \">\n                       <img width=\"90%\" mat-card-image [src]= credentialForm.controls.attachments.controls[i].\n                       controls.url.value alt=credentialForm.controls.attachments.controls[i].controls.caption.value> \n                        <a [href]=credentialForm.controls.attachments.controls[i].controls.url.value>\n                        {{credentialForm.controls.attachments.controls[i].controls.caption.value}}\n                        </a>\n                    </div>\n                    <div style=\"float:left;\"><button mat-icon-button (click)=\"removeImage(i)\"> \n                        <mat-icon>delete</mat-icon></button></div>\n                  </div>\n                    \n                \n              </div>\n            </div>\n              \n              </div> -->\n              \n      </div>\n      <div style=\"float:right;\">\n            \n          <button mat-button (click)=\"saveForm()\">Submit</button>\n        </div>  \n  </form>\n  </div>\n  <div *ngIf=\"viewAll\">\n      <div style=\"float:left; color: \t#50B2EC;\">\n          Click the (+) Sign to Add Credential\n          </div>\n      <div style=\"float:right;\">\n          <button mat-icon-button (click)=\"addCredential()\">\n            <mat-icon>add</mat-icon></button>\n          </div>\n  <div>\n  <div>\n      <div style=\"width:90%;  clear:both; margin: auto;\" *ngFor=\"let cred of credentialData; let i of index\">\n        <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"editAttachment(cred, i)\"> \n          <mat-icon>attach_file</mat-icon></button></div>\n         \n              <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"editCredential(cred, i)\"> \n                  <mat-icon>edit</mat-icon></button></div>\n                  <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"deleteCredential( i)\"> \n                    <mat-icon>delete</mat-icon></button></div>\n          <p style=\"font-weight: bold;\"> {{cred.type | credentialType}}, {{cred.issuedBy}}</p>\n          <p> {{cred.description}}</p>\n          <p> <span  style=\"font-weight: bold;\">Effective Date :</span> {{cred.effectiveDate | date }} \n            <span  style=\"font-weight: bold;\"> Expire Date: </span> {{cred.expiringDate | date}}  </p>\n          <hr>\n     </div>\n      </div></div></div>\n\n      <div style=\"margin-top: 10px\" *ngIf=\"viewOnly\">\n        <!-- <div style=\"float:left; color: \t#50B2EC;\">\n            Click the (+) Sign to Add Credential\n            </div>\n        <div style=\"float:right;\">\n            <button mat-icon-button (click)=\"addCredential()\">\n              <mat-icon>add</mat-icon></button>\n            </div> -->\n    <div>\n    <div>\n        <div style=\"width:90%;  clear:both; margin: auto;\" >\n          <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"editCredential(currentCred, currentIndex)\"> \n            <mat-icon>edit</mat-icon></button></div>\n\n            <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"deleteCredential( currentIndex)\"> \n                <mat-icon>delete</mat-icon></button></div>\n              \n            <p><span  style=\"font-weight: bold;\">Credential Type:</span> {{currentCred.type | credentialType}}</p>\n            <p><span  style=\"font-weight: bold;\">Issuing Authority:</span> {{currentCred.issuedBy}}</p>\n            <p><span  style=\"font-weight: bold;\">Identification Number: </span> {{currentCred.identificationNumber}}</p>\n            <p><span  style=\"font-weight: bold;\">Description : </span>{{currentCred.description}}</p>\n            <p> <span  style=\"font-weight: bold;\">Effective Date :</span> {{currentCred.effectiveDate | date }} </p>\n            <p><span  style=\"font-weight: bold;\"> Expire Date: </span> {{currentCred.expiringDate | date}}  </p>\n            \n       </div><form [formGroup]=\"credentialForm\">\n\n        <div style=\"width:92%;  clear:both; margin: auto;\">\n         \n       <div formArrayName=\"attachments\">\n\n        <div *ngFor=\"let photo of credentialForm.get('attachments').controls; let i=index\" style=\"float:left; width: 50%; padding: 10px;\">\n          <div [formGroupName]=\"i\">  \n        \n           \n              <div style=\"float:left; \">\n                <!-- <div  style=\" overflow-wrap: break-word;\"> -->\n\n                  <mat-form-field style=\"width:290px;\" >\n                      <input matInput type=\"text\"   formControlName=\"caption\"  placeholder=\"Caption\">\n                    \n                      <button mat-button *ngIf=credentialForm.controls.attachments.controls[i].controls.caption.value matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"credentialForm.controls['attachments'].controls[i].controls['caption'].setValue('')\">\n                        <mat-icon>close</mat-icon>\n                      </button>\n                    </mat-form-field>\n\n                  <!-- <textarea matInput placeholder=\"Leave a comment\"></textarea> -->\n\n              <!-- </div> -->\n              <div>\n                  <!-- <img width=\"90%\" mat-card-image [src]= credentialForm.controls.attachments.controls[i].controls.url.value alt=credentialForm.controls.attachments.controls[i].controls.caption.value> -->\n                  <a [href]=credentialForm.controls.attachments.controls[i].controls.url.value>\n                  {{credentialForm.controls.attachments.controls[i].controls.caption.value}}\n                  </a>\n                  <div style=\"float:right;\"><button mat-icon-button (click)=\"removeImage(i)\"> \n                    <mat-icon>delete</mat-icon></button></div>\n                </div>\n              </div>\n              \n            </div>\n              \n            <div style=\"float:right;\">\n              </div>\n        </div>\n        <div style=\"float:left; width:100%\">\n        \n          <input \n          style=\"display: none\" \n          type=\"file\" #attachment   (change)=\"onFileChanged($event)\">\n        <button [disabled] = hasAttachment mat-button (click)=\"attachment.click()\">Add Attachment(Optional)</button>\n        <button mat-button (click)=\"closeView()\">Exit</button>\n        <button [disabled] = !hasAttachment mat-button (click)=\"saveAttachment()\">Save</button>\n        \n        <!-- <button mat-button (click)=\"onUpload()\">Upload!</button>  -->\n       </div>\n      </div>\n     \n      </div>    </form>\n        </div></div></div>"
+module.exports = "\n<div *ngIf=\"editForm\">\n  <form [formGroup]=\"credentialForm\">\n    <div  class=\"form-container\">\n      <!-- //*ngFor=\"let credential in credentials\" -->\n        <mat-form-field>\n            <mat-label>Credential Type</mat-label>\n            <mat-select  matInput formControlName=\"credentialType\" placeholder=\"Select Credential Type\">\n              <mat-option *ngFor=\"let credential of credentials\" [value]=\"credential.Id\" >{{credential.Name}}</mat-option>\n            \n            </mat-select>\n          </mat-form-field>\n\n          <mat-form-field >\n              <mat-label>Credential Description</mat-label>\n              <textarea matInput formControlName=\"credentialDescription\" placeholder=\"Enter Description\"></textarea>\n              <mat-error *ngIf=\"!credentialForm.controls['credentialDescription'].valid\">credentia description is required</mat-error>\n              <mat-icon matSuffix>adjust</mat-icon>\n              <mat-hint>credentia description</mat-hint>\n            </mat-form-field>\n\n      <mat-form-field >\n          <mat-label>Credential Id</mat-label>\n          <input matInput formControlName=\"CredentialId\" placeholder=\"Enter ID\">\n          <mat-error *ngIf=\"!credentialForm.controls['CredentialId'].valid\">credential id is required</mat-error>\n          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n          <mat-hint>project name</mat-hint>\n        </mat-form-field>\n      \n  \n        \n     \n        <mat-form-field >\n          <mat-label>Effective Date</mat-label>\n          <input matInput formControlName=\"startDate\" [matDatepicker]=\"startDate\" placeholder=\"Choose start date\">\n          <mat-datepicker-toggle matSuffix [for]=\"startDate\"></mat-datepicker-toggle>\n          <mat-datepicker #startDate></mat-datepicker>\n          <mat-error *ngIf=\"!credentialForm.controls['startDate'].valid\">start date can't be later than today</mat-error>\n          \n          <mat-hint>start date</mat-hint>\n        </mat-form-field>\n      \n  \n  \n        <mat-form-field>\n          <mat-label>Expire Date</mat-label>\n          <input matInput formControlName=\"endDate\" [matDatepicker]=\"endDate\" placeholder=\"Choose end date\">\n          <mat-datepicker-toggle matSuffix [for]=\"endDate\"></mat-datepicker-toggle>\n          <mat-datepicker #endDate></mat-datepicker>\n          <mat-error *ngIf=\"!credentialForm.controls['endDate'].valid\">end date can't be before start date</mat-error>\n          <mat-hint>end date</mat-hint>\n        </mat-form-field>\n  \n  \n        <mat-form-field >\n            <mat-label>Issuing Authority</mat-label>\n            <input matInput formControlName=\"authorityName\" placeholder=\"Enter Authrity Name\">\n            <mat-error *ngIf=\"!credentialForm.controls['authorityName'].valid\">Issuing Authority is required</mat-error>\n            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n            <mat-hint>authority name</mat-hint>\n          </mat-form-field>\n        \n          <!-- <div style=\"width:100%; clear:both;\">\n              <div style=\"float:left; width:100%\">\n            \n                <input \n                style=\"display: none\" \n                type=\"file\" #attachment   (change)=\"onFileChanged($event)\">\n              <button [disabled] = hasAttachment mat-button (click)=\"attachment.click()\">Add Attachment</button>\n              \n               <button mat-button (click)=\"onUpload()\">Upload!</button>  \n             </div>\n             <div formArrayName=\"attachments\">\n\n          \n              <div *ngFor=\"let photo of credentialForm.get('attachments').controls; let i=index\" style=\"float:left; width: 50%; padding: 10px;\">\n                <div [formGroupName]=\"i\">  \n              \n                 \n                    <div style=\"float:left; \">\n                       <img width=\"90%\" mat-card-image [src]= credentialForm.controls.attachments.controls[i].\n                       controls.url.value alt=credentialForm.controls.attachments.controls[i].controls.caption.value> \n                        <a [href]=credentialForm.controls.attachments.controls[i].controls.url.value>\n                        {{credentialForm.controls.attachments.controls[i].controls.caption.value}}\n                        </a>\n                    </div>\n                    <div style=\"float:left;\"><button mat-icon-button (click)=\"removeImage(i)\"> \n                        <mat-icon>delete</mat-icon></button></div>\n                  </div>\n                    \n                \n              </div>\n            </div>\n              \n              </div> -->\n              \n      </div>\n      <div style=\"float:right;\">\n            \n          <button mat-button (click)=\"saveForm()\">Submit</button>\n        </div>  \n  </form>\n  </div>\n  <div *ngIf=\"viewAll\">\n      <div style=\"float:left; color: \t#50B2EC;\">\n          Click the (+) Sign to Add Credential\n          </div>\n      <div style=\"float:right;\">\n          <button mat-icon-button (click)=\"addCredential()\">\n            <mat-icon>add</mat-icon></button>\n          </div>\n  <div>\n  <div>\n      <div style=\"width:90%;  clear:both; margin: auto;\" *ngFor=\"let cred of credentialDataChunk; let i of index\">\n        <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"editAttachment(cred, i)\"> \n          <mat-icon>attach_file</mat-icon></button></div>\n         \n              <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"editCredential(cred, i)\"> \n                  <mat-icon>edit</mat-icon></button></div>\n                  <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"deleteCredential( i)\"> \n                    <mat-icon>delete</mat-icon></button></div>\n          <p style=\"font-weight: bold;\"> {{cred.type | credentialType}}, {{cred.issuedBy}}</p>\n          <p> {{cred.description}}</p>\n          <p> <span  style=\"font-weight: bold;\">Effective Date :</span> {{cred.effectiveDate | date }} \n            <span  style=\"font-weight: bold;\"> Expire Date: </span> {{cred.expiringDate | date}}  </p>\n          <hr>\n     </div>\n     <div style=\"clear:both; width:100%\">\n      <mat-paginator [length]=\"length\"\n      [pageSize]=\"pageSize\"\n      [pageSizeOptions]=\"pageSizeOptions\"\n      (page)=\"pageChange($event)\">\n    </mat-paginator>\n    </div>\n\n      </div></div></div>\n\n      <div style=\"margin-top: 10px\" *ngIf=\"viewOnly\">\n        <!-- <div style=\"float:left; color: \t#50B2EC;\">\n            Click the (+) Sign to Add Credential\n            </div>\n        <div style=\"float:right;\">\n            <button mat-icon-button (click)=\"addCredential()\">\n              <mat-icon>add</mat-icon></button>\n            </div> -->\n    <div>\n    <div>\n        <div style=\"width:90%;  clear:both; margin: auto;\" >\n          <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"editCredential(currentCred, currentIndex)\"> \n            <mat-icon>edit</mat-icon></button></div>\n\n            <div style=\"float:right; clear: both;\"><button mat-icon-button (click)=\"deleteCredential( currentIndex)\"> \n                <mat-icon>delete</mat-icon></button></div>\n              \n            <p><span  style=\"font-weight: bold;\">Credential Type:</span> {{currentCred.type | credentialType}}</p>\n            <p><span  style=\"font-weight: bold;\">Issuing Authority:</span> {{currentCred.issuedBy}}</p>\n            <p><span  style=\"font-weight: bold;\">Identification Number: </span> {{currentCred.identificationNumber}}</p>\n            <p><span  style=\"font-weight: bold;\">Description : </span>{{currentCred.description}}</p>\n            <p> <span  style=\"font-weight: bold;\">Effective Date :</span> {{currentCred.effectiveDate | date }} </p>\n            <p><span  style=\"font-weight: bold;\"> Expire Date: </span> {{currentCred.expiringDate | date}}  </p>\n            \n       </div><form [formGroup]=\"credentialForm\">\n\n        <div style=\"width:92%;  clear:both; margin: auto;\">\n         \n       <div formArrayName=\"attachments\">\n\n        <div *ngFor=\"let photo of credentialForm.get('attachments').controls; let i=index\" style=\"float:left; width: 50%; padding: 10px;\">\n          <div [formGroupName]=\"i\">  \n        \n           \n              <div style=\"float:left; \">\n                <!-- <div  style=\" overflow-wrap: break-word;\"> -->\n\n                  <mat-form-field style=\"width:290px;\" >\n                      <input matInput type=\"text\"   formControlName=\"caption\"  placeholder=\"Caption\">\n                    \n                      <button mat-button *ngIf=credentialForm.controls.attachments.controls[i].controls.caption.value matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"credentialForm.controls['attachments'].controls[i].controls['caption'].setValue('')\">\n                        <mat-icon>close</mat-icon>\n                      </button>\n                    </mat-form-field>\n\n                  <!-- <textarea matInput placeholder=\"Leave a comment\"></textarea> -->\n\n              <!-- </div> -->\n              <div>\n                  <!-- <img width=\"90%\" mat-card-image [src]= credentialForm.controls.attachments.controls[i].controls.url.value alt=credentialForm.controls.attachments.controls[i].controls.caption.value> -->\n                  <a [href]=credentialForm.controls.attachments.controls[i].controls.url.value>\n                  {{credentialForm.controls.attachments.controls[i].controls.caption.value}}\n                  </a>\n                  <div style=\"float:right;\"><button mat-icon-button (click)=\"removeImage(i)\"> \n                    <mat-icon>delete</mat-icon></button></div>\n                </div>\n              </div>\n              \n            </div>\n              \n            <div style=\"float:right;\">\n              </div>\n        </div>\n        <div style=\"float:left; width:100%\">\n        \n          <input \n          style=\"display: none\" \n          type=\"file\" #attachment   (change)=\"onFileChanged($event)\">\n        <button [disabled] = hasAttachment mat-button (click)=\"attachment.click()\">Add Attachment(Optional)</button>\n        <button mat-button (click)=\"closeView()\">Exit</button>\n        <button [disabled] = !hasAttachment mat-button (click)=\"saveAttachment()\">Save</button>\n        \n        <!-- <button mat-button (click)=\"onUpload()\">Upload!</button>  -->\n       </div>\n      </div>\n     \n      </div>    </form>\n        </div></div></div>"
 
 /***/ }),
 
@@ -2258,6 +2243,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_domain_credential__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/domain/credential */ "./src/app/shared/domain/credential.ts");
 /* harmony import */ var _shared_services_credentials_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/services/credentials.service */ "./src/app/shared/services/credentials.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _shared_validators_professional_profile__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../shared/validators/professional-profile */ "./src/app/shared/validators/professional-profile.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2272,6 +2260,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var DprozCredentialsComponent = /** @class */ (function () {
     function DprozCredentialsComponent(fb, credentialService, documentService) {
         this.fb = fb;
@@ -2279,14 +2270,28 @@ var DprozCredentialsComponent = /** @class */ (function () {
         this.documentService = documentService;
         this.editForm = false;
         this.credentialData = [];
+        this.credentialDataChunk = [];
         this.hasAttachment = false;
         this.viewOnly = false;
         this.viewAll = true;
         this.currentIndex = -1;
         this.newAttachment = false;
+        this.length = 0;
+        this.pageSize = 5;
+        this.pageSizeOptions = [5, 10, 25, 100];
+        this.currentPage = 0;
         this.credentials = credentialService.getCredentiaTypes();
         this.setNewForm();
     }
+    DprozCredentialsComponent.prototype.pageChange = function (event) {
+        console.log(event);
+        this.credentialDataChunk =
+            this.credentialData
+                .slice(event.pageIndex * event.pageSize, (event.pageIndex + 1) * event.pageSize);
+    };
+    DprozCredentialsComponent.prototype.setPageSizeOptions = function (setPageSizeOptionsInput) {
+        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(function (str) { return +str; });
+    };
     DprozCredentialsComponent.prototype.setCurrentCred = function (cred) {
         this.setNewForm();
         var credentialForm = this.credentialForm;
@@ -2304,14 +2309,23 @@ var DprozCredentialsComponent = /** @class */ (function () {
         }
     };
     DprozCredentialsComponent.prototype.setNewForm = function () {
+        var _this = this;
         this.credentialForm = this.fb.group({
             'credentialType': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             'credentialDescription': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            'startDate': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'startDate': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _shared_validators_professional_profile__WEBPACK_IMPORTED_MODULE_7__["startDateValidator"]])],
             'endDate': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             'CredentialId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(4)],
             'authorityName': [''],
             attachments: this.fb.array([this.createAttachment()])
+        });
+        //assign value to endDate everytime the startDate changes
+        var date = this.credentialForm.get('startDate');
+        date.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["debounce"])(function () { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["timer"])(100); })).subscribe(function (x) {
+            var u = _this.credentialForm.get('endDate');
+            u.setValidators(Object(_shared_validators_professional_profile__WEBPACK_IMPORTED_MODULE_7__["endDateValidator"])(date.value));
+            var old = u.value;
+            u.setValue(old);
         });
         this.attachments = this.credentialForm.get('attachments');
         this.newAttachment = false;
@@ -2414,13 +2428,20 @@ var DprozCredentialsComponent = /** @class */ (function () {
             this.credentialData[this.currentIndex] = credential;
         this.currentCred = credential;
         console.log(credential);
-        this.viewOnly = true;
-        this.viewAll = false;
-        this.editForm = false;
         this.credentialService
             .insertCredential(credential.getPostingData())
-            .subscribe(function (credId) {
-            _this.credentialRefId = credId;
+            .subscribe(function (cred) {
+            //  this.credentialRefId = credId;
+            console.log(cred);
+            var creds = new _shared_domain_credential__WEBPACK_IMPORTED_MODULE_3__["CredentialClass"]();
+            _this.credentialData = creds.getList(JSON.stringify(cred));
+            _this.length = _this.credentialData.length;
+            _this.credentialDataChunk =
+                _this.credentialData
+                    .slice(0, _this.pageSize);
+            _this.viewOnly = false;
+            _this.viewAll = true;
+            _this.editForm = false;
         }, function (error) {
             console.log(error);
         });
@@ -2460,8 +2481,9 @@ var DprozCredentialsComponent = /** @class */ (function () {
             this.hasAttachment = true;
             this.attachments = this.credentialForm.get('attachments');
             this.documentService
-                .postDocument(this.attachments[0].get("file").value, "attachmentParentReferenceId", "attachmentCategory", "attachmentDescription", "thumbnail")
+                .postDocument(this.attachments.controls[0].get("file").value, this.currentCred.referenceId, this.currentCred.type, this.attachments.controls[0].get("caption").value, false)
                 .subscribe(function (doc) {
+                console.log(doc);
             }, function (error) {
                 console.log(error);
             });
@@ -2524,6 +2546,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_validators_professional_profile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../shared/validators/professional-profile */ "./src/app/shared/validators/professional-profile.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2539,22 +2562,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-//custom date validator for start date not after today
-function startDateValidator(control) {
-    if (control.value !== undefined && (isNaN(control.value) || control.value > new Date())) {
-        return { 'startDate': true };
-    }
-    return null;
-}
-//custom date validator for end date not before start date
-function endDateValidator(startDate) {
-    return function (control) {
-        if (control.value !== undefined && (isNaN(control.value) || control.value <= startDate)) {
-            return { 'endDate': true };
-        }
-        return null;
-    };
-}
+
 var MyFile = /** @class */ (function () {
     function MyFile() {
     }
@@ -2601,7 +2609,7 @@ var DprozExperienceComponent = /** @class */ (function () {
             'projectDetails': this.fb.group({
                 'projectName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                 'projectDescription': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                'startDate': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, startDateValidator])],
+                'startDate': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _shared_validators_professional_profile__WEBPACK_IMPORTED_MODULE_6__["startDateValidator"]])],
                 'endDate': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])],
             }),
             'clientDetails': this.fb.group({
@@ -2616,7 +2624,7 @@ var DprozExperienceComponent = /** @class */ (function () {
         var date = this.experienceForm.get('projectDetails').get('startDate');
         date.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounce"])(function () { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["timer"])(100); })).subscribe(function (x) {
             var u = _this.experienceForm.get('projectDetails').get('endDate');
-            u.setValidators(endDateValidator(date.value));
+            u.setValidators(Object(_shared_validators_professional_profile__WEBPACK_IMPORTED_MODULE_6__["endDateValidator"])(date.value));
             var old = u.value;
             u.setValue(old);
         });
@@ -3132,7 +3140,7 @@ var EditServiceComponent = /** @class */ (function () {
 /*!***********************************************!*\
   !*** ./src/app/shared/constants/constants.ts ***!
   \***********************************************/
-/*! exports provided: DOMAIN, SERVICING_PORT, PLACES_PORT, PLACES_DOMAIN, SERVICING_DOMAIN */
+/*! exports provided: DOMAIN, SERVICING_PORT, PLACES_PORT, PLACES_DOMAIN, SERVICING_DOMAIN, PASS_PATTERN */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3142,11 +3150,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PLACES_PORT", function() { return PLACES_PORT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PLACES_DOMAIN", function() { return PLACES_DOMAIN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SERVICING_DOMAIN", function() { return SERVICING_DOMAIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PASS_PATTERN", function() { return PASS_PATTERN; });
 var DOMAIN = 'http://52.22.128.37';
 var SERVICING_PORT = "8080";
 var PLACES_PORT = "3000";
 var PLACES_DOMAIN = DOMAIN + ":" + PLACES_PORT;
 var SERVICING_DOMAIN = DOMAIN + ":" + SERVICING_PORT;
+var PASS_PATTERN = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
 
 /***/ }),
@@ -3235,6 +3245,25 @@ var CredentialType = /** @class */ (function () {
 var CredentialClass = /** @class */ (function () {
     function CredentialClass() {
     }
+    CredentialClass.prototype.getList = function (jsonData) {
+        var data = [];
+        var inputData = JSON.parse(jsonData);
+        for (var i = 0; i < inputData.length; i++) {
+            var cred = inputData[i];
+            var credential = new CredentialClass();
+            console.log(cred);
+            credential.description = cred.description;
+            credential.type = cred.type;
+            credential.identificationNumber = cred.identificationNumber;
+            credential.issuedBy = cred.issuedBy;
+            credential.effectiveDate = cred.effectiveDate;
+            credential.expiringDate = cred.expiringDate;
+            credential.referenceId = cred.referenceId;
+            credential.attachment = cred.attachment;
+            data.push(credential);
+        }
+        return data;
+    };
     CredentialClass.prototype.getPostingData = function () {
         return {
             type: this.type,
@@ -3364,7 +3393,7 @@ var LoggedInGuard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\r\n\r\n<!-- <div class=\"topnav\" id=\"myTopnav\">\r\n  <a href=\"#home\" class=\"active\">Home</a>\r\n  <a href=\"#news\">News</a>\r\n  <a href=\"#contact\">Contact</a>\r\n  <a href=\"#about\">About</a>\r\n  <a href=\"javascript:void(0);\" class=\"icon\" onclick=\"myFunction()\">\r\n    <i class=\"fa fa-bars\"></i>\r\n  </a>\r\n</div> -->\r\n\r\n\r\n\r\n<div class=\"dproz-header\">\r\n  <div class=\"row\"> \r\n\r\n    <div  class=\"col-md-10 dproz-logo\" >\r\n      <img id=\"outer-img\" routerLink=\"dproz/home\" src=\"./assets/images/Vector Smart Object.png\" alt=\"logo dproz\">\r\n    </div>\r\n    <div id=\"myTopnav\" class=\"col-md-14 topnav\" dprozResponsiveMenu [inStatus] = isMenuOpen (outStatus) = \"changeMenu($event)\">\r\n      <img id=\"inner-img\"  routerLink=\"dproz/home\"  src=\"./assets/images/Vector Smart Object.png\" alt=\"logo dproz\">\r\n      <a routerLink=\"dproz/home\" routerLinkActive=\"active-link\">Home</a>\r\n      <a routerLink=\"dproz/about-us\" routerLinkActive=\"active-link\">About Us</a>\r\n      <a routerLink=\"dproz/services\" routerLinkActive=\"active-link\">Services</a>\r\n      <a routerLink=\"dproz/blog\" routerLinkActive=\"active-link\">Blog</a>\r\n      <a routerLink=\"dproz/contact-us\" routerLinkActive=\"active-link\">Contact Us</a>\r\n      \r\n      \r\n      <!-- <a *ngIf=\"userData.loggedIn\"  (click)=\"logout()\">Logout</a> -->\r\n      <mat-chip-list class=\"dropdown\">\r\n          <mat-chip color=\"primary\" *ngIf=\"!userData.loggedIn\"  routerLink=\"dproz/login\" >Login</mat-chip>\r\n          <mat-chip color=\"primary\" *ngIf=\"!userData.loggedIn\" style=\"background-color:#50B2EC\"  routerLink=\"dproz/signup\" selected>Signup</mat-chip>\r\n      \r\n          <mat-chip color=\"primary\" *ngIf=\"userData.loggedIn\" routerLink=\"dproz/profile\">Profile</mat-chip>\r\n        <mat-chip color=\"warn\" style=\"background-color:#50B2EC\" (click)=\"logout()\" *ngIf=\"userData.loggedIn\" selected>Logout</mat-chip>\r\n      </mat-chip-list>\r\n      \r\n      <!-- <div *ngIf=\"userData.loggedIn\" (click) = \"ddClick($event)\" class=\"dropdown\">\r\n          <button class=\"dropbtn\">Options \r\n            <i class=\"fa fa-caret-down\"></i>\r\n          </button>\r\n          <div class=\"dropdown-content\">\r\n            <a routerLink=\"dproz/profile\" (click) = \"dcClick($event)\" class=\"button\" >Profile</a>\r\n            <a (click)=\"logout()\" class=\"button\" >Logout</a>\r\n          </div>\r\n        </div>  -->\r\n        <a href=\"javascript:void(0);\" class=\"icon\"  >&#9776;</a>\r\n      <!-- <a href=\"javascript:void(0);\" class=\"icon\" onclick=\"myFunction()\">\r\n          <i class=\"fa fa-bars\"></i>\r\n        </a> -->\r\n      <div class=\"row dropdown\" *ngIf=\"false\">\r\n          <div class=\"col\">\r\n            <div ngbDropdown class=\"d-inline-block\">\r\n              <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Options</button>\r\n              <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\r\n                <button class=\"dropdown-item\" routerLink=\"dproz/profile\">Profile</button>\r\n                <button class=\"dropdown-item\"  (click)=\"logout()\">Logout</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "\r\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\r\n\r\n<!-- <div class=\"topnav\" id=\"myTopnav\">\r\n  <a href=\"#home\" class=\"active\">Home</a>\r\n  <a href=\"#news\">News</a>\r\n  <a href=\"#contact\">Contact</a>\r\n  <a href=\"#about\">About</a>\r\n  <a href=\"javascript:void(0);\" class=\"icon\" onclick=\"myFunction()\">\r\n    <i class=\"fa fa-bars\"></i>\r\n  </a>\r\n</div> -->\r\n\r\n\r\n\r\n<div class=\"dproz-header\">\r\n  <div class=\"row\"> \r\n\r\n    <div  class=\"col-md-10 dproz-logo\" >\r\n      <img id=\"outer-img\" routerLink=\"dproz/home\" src=\"./assets/images/Vector Smart Object.png\" alt=\"logo dproz\">\r\n    </div>\r\n    <div id=\"myTopnav\" class=\"col-md-14 topnav\" dprozResponsiveMenu [inStatus] = isMenuOpen (outStatus) = \"changeMenu($event)\">\r\n      <img id=\"inner-img\"  routerLink=\"dproz/home\"  src=\"./assets/images/Vector Smart Object.png\" alt=\"logo dproz\">\r\n      <a routerLink=\"dproz/home\" routerLinkActive=\"active-link\">Home</a>\r\n      <a routerLink=\"dproz/about-us\" routerLinkActive=\"active-link\">About Us</a>\r\n      <a routerLink=\"dproz/services\" routerLinkActive=\"active-link\">Services</a>\r\n      <a routerLink=\"dproz/blog\" routerLinkActive=\"active-link\">Blog</a>\r\n      <a routerLink=\"dproz/contact-us\" routerLinkActive=\"active-link\">Contact Us</a>\r\n      \r\n      \r\n      <!-- <a *ngIf=\"userData.loggedIn\"  (click)=\"logout()\">Logout</a> -->\r\n      <mat-chip-list class=\"dropdown\">\r\n          <mat-chip color=\"primary\" *ngIf=\"!userData.loggedIn\"  routerLink=\"dproz/login\" >Login</mat-chip>\r\n          <mat-chip color=\"primary\" *ngIf=\"!userData.loggedIn\" style=\"background-color:#50B2EC\"  routerLink=\"dproz/signup\" selected>Signup</mat-chip>\r\n      \r\n          <mat-chip color=\"primary\" *ngIf=\"userData.loggedIn\" routerLink=\"dproz/profile\">Profile</mat-chip>\r\n        <mat-chip color=\"warn\" style=\"background-color:#50B2EC\" (click)=\"logout()\" *ngIf=\"userData.loggedIn\" selected>Logout</mat-chip>\r\n      </mat-chip-list>\r\n      \r\n      <!-- <div *ngIf=\"userData.loggedIn\" (click) = \"ddClick($event)\" class=\"dropdown\">\r\n          <button class=\"dropbtn\">Options \r\n            <i class=\"fa fa-caret-down\"></i>\r\n          </button>\r\n          <div class=\"dropdown-content\">\r\n            <a routerLink=\"dproz/profile\" (click) = \"dcClick($event)\" class=\"button\" >Profile</a>\r\n            <a (click)=\"logout()\" class=\"button\" >Logout</a>\r\n          </div>\r\n        </div>  -->\r\n        <!-- <a href=\"javascript:void(0);\" class=\"icon\"  >&#9776;</a> -->\r\n        <a href=\"javascript:void(0);\" class=\"icon\"  > <i *ngIf=isMenuOpen class='fa fa-times'></i><i *ngIf=!isMenuOpen class='fa fa-bars'></i></a>\r\n      <!-- <a href=\"javascript:void(0);\" class=\"icon\" onclick=\"myFunction()\">\r\n          <i class=\"fa fa-bars\"></i>\r\n        </a> -->\r\n      <div class=\"row dropdown\" *ngIf=\"false\">\r\n          <div class=\"col\">\r\n            <div ngbDropdown class=\"d-inline-block\">\r\n              <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Options</button>\r\n              <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\r\n                <button class=\"dropdown-item\" routerLink=\"dproz/profile\">Profile</button>\r\n                <button class=\"dropdown-item\"  (click)=\"logout()\">Logout</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -4057,6 +4086,57 @@ var UserService = /** @class */ (function () {
     return UserService;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/shared/validators/professional-profile.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/shared/validators/professional-profile.ts ***!
+  \***********************************************************/
+/*! exports provided: startDateValidator, endDateValidator, passwordMatchValidator, usernameValidator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startDateValidator", function() { return startDateValidator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endDateValidator", function() { return endDateValidator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "passwordMatchValidator", function() { return passwordMatchValidator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "usernameValidator", function() { return usernameValidator; });
+//custom date validator for start date not after today
+function startDateValidator(control) {
+    if (control.value !== undefined && (isNaN(control.value) || control.value > new Date())) {
+        return { 'startDate': true };
+    }
+    return null;
+}
+//custom date validator for end date not before start date
+function endDateValidator(startDate) {
+    return function (control) {
+        if (control.value !== undefined && (isNaN(control.value) || control.value <= startDate)) {
+            return { 'endDate': true };
+        }
+        return null;
+    };
+}
+//custom password validator 
+function passwordMatchValidator(password) {
+    return function (control) {
+        if (control.value !== undefined && ((password != control.value))) {
+            return { 'confirmedPassword': true };
+        }
+        return null;
+    };
+}
+//custom username exists validator 
+function usernameValidator(users) {
+    return function (control) {
+        if (control.value !== undefined && (isNaN(control.value))) {
+            return { 'userName': true };
+        }
+        return null;
+    };
+}
 
 
 /***/ }),
