@@ -33,7 +33,6 @@ import { DprozCredentialsComponent } from './services/dproz-credentials/dproz-cr
 import { ResponsiveMenuDirective } from './shared/directives/responsive-menu.directive';
 import { CredentialTypePipe } from './shared/pipes/credential-type.pipe';
 
-import { from } from 'rxjs';
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },

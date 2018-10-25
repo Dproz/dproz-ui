@@ -27,18 +27,21 @@
             <input type="text" name="" id="email" placeholder="Enter Email" formControlName="emailAddress">
             <span *ngIf="hasError('emailAddress', 'required')" class="error">Please enter your email.</span>
             <span *ngIf="hasError('emailAddress', 'invalidEmail')" class="error">Please enter a valid email.</span>
+            <span *ngIf="hasError('emailAddress', 'email')" class="error">Please enter a valid email.</span>
           </div>
           <div class="form-element">
             <label for="password">PASSWORD</label>
             <input type="password" name="password" id="password" placeholder="Enter Password" formControlName="password">
             <span *ngIf="hasError('password', 'required')" class="error">Please enter a password.</span>
-            <span *ngIf="hasError('password', 'minlength')" class="error">Password should be at least 8 characters.</span>
+            <span *ngIf="hasError('password', 'pattern')" class="error">Password should be at least 8 characters, one Upper case, number and one non-alphanumeric.</span>
           </div>
           <div class="form-element">
             <label for="name">RE-TYPE PASSWORD</label>
             <input type="password" name="" id="retype-password" placeholder="Re-Enter Password" formControlName="repeatPassword">
             <span *ngIf="hasError('repeatPassword', 'required')" class="error">Please re-enter your password.</span>
-            <span *ngIf="signupForm.get('repeatPassword').getError('passMismatch')" class="error">The passwords do not match. Please retry.</span>
+             <span *ngIf="signupForm.get('repeatPassword').getError('passMismatch')" class="error">The passwords do not match. Please retry.</span>
+            <span *ngIf="signupForm.get('repeatPassword').getError('confirmedPassword')" class="error">The your passwords do not match. Please retry.</span>
+     
           </div>
           <div class="user-type form-element">
             <p>USER TYPE</p>

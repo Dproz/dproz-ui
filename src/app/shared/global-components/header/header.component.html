@@ -17,10 +17,10 @@
   <div class="row"> 
 
     <div  class="col-md-10 dproz-logo" >
-      <img id="outer-img" routerLink="dproz/home" src="../../../../assets/images/Vector Smart Object.png" alt="logo dproz">
+      <img id="outer-img" routerLink="dproz/home" src="./assets/images/Vector Smart Object.png" alt="logo dproz">
     </div>
     <div id="myTopnav" class="col-md-14 topnav" dprozResponsiveMenu [inStatus] = isMenuOpen (outStatus) = "changeMenu($event)">
-      <img id="inner-img"  routerLink="dproz/home"  src="../../../../assets/images/Vector Smart Object.png" alt="logo dproz">
+      <img id="inner-img"  routerLink="dproz/home"  src="./assets/images/Vector Smart Object.png" alt="logo dproz">
       <a routerLink="dproz/home" routerLinkActive="active-link">Home</a>
       <a routerLink="dproz/about-us" routerLinkActive="active-link">About Us</a>
       <a routerLink="dproz/services" routerLinkActive="active-link">Services</a>
@@ -46,7 +46,8 @@
             <a (click)="logout()" class="button" >Logout</a>
           </div>
         </div>  -->
-        <a href="javascript:void(0);" class="icon"  >&#9776;</a>
+        <!-- <a href="javascript:void(0);" class="icon"  >&#9776;</a> -->
+        <a href="javascript:void(0);" class="icon"  > <i *ngIf=isMenuOpen class='fa fa-times'></i><i *ngIf=!isMenuOpen class='fa fa-bars'></i></a>
       <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a> -->

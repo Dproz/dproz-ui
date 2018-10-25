@@ -95,3 +95,23 @@ export class UrlClass implements PostingIfo
     }
    
 }
+
+export class PhoneNumber {
+   
+    phoneNumber: string;
+    primary : boolean;
+    contactMethod : string  = "CALL";
+
+} 
+
+export class TimeHour {
+
+hour: number;
+minute : number;
+
+} 
+
+export class DaysOfTheWeek
+{
+    Id: string; Name:string;
+}

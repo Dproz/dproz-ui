@@ -1,31 +1,13 @@
 import { Attachment, UrlClass } from './../../shared/domain/common_data';
 import { ClientDetails, Consent, Project } from './../../shared/domain/experience';
 import { ProjectsService } from './../../shared/services/projects.service';
-import { FormBuilder, FormGroup, Validators, FormArray, FormControl, AbstractControl, ValidatorFn } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { StandardLocation } from '../../shared/domain/common_data';
 import { PageEvent } from '@angular/material';
 import { debounce } from 'rxjs/operators';
 import { timer } from 'rxjs';
-
-
-//custom date validator for start date not after today
-function startDateValidator(control: AbstractControl): { [key: string]: boolean } | null {
-  if (control.value !== undefined && (isNaN(control.value) || control.value > new Date())) {
-    return { 'startDate': true };
-  }
-  return null;
-}
-
-//custom date validator for end date not before start date
-function endDateValidator(startDate: Date): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: boolean } | null => {
-    if (control.value !== undefined && (isNaN(control.value) || control.value <= startDate)) {
-      return { 'endDate': true };
-    }
-    return null;
-  };
-}
+import { startDateValidator, endDateValidator } from '../../shared/validators/professional-profile';
 
 
 

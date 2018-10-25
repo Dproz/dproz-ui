@@ -42,11 +42,14 @@ export class CredentialsService {
   
   getProReferenceId()
   {
-    let proReferenceId = JSON.parse(this.state.getCurrentUser()).businesses[0];
-    if(proReferenceId != undefined)
+    let proReferenceId = "no-business";
+    let proReferences = JSON.parse(this.state.getCurrentUser()).businesses;
+  
+    if(proReferences.length > 0)
+        proReferenceId = proReferences[0];
+
     return proReferenceId;
-    else
-    return "";
+
   }
   
   insertCredential(credentialData) {

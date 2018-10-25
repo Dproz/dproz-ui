@@ -44,5 +44,11 @@ export class AuthenticationService {
     return this.http.get<any>(`${SERVICING_DOMAIN}/api/dproz/users/${userReference}`);
   }
 
+  getPro(proReferenceId) {
+    return this.http.get<any>(`${SERVICING_DOMAIN}/api/dproz/pros/${proReferenceId}`);
+  }
+
+  
+
 }
 

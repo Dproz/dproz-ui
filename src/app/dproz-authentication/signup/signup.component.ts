@@ -1,3 +1,4 @@
+import { debounce } from 'rxjs/operators';
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
@@ -6,6 +7,12 @@ import { StateService } from '../../shared/services/state.service';
 
 import * as isEmail from 'isemail';
 import { PlacesService } from '../../shared/services/places.service';
+import { timer } from 'rxjs';
+import { passwordMatchValidator } from '../../shared/validators/professional-profile';
+import { PASS_PATTERN } from '../../shared/constants/constants';
+
+
+
 
 @Component({
   selector: 'dproz-signup',
@@ -30,6 +37,7 @@ export class SignupComponent implements OnInit {
   selectedState = '';
   selectedCity = '';
   selectedCounty = '';
+  
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -37,8 +45,8 @@ export class SignupComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       middleName: '',
-      emailAddress: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      emailAddress: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', [Validators.pattern(PASS_PATTERN)]],
       repeatPassword: ['', Validators.required],
       // profilePictureUrl: null,
       lastChangedPasswordOn: null,
@@ -62,6 +70,19 @@ export class SignupComponent implements OnInit {
         timezone: ['', this.requiredValidator.bind(this)]
       })
     });
+
+    let password = this.signupForm.get('password') as FormControl;
+    let repeatPassword = this.signupForm.get('repeatPassword') as FormControl;
+
+    password.valueChanges.pipe( debounce( ()=> timer(1000)))
+                         .subscribe( pass =>{
+
+                          console.log(pass);
+                          repeatPassword.setValidators(passwordMatchValidator(pass));
+              
+                         });
+
+                  
 
     this.placesService.getRegions().subscribe(regions => {
       this.states = regions;

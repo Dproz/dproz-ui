@@ -19,4 +19,9 @@ export class ServicesService {
     return this.http.get(`${SERVICING_DOMAIN}/api/dproz/services`);
   }
 
+  putServices(proReferenceId, serviceNumbers)
+  {
+    return this.http.put(`${SERVICING_DOMAIN}/api/dproz/pros/${proReferenceId}/services/${serviceNumbers}`, null);
+  }
+
 }

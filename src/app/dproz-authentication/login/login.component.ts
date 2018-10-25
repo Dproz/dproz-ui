@@ -52,8 +52,12 @@ export class LoginComponent implements OnInit {
 
       this.service.getUser(this.state.getState().userReferenceId).subscribe(data => {
         console.log("user get data");
-        console.log(data);
-        localStorage.setItem("user_details", JSON.stringify(data));
+        let loginData = JSON.stringify(data);
+       
+        localStorage.setItem("user_details", loginData);
+        
+            
+       
         this.state.setIdentity(data);
         this.router.navigate(['../dproz/home']);
       });
@@ -72,7 +76,7 @@ export class LoginComponent implements OnInit {
               this.TREE_DATA[k.category.categoryName]  = {};
             } 
 
-              this.TREE_DATA[k.category.categoryName][k.serviceId]  = k.serviceDescription;
+              this.TREE_DATA[k.category.categoryName][k.serviceNumber]  = k.serviceDescription;
             
         
          }

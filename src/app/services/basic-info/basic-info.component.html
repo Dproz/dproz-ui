@@ -1,61 +1,59 @@
-
-
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your Details</ng-template>
+  </button> -->
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="basicInfoForm">
+    <form [formGroup]="basicInfoForm">
+      <ng-template matStepLabel>Fill Business Details</ng-template>
+      <div class="form-container">
         <mat-form-field>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          <mat-label>Business Name</mat-label>
+          <input matInput formControlName="proName" placeholder="Enter Business Name">
+          <mat-error *ngIf="!basicInfoForm.controls['proName'].valid">business name is required</mat-error>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>business name</mat-hint>
         </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-              <button mat-icon-button disabled></button>
-              <a href="">{{node.item}}</a>
-            </mat-tree-node>
-            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
-              <button mat-icon-button
-                      [attr.aria-label]="'toggle ' + node.filename" matTreeNodeToggle>
-                <mat-icon class="mat-icon-rtl-mirror">
-                  <!-- {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}} -->
-                </mat-icon>
-              </button>
-              {{node.item}}
-              <mat-progress-bar *ngIf="node.isLoading"
-                                mode="indeterminate"
-                                class="example-tree-progress-bar"></mat-progress-bar>
-            </mat-tree-node>
-          </mat-tree>
+     
         <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          <mat-label>Business Intro</mat-label>
+          <input matInput formControlName="proIntro" placeholder="Enter Business Name">
+          <mat-error *ngIf="!basicInfoForm.controls['proIntro'].valid">business intro is required</mat-error>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>business intro</mat-hint>
         </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-        <button mat-button (click)="stepper.reset()">Submit</button>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="proEmailAddress" placeholder="Enter Business Name">
+          <mat-error *ngIf="!basicInfoForm.controls['proEmailAddress'].valid">valid email is required</mat-error>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>email address</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Website</mat-label>
+          <input matInput formControlName="proWebsite" placeholder="Enter Business Name">
+          <mat-error *ngIf="!basicInfoForm.controls['proWebsite'].valid">website format</mat-error>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>website</mat-hint>
+        </mat-form-field>
       </div>
-    </mat-step>
-  </mat-horizontal-stepper>
-    
-
-  
-
+      <div style="float:right;">
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="stepper.reset()">Submit</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
