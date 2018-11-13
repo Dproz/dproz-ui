@@ -33,8 +33,8 @@ export class BasicInfoComponent implements OnInit {
         'proIntro': ['', Validators.required],
         'proEmailAddress': ['', Validators.required],
         'proWebsite': ['', Validators.compose([Validators.required])],
-        'proVerified': ['', Validators.compose([Validators.required])],
-        'proActive': ['', Validators.required],
+        'proVerified': [false, Validators.compose([Validators.required])],
+        'proActive': [false, Validators.required],
         "proPhoneNumber":  this.fb.group({
           "phoneNumber": ['', Validators.compose([Validators.required])],
           "isPrimary": [ true, Validators.compose([Validators.required])],

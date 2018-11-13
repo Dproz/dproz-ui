@@ -1,9 +1,10 @@
 <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
   </button> -->
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="basicInfoForm">
-    <form [formGroup]="basicInfoForm">
+<form [formGroup]="basicInfoForm">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="basicInfoForm">
+
       <ng-template matStepLabel>Fill Business Details</ng-template>
       <div class="form-container">
         <mat-form-field>
@@ -13,7 +14,7 @@
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           <mat-hint>business name</mat-hint>
         </mat-form-field>
-     
+
         <mat-form-field>
           <mat-label>Business Intro</mat-label>
           <input matInput formControlName="proIntro" placeholder="Enter Business Name">
@@ -36,24 +37,67 @@
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           <mat-hint>website</mat-hint>
         </mat-form-field>
+
+        <div [formGroupName]="proPhoneNumber" class="form-container">
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phoneNumber" placeholder="Enter Phone Number">
+            <mat-error *ngIf="!basicInfoForm.controls['proPhoneNumber'].controls['phoneNumber'].valid">Phone Number
+              format</mat-error>
+            <mat-icon matSuffix>call</mat-icon>
+            <mat-hint>phoneNumber</mat-hint>
+          </mat-form-field>
+        </div>
       </div>
       <div style="float:right;">
         <button mat-button matStepperNext>Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+
       <ng-template matStepLabel>Fill out your address</ng-template>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-      <button mat-button (click)="stepper.reset()">Submit</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+      <div [formGroupName]="proAreaOfService" class="form-container">
+        <div [formGroupName]="location" class="form-container">
+          <mat-form-field>
+            <mat-label>Country/State</mat-label>
+            <mat-select matInput formControlName="country" placeholder="Select Country/State">
+              <mat-option *ngFor="let country of countries" [value]="country.Id">{{country.Name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+              <mat-label>Region</mat-label>
+              <mat-select matInput formControlName="region" placeholder="Select Region">
+                <mat-option *ngFor="let region of regions" [value]="region.Id">{{region.Name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>District</mat-label>
+                <mat-select matInput formControlName="district" placeholder="Select Country/State">
+                  <mat-option *ngFor="let district of districts" [value]="district.Id">{{district.Name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                  <mat-label>County</mat-label>
+                  <mat-select matInput formControlName="county" placeholder="Select County">
+                    <mat-option *ngFor="let county of counties" [value]="county.Id">{{county.Name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+        </div>
+      </div>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="stepper.reset()">Submit</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</form>
