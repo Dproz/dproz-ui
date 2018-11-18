@@ -11,30 +11,30 @@
           <mat-label>Business Name</mat-label>
           <input matInput formControlName="proName" placeholder="Enter Business Name">
           <mat-error *ngIf="!basicInfoForm.controls['proName'].valid">business name is required</mat-error>
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matSuffix>business_center</mat-icon>
           <mat-hint>business name</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Business Intro</mat-label>
-          <input matInput formControlName="proIntro" placeholder="Enter Business Name">
+          <input matInput formControlName="proIntro" placeholder="Enter Business Intro">
           <mat-error *ngIf="!basicInfoForm.controls['proIntro'].valid">business intro is required</mat-error>
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matSuffix>assistant</mat-icon>
           <mat-hint>business intro</mat-hint>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Email</mat-label>
-          <input matInput formControlName="proEmailAddress" placeholder="Enter Business Name">
+          <input matInput formControlName="proEmailAddress" placeholder="Enter Business Email">
           <mat-error *ngIf="!basicInfoForm.controls['proEmailAddress'].valid">valid email is required</mat-error>
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matSuffix>alternate_email</mat-icon>
           <mat-hint>email address</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Website</mat-label>
-          <input matInput formControlName="proWebsite" placeholder="Enter Business Name">
+          <input matInput formControlName="proWebsite" placeholder="Enter Business Website">
           <mat-error *ngIf="!basicInfoForm.controls['proWebsite'].valid">website format</mat-error>
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matSuffix>computer</mat-icon>
           <mat-hint>website</mat-hint>
         </mat-form-field>
 
@@ -58,6 +58,8 @@
 
       <ng-template matStepLabel>Fill out your address</ng-template>
       <div [formGroupName]="proAreaOfService" class="form-container">
+
+         
         <div [formGroupName]="location" class="form-container">
           <mat-form-field>
             <mat-label>Country/State</mat-label>
@@ -66,33 +68,85 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-              <mat-label>Region</mat-label>
-              <mat-select matInput formControlName="region" placeholder="Select Region">
-                <mat-option *ngFor="let region of regions" [value]="region.Id">{{region.Name}}</mat-option>
-              </mat-select>
-            </mat-form-field>
+            <mat-label>Region</mat-label>
+            <mat-select matInput formControlName="region" placeholder="Select Region">
+              <mat-option *ngFor="let region of regions" [value]="region.Id">{{region.Name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>District</mat-label>
-                <mat-select matInput formControlName="district" placeholder="Select Country/State">
-                  <mat-option *ngFor="let district of districts" [value]="district.Id">{{district.Name}}</mat-option>
-                </mat-select>
-              </mat-form-field>
+          <mat-form-field>
+            <mat-label>District</mat-label>
+            <mat-select matInput formControlName="district" placeholder="Select Country/State">
+              <mat-option *ngFor="let district of districts" [value]="district.Id">{{district.Name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-              <mat-form-field>
-                  <mat-label>County</mat-label>
-                  <mat-select matInput formControlName="county" placeholder="Select County">
-                    <mat-option *ngFor="let county of counties" [value]="county.Id">{{county.Name}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
+          <mat-form-field>
+            <mat-label>County</mat-label>
+            <mat-select matInput formControlName="county" placeholder="Select County">
+              <mat-option *ngFor="let county of counties" [value]="county.Id">{{county.Name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
+
+        <mat-form-field>
+            <mat-label>Radius Covered From you Center(Miles)</mat-label>
+            <input type="number" matInput formControlName="radius" placeholder="Enter Radius Covered by your Services">
+            <mat-icon matSuffix>adjust</mat-icon>
+            <mat-hint>Radius</mat-hint>
+          </mat-form-field>
+
+      </div>
+      <div style="float:right;">
+          <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
       </div>
 
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
-      You are now done.
-      <div>
+      <div [formGroupName]="proBusinessHours" class="form-container">
+          <div *ngFor="let day of basicInfoForm.get('proBusinessHours').controls; let i=index">
+              <div [formGroupName]="i"> 
+                  <div  style="float:left;">
+                      <mat-checkbox formControlName="isSelected">
+                        <!-- {{basicInfoForm.controls.proBusinessHours.controls[i].controls.dayOfWeek.value | daysOfWeek}} -->
+
+                        {{basicInfoForm.controls.proBusinessHours.controls[i].controls.dayOfWeek.value}}
+                      </mat-checkbox>
+                  </div>
+                  <div [formGroupName]="startingHour" style="float:right">
+                      <mat-form-field>
+                          <mat-label>Starting Hour</mat-label>
+                          <input type="number" matInput formControlName="hour" placeholder="Enter Hour">
+                          
+                          <mat-hint>Hour</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Minute</mat-label>
+                            <input type="number" matInput formControlName="minute" placeholder="Enter Minute">
+                            <mat-icon matSuffix>access_time</mat-icon>
+                            <mat-hint>minute</mat-hint>
+                          </mat-form-field>
+                  </div>
+                  <div [formGroupName]="endingHour" style="float:right">
+                      <mat-form-field>
+                          <mat-label>Ending Hour</mat-label>
+                          <input type="number" matInput formControlName="hour" placeholder="Enter Hour">
+                         
+                          <mat-hint>Hour</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Minute</mat-label>
+                            <input type="number" matInput formControlName="minute" placeholder="Enter Minute">
+                            <mat-icon matSuffix>access_time</mat-icon>
+                            <mat-hint>minute</mat-hint>
+                          </mat-form-field>
+                  </div> 
+              </div>
+        </div>
+      </div>
+      <div style="float:right;">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
         <button mat-button (click)="stepper.reset()">Submit</button>

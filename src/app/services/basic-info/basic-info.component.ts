@@ -1,5 +1,7 @@
 import { Component,Injectable, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormArray, FormControl} from '@angular/forms';
+import { PlacesService } from '../../shared/services/places.service';
+import { ProInfoService } from '../../shared/services/pro-info.service';
 
 
 
@@ -17,7 +19,9 @@ export class BasicInfoComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  constructor(private fb: FormBuilder ) {
+  proBusinessHours: FormArray;
+
+  constructor(private fb: FormBuilder, private palces: PlacesService, private proInfo: ProInfoService ) {
 
   this. setNewBasicInfo();
    }
@@ -67,19 +71,32 @@ export class BasicInfoComponent implements OnInit {
           "radius":  [0, Validators.compose([Validators.required])],
         }),
 
-        "proBusinessHours" : this.fb.array([this.createBusinessDay()]),
+        "proBusinessHours" : this.fb.array([this.createBusinessDay("MONDAY")]),
 
+    });
+
+    this.proBusinessHours = this.basicInfoForm.get('proBusinessHours') as FormArray;
+
+    
+    this.proBusinessHours.removeAt(0);
+
+    let days = this.proInfo.getDaysOfTheWeek();
+
+    days.forEach( x => {
+      this.proBusinessHours.push(this.createBusinessDay(x.Id));
+      console.log(x.Id);
     });
 
    }
 
   
-   createBusinessDay():FormGroup
+   createBusinessDay(day:string):FormGroup
    {
-    return this.fb.group({
 
+    return this.fb.group({
+   
       "isSelected": [ false , Validators.compose([Validators.required])],
-      "dayOfWeek": ['', Validators.compose([Validators.required])],
+      "dayOfWeek": [ day, Validators.compose([Validators.required])],
       "startingHour": this.fb.group({
         "hour": [8, Validators.compose([Validators.required])],
         "minute": [0, Validators.compose([Validators.required])],
@@ -89,6 +106,7 @@ export class BasicInfoComponent implements OnInit {
         "hour":  [17, Validators.compose([Validators.required])],
         "minute": [0, Validators.compose([Validators.required])],
       }),
+
     });
    }
 

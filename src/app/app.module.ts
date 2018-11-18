@@ -1,3 +1,4 @@
+import { DaysOfWeekPipe } from './shared/pipes/days-of-week.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -39,7 +40,7 @@ export const httpInterceptorProviders = [
 ];
 @NgModule({
   declarations: [
-    AppComponent, ResponsiveMenuDirective,CredentialTypePipe,
+    AppComponent, ResponsiveMenuDirective,CredentialTypePipe, DaysOfWeekPipe,
     HeaderComponent,
     DprozContactUsComponent,
     DprozAboutUsComponent,
