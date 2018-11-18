@@ -13,9 +13,9 @@ export class DocumentService {
   postDocument(file, attachmentParentReferenceId, attachmentCategory, attachmentDescription, thumbnail) {
     const options = {
       params: new HttpParams()
-        .set('attachmentParentReferenceId', attachmentParentReferenceId)
-        .set('attachmentCategory', attachmentCategory)
-        .set('attachmentDescription', attachmentDescription)
+        .set('parentReferenceId', attachmentParentReferenceId)
+        .set('category', attachmentCategory)
+        .set('description', attachmentDescription)
         .set('thumbnail', thumbnail)
 
     };
