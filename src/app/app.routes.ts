@@ -12,6 +12,7 @@ import { DprozContactUsComponent } from './dproz-contact-us/dproz-contact-us.com
 import { DprozAboutUsComponent } from './dproz-about-us/dproz-about-us.component';
 import { ServicesComponent } from './services/services.component';
 import { DprozExperienceComponent } from './services/dproz-experience/dproz-experience.component';
+import { BasicInfoComponent } from './services/basic-info/basic-info.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard] },
       { path: 'password/:code', component: PasswordResetComponent },
       { path: 'password', component: PasswordResetComponent },
-      { path: 'experience', component: DprozExperienceComponent }
+      { path: 'basic-info', component: BasicInfoComponent }
     ]
   },
   {

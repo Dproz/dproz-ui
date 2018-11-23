@@ -8,22 +8,23 @@
   <mat-card-actions>
     <mat-tab-group>
         <mat-tab label="User Profile">
-            <mat-card-content>
+            <ng-template matTabContent>
   
             <dproz-prof-profile></dproz-prof-profile>
   
-              </mat-card-content>
+            </ng-template>
            </mat-tab>
       <mat-tab label="Basic Info">
-          <mat-card-content>
+        <ng-template matTabContent>
+         
 
            <dproz-basic-info>
 
            </dproz-basic-info>
 
-            </mat-card-content>
+          </ng-template>
          </mat-tab>
-      <mat-tab label="Services">   <mat-card-content>
+      <mat-tab label="Services">   <ng-template matTabContent>
           <div style="float:left; margin: 10px 20px; color: 	#50B2EC;">
               Click the (+) Sign to Add Services
               </div>
@@ -55,15 +56,15 @@
 </mat-accordion>
    </div>
       
-        </mat-card-content> </mat-tab>
-      <mat-tab label="Experience">    <mat-card-content>
+        </ng-template> </mat-tab>
+      <mat-tab label="Experience">    <ng-template matTabContent>
           <dproz-experience>
 
           </dproz-experience>
-          </mat-card-content> </mat-tab>
+          </ng-template> </mat-tab>
 
           <mat-tab label="Credentials">
-            <mat-card-content>
+              <ng-template matTabContent>
   
               <dproz-credentials>
                 
@@ -71,7 +72,7 @@
 
            
   
-              </mat-card-content>
+              </ng-template>
            </mat-tab>
     </mat-tab-group>
     <!-- <button >View All</button> -->

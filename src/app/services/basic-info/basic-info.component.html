@@ -1,11 +1,16 @@
 <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+      basicInfoForm: FormGroup;
+  proInfoForm: FormGroup;
+  proAreaOfServiceForm: FormGroup;
+  proBusinessHoursForm: FormGroup;
   </button> -->
-<form [formGroup]="basicInfoForm">
+
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="basicInfoForm">
-
+      
       <ng-template matStepLabel>Fill Business Details</ng-template>
+      <form [formGroup]="basicInfoForm">
       <div class="form-container">
         <mat-form-field>
           <mat-label>Business Name</mat-label>
@@ -38,29 +43,30 @@
           <mat-hint>website</mat-hint>
         </mat-form-field>
 
-        <div [formGroupName]="proPhoneNumber" class="form-container">
+      
           <mat-form-field>
             <mat-label>Phone Number</mat-label>
-            <input matInput formControlName="phoneNumber" placeholder="Enter Phone Number">
-            <mat-error *ngIf="!basicInfoForm.controls['proPhoneNumber'].controls['phoneNumber'].valid">Phone Number
-              format</mat-error>
+            <input matInput formControlName="proPhoneNumber" placeholder="Enter Phone Number">
+           
+              
             <mat-icon matSuffix>call</mat-icon>
             <mat-hint>phoneNumber</mat-hint>
           </mat-form-field>
-        </div>
+        
       </div>
       <div style="float:right;">
         <button mat-button matStepperNext>Next</button>
       </div>
-
+</form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-
+    <mat-step [stepControl]="proAreaOfServiceStep">
+     
       <ng-template matStepLabel>Fill out your address</ng-template>
-      <div [formGroupName]="proAreaOfService" class="form-container">
+      <form [formGroup]="proAreaOfServiceForm">
+    
 
          
-        <div [formGroupName]="location" class="form-container">
+        <div formGroupName="location" class="form-container">
           <mat-form-field>
             <mat-label>Country/State</mat-label>
             <mat-select matInput formControlName="country" placeholder="Select Country/State">
@@ -88,34 +94,36 @@
             </mat-select>
           </mat-form-field>
         </div>
-
+        <div  class="form-container">
         <mat-form-field>
             <mat-label>Radius Covered From you Center(Miles)</mat-label>
             <input type="number" matInput formControlName="radius" placeholder="Enter Radius Covered by your Services">
             <mat-icon matSuffix>adjust</mat-icon>
             <mat-hint>Radius</mat-hint>
           </mat-form-field>
+        </div>
 
-      </div>
+      
       <div style="float:right;">
           <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
-
+</form>
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <div [formGroupName]="proBusinessHours" class="form-container">
-          <div *ngFor="let day of basicInfoForm.get('proBusinessHours').controls; let i=index">
-              <div [formGroupName]="i"> 
+    <mat-step [stepControl]="proBusinessHourStep">
+      
+      <ng-template matStepLabel>Business Hours</ng-template>
+      <form [formGroup]="proBusinessHoursForm">
+      <div formGroupName="businessHours" class="form-container">
+          <div *ngFor="let day of proBusinessHoursForm.get('businessHours').controls; let i=index">
+              <div formGroupName={{i}}> 
                   <div  style="float:left;">
                       <mat-checkbox formControlName="isSelected">
-                        <!-- {{basicInfoForm.controls.proBusinessHours.controls[i].controls.dayOfWeek.value | daysOfWeek}} -->
 
-                        {{basicInfoForm.controls.proBusinessHours.controls[i].controls.dayOfWeek.value}}
+                        {{proBusinessHoursForm.controls.businessHours.controls[i].controls.dayOfWeek.value | daysOfWeek}}
                       </mat-checkbox>
                   </div>
-                  <div [formGroupName]="startingHour" style="float:right">
+                  <div formGroupName="startingHour" style="float:right">
                       <mat-form-field>
                           <mat-label>Starting Hour</mat-label>
                           <input type="number" matInput formControlName="hour" placeholder="Enter Hour">
@@ -129,7 +137,7 @@
                             <mat-hint>minute</mat-hint>
                           </mat-form-field>
                   </div>
-                  <div [formGroupName]="endingHour" style="float:right">
+                  <div formGroupName="endingHour" style="float:right">
                       <mat-form-field>
                           <mat-label>Ending Hour</mat-label>
                           <input type="number" matInput formControlName="hour" placeholder="Enter Hour">
@@ -151,7 +159,6 @@
         <button mat-button (click)="stepper.reset()">Reset</button>
         <button mat-button (click)="stepper.reset()">Submit</button>
       </div>
+      </form>
     </mat-step>
   </mat-horizontal-stepper>
-
-</form>
