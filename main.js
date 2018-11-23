@@ -121,36 +121,37 @@ var AppComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpInterceptorProviders", function() { return httpInterceptorProviders; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _shared_global_components_header_header_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/global-components/header/header.component */ "./src/app/shared/global-components/header/header.component.ts");
-/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.routes */ "./src/app/app.routes.ts");
-/* harmony import */ var _dproz_dproz_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dproz/dproz.module */ "./src/app/dproz/dproz.module.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _shared_services_authentication_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/services/authentication.service */ "./src/app/shared/services/authentication.service.ts");
-/* harmony import */ var _shared_services_state_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shared/services/state.service */ "./src/app/shared/services/state.service.ts");
-/* harmony import */ var _shared_services_places_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shared/services/places.service */ "./src/app/shared/services/places.service.ts");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var _shared_http_interceptors_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/http-interceptors/auth-token-interceptor */ "./src/app/shared/http-interceptors/auth-token-interceptor.ts");
-/* harmony import */ var _dproz_contact_us_dproz_contact_us_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dproz-contact-us/dproz-contact-us.component */ "./src/app/dproz-contact-us/dproz-contact-us.component.ts");
-/* harmony import */ var _dproz_about_us_dproz_about_us_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dproz-about-us/dproz-about-us.component */ "./src/app/dproz-about-us/dproz-about-us.component.ts");
-/* harmony import */ var _shared_services_document_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./shared/services/document.service */ "./src/app/shared/services/document.service.ts");
-/* harmony import */ var _services_services_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/services.component */ "./src/app/services/services.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
-/* harmony import */ var _service_service_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./service/service.module */ "./src/app/service/service.module.ts");
-/* harmony import */ var _services_basic_info_basic_info_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/basic-info/basic-info.component */ "./src/app/services/basic-info/basic-info.component.ts");
-/* harmony import */ var _dproz_prof_profile_dproz_prof_profile_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dproz-prof-profile/dproz-prof-profile.component */ "./src/app/dproz-prof-profile/dproz-prof-profile.component.ts");
-/* harmony import */ var angular_font_awesome__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! angular-font-awesome */ "./node_modules/angular-font-awesome/dist/angular-font-awesome.es5.js");
-/* harmony import */ var _services_dproz_experience_dproz_experience_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/dproz-experience/dproz-experience.component */ "./src/app/services/dproz-experience/dproz-experience.component.ts");
-/* harmony import */ var angular_file_uploader__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! angular-file-uploader */ "./node_modules/angular-file-uploader/fesm5/angular-file-uploader.js");
-/* harmony import */ var ngx_file_drop__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ngx-file-drop */ "./node_modules/ngx-file-drop/esm5/ngx-file-drop.js");
-/* harmony import */ var _services_dproz_credentials_dproz_credentials_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./services/dproz-credentials/dproz-credentials.component */ "./src/app/services/dproz-credentials/dproz-credentials.component.ts");
-/* harmony import */ var _shared_directives_responsive_menu_directive__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./shared/directives/responsive-menu.directive */ "./src/app/shared/directives/responsive-menu.directive.ts");
-/* harmony import */ var _shared_pipes_credential_type_pipe__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./shared/pipes/credential-type.pipe */ "./src/app/shared/pipes/credential-type.pipe.ts");
+/* harmony import */ var _shared_pipes_days_of_week_pipe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./shared/pipes/days-of-week.pipe */ "./src/app/shared/pipes/days-of-week.pipe.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _shared_global_components_header_header_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared/global-components/header/header.component */ "./src/app/shared/global-components/header/header.component.ts");
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.routes */ "./src/app/app.routes.ts");
+/* harmony import */ var _dproz_dproz_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dproz/dproz.module */ "./src/app/dproz/dproz.module.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_authentication_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shared/services/authentication.service */ "./src/app/shared/services/authentication.service.ts");
+/* harmony import */ var _shared_services_state_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shared/services/state.service */ "./src/app/shared/services/state.service.ts");
+/* harmony import */ var _shared_services_places_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/services/places.service */ "./src/app/shared/services/places.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _shared_http_interceptors_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/http-interceptors/auth-token-interceptor */ "./src/app/shared/http-interceptors/auth-token-interceptor.ts");
+/* harmony import */ var _dproz_contact_us_dproz_contact_us_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dproz-contact-us/dproz-contact-us.component */ "./src/app/dproz-contact-us/dproz-contact-us.component.ts");
+/* harmony import */ var _dproz_about_us_dproz_about_us_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./dproz-about-us/dproz-about-us.component */ "./src/app/dproz-about-us/dproz-about-us.component.ts");
+/* harmony import */ var _shared_services_document_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./shared/services/document.service */ "./src/app/shared/services/document.service.ts");
+/* harmony import */ var _services_services_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/services.component */ "./src/app/services/services.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
+/* harmony import */ var _service_service_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./service/service.module */ "./src/app/service/service.module.ts");
+/* harmony import */ var _services_basic_info_basic_info_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/basic-info/basic-info.component */ "./src/app/services/basic-info/basic-info.component.ts");
+/* harmony import */ var _dproz_prof_profile_dproz_prof_profile_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dproz-prof-profile/dproz-prof-profile.component */ "./src/app/dproz-prof-profile/dproz-prof-profile.component.ts");
+/* harmony import */ var angular_font_awesome__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! angular-font-awesome */ "./node_modules/angular-font-awesome/dist/angular-font-awesome.es5.js");
+/* harmony import */ var _services_dproz_experience_dproz_experience_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/dproz-experience/dproz-experience.component */ "./src/app/services/dproz-experience/dproz-experience.component.ts");
+/* harmony import */ var angular_file_uploader__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! angular-file-uploader */ "./node_modules/angular-file-uploader/fesm5/angular-file-uploader.js");
+/* harmony import */ var ngx_file_drop__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ngx-file-drop */ "./node_modules/ngx-file-drop/esm5/ngx-file-drop.js");
+/* harmony import */ var _services_dproz_credentials_dproz_credentials_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/dproz-credentials/dproz-credentials.component */ "./src/app/services/dproz-credentials/dproz-credentials.component.ts");
+/* harmony import */ var _shared_directives_responsive_menu_directive__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./shared/directives/responsive-menu.directive */ "./src/app/shared/directives/responsive-menu.directive.ts");
+/* harmony import */ var _shared_pipes_credential_type_pipe__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./shared/pipes/credential-type.pipe */ "./src/app/shared/pipes/credential-type.pipe.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -187,47 +188,48 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var httpInterceptorProviders = [
-    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HTTP_INTERCEPTORS"], useClass: _shared_http_interceptors_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_11__["AuthTokenInterceptor"], multi: true },
+    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"], useClass: _shared_http_interceptors_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_12__["AuthTokenInterceptor"], multi: true },
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"], _shared_directives_responsive_menu_directive__WEBPACK_IMPORTED_MODULE_28__["ResponsiveMenuDirective"], _shared_pipes_credential_type_pipe__WEBPACK_IMPORTED_MODULE_29__["CredentialTypePipe"],
-                _shared_global_components_header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"],
-                _dproz_contact_us_dproz_contact_us_component__WEBPACK_IMPORTED_MODULE_12__["DprozContactUsComponent"],
-                _dproz_about_us_dproz_about_us_component__WEBPACK_IMPORTED_MODULE_13__["DprozAboutUsComponent"],
-                _services_services_component__WEBPACK_IMPORTED_MODULE_15__["ServicesComponent"], _services_services_component__WEBPACK_IMPORTED_MODULE_15__["EditServiceComponent"], _services_basic_info_basic_info_component__WEBPACK_IMPORTED_MODULE_21__["BasicInfoComponent"], _dproz_prof_profile_dproz_prof_profile_component__WEBPACK_IMPORTED_MODULE_22__["DprozProfProfileComponent"], _services_dproz_experience_dproz_experience_component__WEBPACK_IMPORTED_MODULE_24__["DprozExperienceComponent"], _services_dproz_credentials_dproz_credentials_component__WEBPACK_IMPORTED_MODULE_27__["DprozCredentialsComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _shared_directives_responsive_menu_directive__WEBPACK_IMPORTED_MODULE_29__["ResponsiveMenuDirective"], _shared_pipes_credential_type_pipe__WEBPACK_IMPORTED_MODULE_30__["CredentialTypePipe"], _shared_pipes_days_of_week_pipe__WEBPACK_IMPORTED_MODULE_0__["DaysOfWeekPipe"],
+                _shared_global_components_header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"],
+                _dproz_contact_us_dproz_contact_us_component__WEBPACK_IMPORTED_MODULE_13__["DprozContactUsComponent"],
+                _dproz_about_us_dproz_about_us_component__WEBPACK_IMPORTED_MODULE_14__["DprozAboutUsComponent"],
+                _services_services_component__WEBPACK_IMPORTED_MODULE_16__["ServicesComponent"], _services_services_component__WEBPACK_IMPORTED_MODULE_16__["EditServiceComponent"], _services_basic_info_basic_info_component__WEBPACK_IMPORTED_MODULE_22__["BasicInfoComponent"], _dproz_prof_profile_dproz_prof_profile_component__WEBPACK_IMPORTED_MODULE_23__["DprozProfProfileComponent"], _services_dproz_experience_dproz_experience_component__WEBPACK_IMPORTED_MODULE_25__["DprozExperienceComponent"], _services_dproz_credentials_dproz_credentials_component__WEBPACK_IMPORTED_MODULE_28__["DprozCredentialsComponent"],
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__["NgbModule"],
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__["NgbModule"],
                 // Routing  
-                _app_routes__WEBPACK_IMPORTED_MODULE_4__["AppRoute"], angular_font_awesome__WEBPACK_IMPORTED_MODULE_23__["AngularFontAwesomeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatOptionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatSelectModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatPaginatorModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"],
-                _dproz_dproz_module__WEBPACK_IMPORTED_MODULE_5__["DprozModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_18__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_18__["ReactiveFormsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatStepperModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatTreeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatProgressBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatTabsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatDialogModule"],
-                _service_service_module__WEBPACK_IMPORTED_MODULE_20__["ServiceModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatNativeDateModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatCheckboxModule"], angular_file_uploader__WEBPACK_IMPORTED_MODULE_25__["AngularFileUploaderModule"], ngx_file_drop__WEBPACK_IMPORTED_MODULE_26__["FileDropModule"]
+                _app_routes__WEBPACK_IMPORTED_MODULE_5__["AppRoute"], angular_font_awesome__WEBPACK_IMPORTED_MODULE_24__["AngularFontAwesomeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatOptionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatSelectModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatPaginatorModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatChipsModule"],
+                _dproz_dproz_module__WEBPACK_IMPORTED_MODULE_6__["DprozModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_19__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_19__["ReactiveFormsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatTreeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatProgressBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatTabsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__["BrowserAnimationsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatDialogModule"],
+                _service_service_module__WEBPACK_IMPORTED_MODULE_21__["ServiceModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatCheckboxModule"], angular_file_uploader__WEBPACK_IMPORTED_MODULE_26__["AngularFileUploaderModule"], ngx_file_drop__WEBPACK_IMPORTED_MODULE_27__["FileDropModule"]
             ],
-            entryComponents: [_services_services_component__WEBPACK_IMPORTED_MODULE_15__["EditServiceComponent"],],
+            entryComponents: [_services_services_component__WEBPACK_IMPORTED_MODULE_16__["EditServiceComponent"],],
             providers: [
-                _shared_services_authentication_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationService"],
-                _shared_services_state_service__WEBPACK_IMPORTED_MODULE_8__["StateService"],
-                _shared_services_places_service__WEBPACK_IMPORTED_MODULE_9__["PlacesService"],
-                _shared_services_document_service__WEBPACK_IMPORTED_MODULE_14__["DocumentService"],
-                httpInterceptorProviders, _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatIconRegistry"]
+                _shared_services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"],
+                _shared_services_state_service__WEBPACK_IMPORTED_MODULE_9__["StateService"],
+                _shared_services_places_service__WEBPACK_IMPORTED_MODULE_10__["PlacesService"],
+                _shared_services_document_service__WEBPACK_IMPORTED_MODULE_15__["DocumentService"],
+                httpInterceptorProviders, _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatIconRegistry"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
 }());
 
-Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_19__["platformBrowserDynamic"])().bootstrapModule(AppModule);
+Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_20__["platformBrowserDynamic"])().bootstrapModule(AppModule);
 
 
 /***/ }),
@@ -255,7 +257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dproz_contact_us_dproz_contact_us_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dproz-contact-us/dproz-contact-us.component */ "./src/app/dproz-contact-us/dproz-contact-us.component.ts");
 /* harmony import */ var _dproz_about_us_dproz_about_us_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dproz-about-us/dproz-about-us.component */ "./src/app/dproz-about-us/dproz-about-us.component.ts");
 /* harmony import */ var _services_services_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/services.component */ "./src/app/services/services.component.ts");
-/* harmony import */ var _services_dproz_experience_dproz_experience_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/dproz-experience/dproz-experience.component */ "./src/app/services/dproz-experience/dproz-experience.component.ts");
+/* harmony import */ var _services_basic_info_basic_info_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/basic-info/basic-info.component */ "./src/app/services/basic-info/basic-info.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -298,7 +300,7 @@ var routes = [
             { path: 'profile', component: _dproz_profile_profile_profile_component__WEBPACK_IMPORTED_MODULE_7__["ProfileComponent"], canActivate: [_shared_gaurds_logged_in_guard__WEBPACK_IMPORTED_MODULE_9__["LoggedInGuard"]] },
             { path: 'password/:code', component: _dproz_authentication_password_reset_password_reset_component__WEBPACK_IMPORTED_MODULE_8__["PasswordResetComponent"] },
             { path: 'password', component: _dproz_authentication_password_reset_password_reset_component__WEBPACK_IMPORTED_MODULE_8__["PasswordResetComponent"] },
-            { path: 'experience', component: _services_dproz_experience_dproz_experience_component__WEBPACK_IMPORTED_MODULE_13__["DprozExperienceComponent"] }
+            { path: 'basic-info', component: _services_basic_info_basic_info_component__WEBPACK_IMPORTED_MODULE_13__["BasicInfoComponent"] }
         ]
     },
     {
@@ -543,8 +545,8 @@ var LoginComponent = /** @class */ (function () {
             _this.state.next({ loggedIn: true, authToken: Authorization, userReferenceId: userReferenceId });
             _this.service.getUser(_this.state.getState().userReferenceId).subscribe(function (data) {
                 console.log("user get data");
-                console.log(data);
-                localStorage.setItem("user_details", JSON.stringify(data));
+                var loginData = JSON.stringify(data);
+                localStorage.setItem("user_details", loginData);
                 _this.state.setIdentity(data);
                 _this.router.navigate(['../dproz/home']);
             });
@@ -556,7 +558,7 @@ var LoginComponent = /** @class */ (function () {
                     if (_this.TREE_DATA[k.category.categoryName] == undefined) {
                         _this.TREE_DATA[k.category.categoryName] = {};
                     }
-                    _this.TREE_DATA[k.category.categoryName][k.serviceId] = k.serviceDescription;
+                    _this.TREE_DATA[k.category.categoryName][k.serviceNumber] = k.serviceDescription;
                 }
                 localStorage.setItem("service_tree", JSON.stringify(_this.TREE_DATA));
                 localStorage.setItem("all_services", JSON.stringify(x));
@@ -2013,7 +2015,7 @@ var ServiceModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<button mat-raised-button (click)=\"isLinear = !isLinear\" id=\"toggle-linear\">\r\n    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}\r\n  </button>\r\n  <mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\r\n    <mat-step [stepControl]=\"firstFormGroup\">\r\n      <form [formGroup]=\"firstFormGroup\">\r\n        <ng-template matStepLabel>Fill out your Details</ng-template>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\r\n        </mat-form-field>\r\n        <div>\r\n          <button mat-button matStepperNext>Next</button>\r\n        </div>\r\n      </form>\r\n    </mat-step>\r\n    <mat-step [stepControl]=\"secondFormGroup\">\r\n      <form [formGroup]=\"secondFormGroup\">\r\n        <ng-template matStepLabel>Fill out your address</ng-template>\r\n        <mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\r\n            <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodePadding>\r\n              <button mat-icon-button disabled></button>\r\n              <a href=\"\">{{node.item}}</a>\r\n            </mat-tree-node>\r\n            <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\r\n              <button mat-icon-button\r\n                      [attr.aria-label]=\"'toggle ' + node.filename\" matTreeNodeToggle>\r\n                <mat-icon class=\"mat-icon-rtl-mirror\">\r\n                  <!-- {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}} -->\r\n                </mat-icon>\r\n              </button>\r\n              {{node.item}}\r\n              <mat-progress-bar *ngIf=\"node.isLoading\"\r\n                                mode=\"indeterminate\"\r\n                                class=\"example-tree-progress-bar\"></mat-progress-bar>\r\n            </mat-tree-node>\r\n          </mat-tree>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\r\n        </mat-form-field>\r\n        <div>\r\n          <button mat-button matStepperPrevious>Back</button>\r\n          <button mat-button matStepperNext>Next</button>\r\n        </div>\r\n      </form>\r\n    </mat-step>\r\n    <mat-step>\r\n      <ng-template matStepLabel>Done</ng-template>\r\n      You are now done.\r\n      <div>\r\n        <button mat-button matStepperPrevious>Back</button>\r\n        <button mat-button (click)=\"stepper.reset()\">Reset</button>\r\n        <button mat-button (click)=\"stepper.reset()\">Submit</button>\r\n      </div>\r\n    </mat-step>\r\n  </mat-horizontal-stepper>\r\n    \r\n\r\n  \r\n\r\n"
+module.exports = "<!-- <button mat-raised-button (click)=\"isLinear = !isLinear\" id=\"toggle-linear\">\r\n    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}\r\n      basicInfoForm: FormGroup;\r\n  proInfoForm: FormGroup;\r\n  proAreaOfServiceForm: FormGroup;\r\n  proBusinessHoursForm: FormGroup;\r\n  </button> -->\r\n\r\n  <mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\r\n    <mat-step [stepControl]=\"basicInfoForm\">\r\n      \r\n      <ng-template matStepLabel>Fill Business Details</ng-template>\r\n      <form [formGroup]=\"basicInfoForm\">\r\n      <div class=\"form-container\">\r\n        <mat-form-field>\r\n          <mat-label>Business Name</mat-label>\r\n          <input matInput formControlName=\"proName\" placeholder=\"Enter Business Name\">\r\n          <mat-error *ngIf=\"!basicInfoForm.controls['proName'].valid\">business name is required</mat-error>\r\n          <mat-icon matSuffix>business_center</mat-icon>\r\n          <mat-hint>business name</mat-hint>\r\n        </mat-form-field>\r\n\r\n        <mat-form-field>\r\n          <mat-label>Business Intro</mat-label>\r\n          <input matInput formControlName=\"proIntro\" placeholder=\"Enter Business Intro\">\r\n          <mat-error *ngIf=\"!basicInfoForm.controls['proIntro'].valid\">business intro is required</mat-error>\r\n          <mat-icon matSuffix>assistant</mat-icon>\r\n          <mat-hint>business intro</mat-hint>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n          <mat-label>Email</mat-label>\r\n          <input matInput formControlName=\"proEmailAddress\" placeholder=\"Enter Business Email\">\r\n          <mat-error *ngIf=\"!basicInfoForm.controls['proEmailAddress'].valid\">valid email is required</mat-error>\r\n          <mat-icon matSuffix>alternate_email</mat-icon>\r\n          <mat-hint>email address</mat-hint>\r\n        </mat-form-field>\r\n\r\n        <mat-form-field>\r\n          <mat-label>Website</mat-label>\r\n          <input matInput formControlName=\"proWebsite\" placeholder=\"Enter Business Website\">\r\n          <mat-error *ngIf=\"!basicInfoForm.controls['proWebsite'].valid\">website format</mat-error>\r\n          <mat-icon matSuffix>computer</mat-icon>\r\n          <mat-hint>website</mat-hint>\r\n        </mat-form-field>\r\n\r\n      \r\n          <mat-form-field>\r\n            <mat-label>Phone Number</mat-label>\r\n            <input matInput formControlName=\"proPhoneNumber\" placeholder=\"Enter Phone Number\">\r\n           \r\n              \r\n            <mat-icon matSuffix>call</mat-icon>\r\n            <mat-hint>phoneNumber</mat-hint>\r\n          </mat-form-field>\r\n        \r\n      </div>\r\n      <div style=\"float:right;\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n</form>\r\n    </mat-step>\r\n    <mat-step [stepControl]=\"proAreaOfServiceStep\">\r\n     \r\n      <ng-template matStepLabel>Fill out your address</ng-template>\r\n      <form [formGroup]=\"proAreaOfServiceForm\">\r\n    \r\n\r\n         \r\n        <div formGroupName=\"location\" class=\"form-container\">\r\n          <mat-form-field>\r\n            <mat-label>Country/State</mat-label>\r\n            <mat-select matInput formControlName=\"country\" placeholder=\"Select Country/State\">\r\n              <mat-option *ngFor=\"let country of countries\" [value]=\"country.Id\">{{country.Name}}</mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <mat-label>Region</mat-label>\r\n            <mat-select matInput formControlName=\"region\" placeholder=\"Select Region\">\r\n              <mat-option *ngFor=\"let region of regions\" [value]=\"region.Id\">{{region.Name}}</mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n\r\n          <mat-form-field>\r\n            <mat-label>District</mat-label>\r\n            <mat-select matInput formControlName=\"district\" placeholder=\"Select Country/State\">\r\n              <mat-option *ngFor=\"let district of districts\" [value]=\"district.Id\">{{district.Name}}</mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n\r\n          <mat-form-field>\r\n            <mat-label>County</mat-label>\r\n            <mat-select matInput formControlName=\"county\" placeholder=\"Select County\">\r\n              <mat-option *ngFor=\"let county of counties\" [value]=\"county.Id\">{{county.Name}}</mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n        </div>\r\n        <div  class=\"form-container\">\r\n        <mat-form-field>\r\n            <mat-label>Radius Covered From you Center(Miles)</mat-label>\r\n            <input type=\"number\" matInput formControlName=\"radius\" placeholder=\"Enter Radius Covered by your Services\">\r\n            <mat-icon matSuffix>adjust</mat-icon>\r\n            <mat-hint>Radius</mat-hint>\r\n          </mat-form-field>\r\n        </div>\r\n\r\n      \r\n      <div style=\"float:right;\">\r\n          <button mat-button matStepperPrevious>Back</button>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n</form>\r\n    </mat-step>\r\n    <mat-step [stepControl]=\"proBusinessHourStep\">\r\n      \r\n      <ng-template matStepLabel>Business Hours</ng-template>\r\n      <form [formGroup]=\"proBusinessHoursForm\">\r\n      <div formGroupName=\"businessHours\" class=\"form-container\">\r\n          <div *ngFor=\"let day of proBusinessHoursForm.get('businessHours').controls; let i=index\">\r\n              <div formGroupName={{i}}> \r\n                  <div  style=\"float:left;\">\r\n                      <mat-checkbox formControlName=\"isSelected\">\r\n\r\n                        {{proBusinessHoursForm.controls.businessHours.controls[i].controls.dayOfWeek.value | daysOfWeek}}\r\n                      </mat-checkbox>\r\n                  </div>\r\n                  <div formGroupName=\"startingHour\" style=\"float:right\">\r\n                      <mat-form-field>\r\n                          <mat-label>Starting Hour</mat-label>\r\n                          <input type=\"number\" matInput formControlName=\"hour\" placeholder=\"Enter Hour\">\r\n                          \r\n                          <mat-hint>Hour</mat-hint>\r\n                        </mat-form-field>\r\n                        <mat-form-field>\r\n                            <mat-label>Minute</mat-label>\r\n                            <input type=\"number\" matInput formControlName=\"minute\" placeholder=\"Enter Minute\">\r\n                            <mat-icon matSuffix>access_time</mat-icon>\r\n                            <mat-hint>minute</mat-hint>\r\n                          </mat-form-field>\r\n                  </div>\r\n                  <div formGroupName=\"endingHour\" style=\"float:right\">\r\n                      <mat-form-field>\r\n                          <mat-label>Ending Hour</mat-label>\r\n                          <input type=\"number\" matInput formControlName=\"hour\" placeholder=\"Enter Hour\">\r\n                         \r\n                          <mat-hint>Hour</mat-hint>\r\n                        </mat-form-field>\r\n                        <mat-form-field>\r\n                            <mat-label>Minute</mat-label>\r\n                            <input type=\"number\" matInput formControlName=\"minute\" placeholder=\"Enter Minute\">\r\n                            <mat-icon matSuffix>access_time</mat-icon>\r\n                            <mat-hint>minute</mat-hint>\r\n                          </mat-form-field>\r\n                  </div> \r\n              </div>\r\n        </div>\r\n      </div>\r\n      <div style=\"float:right;\">\r\n        <button mat-button matStepperPrevious>Back</button>\r\n        <button mat-button (click)=\"stepper.reset()\">Reset</button>\r\n        <button mat-button (click)=\"stepper.reset()\">Submit</button>\r\n      </div>\r\n      </form>\r\n    </mat-step>\r\n  </mat-horizontal-stepper>\r\n"
 
 /***/ }),
 
@@ -2024,7 +2026,7 @@ module.exports = "\r\n\r\n<button mat-raised-button (click)=\"isLinear = !isLine
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-tree-progress-bar {\n  margin-left: 30px; }\n"
+module.exports = ".example-tree-progress-bar {\n  margin-left: 30px; }\n\n.form-container {\n  display: flex;\n  flex-direction: column;\n  margin: 10px 20px; }\n\n.form-container > * {\n  width: 100%;\n  margin: 10px 0px; }\n"
 
 /***/ }),
 
@@ -2032,20 +2034,17 @@ module.exports = ".example-tree-progress-bar {\n  margin-left: 30px; }\n"
 /*!*************************************************************!*\
   !*** ./src/app/services/basic-info/basic-info.component.ts ***!
   \*************************************************************/
-/*! exports provided: DynamicFlatNode, DynamicDatabase, DynamicDataSource, BasicInfoComponent */
+/*! exports provided: BasicInfoComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DynamicFlatNode", function() { return DynamicFlatNode; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DynamicDatabase", function() { return DynamicDatabase; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DynamicDataSource", function() { return DynamicDataSource; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BasicInfoComponent", function() { return BasicInfoComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm5/tree.es5.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _shared_services_places_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/places.service */ "./src/app/shared/services/places.service.ts");
+/* harmony import */ var _shared_services_pro_info_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/pro-info.service */ "./src/app/shared/services/pro-info.service.ts");
+/* harmony import */ var _shared_services_state_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/services/state.service */ "./src/app/shared/services/state.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2060,144 +2059,122 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-/** Flat node with expandable and level information */
-var DynamicFlatNode = /** @class */ (function () {
-    function DynamicFlatNode(item, level, expandable, isLoading) {
-        if (level === void 0) { level = 1; }
-        if (expandable === void 0) { expandable = false; }
-        if (isLoading === void 0) { isLoading = false; }
-        this.item = item;
-        this.level = level;
-        this.expandable = expandable;
-        this.isLoading = isLoading;
-    }
-    return DynamicFlatNode;
-}());
-
-var DynamicDatabase = /** @class */ (function () {
-    function DynamicDatabase() {
-        this.dataMap = new Map([
-            ['Fruits', ['Apple', 'Orange', 'Banana']],
-            ['Vegetables', ['Tomato', 'Potato', 'Onion']],
-            ['Apple', ['Fuji', 'Macintosh']],
-            ['Onion', ['Yellow', 'White', 'Purple']]
-        ]);
-        this.rootLevelNodes = ['Fruits', 'Vegetables'];
-    }
-    /** Initial data from database */
-    DynamicDatabase.prototype.initialData = function () {
-        return this.rootLevelNodes.map(function (name) { return new DynamicFlatNode(name, 0, true); });
-    };
-    DynamicDatabase.prototype.getChildren = function (node) {
-        return this.dataMap.get(node);
-    };
-    DynamicDatabase.prototype.isExpandable = function (node) {
-        return this.dataMap.has(node);
-    };
-    return DynamicDatabase;
-}());
-
-var DynamicDataSource = /** @class */ (function () {
-    function DynamicDataSource(treeControl, database) {
-        this.treeControl = treeControl;
-        this.database = database;
-        this.dataChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
-    }
-    Object.defineProperty(DynamicDataSource.prototype, "data", {
-        get: function () { return this.dataChange.value; },
-        set: function (value) {
-            this.treeControl.dataNodes = value;
-            this.dataChange.next(value);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    DynamicDataSource.prototype.connect = function (collectionViewer) {
-        var _this = this;
-        this.treeControl.expansionModel.onChange.subscribe(function (change) {
-            if (change.added ||
-                change.removed) {
-                _this.handleTreeControl(change);
-            }
-        });
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["merge"])(collectionViewer.viewChange, this.dataChange).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () { return _this.data; }));
-    };
-    /** Handle expand/collapse behaviors */
-    DynamicDataSource.prototype.handleTreeControl = function (change) {
-        var _this = this;
-        if (change.added) {
-            change.added.forEach(function (node) { return _this.toggleNode(node, true); });
-        }
-        if (change.removed) {
-            change.removed.slice().reverse().forEach(function (node) { return _this.toggleNode(node, false); });
-        }
-    };
-    /**
-     * Toggle the node, remove from display list
-     */
-    DynamicDataSource.prototype.toggleNode = function (node, expand) {
-        var _this = this;
-        var children = this.database.getChildren(node.item);
-        var index = this.data.indexOf(node);
-        if (!children || index < 0) { // If no children, or cannot find the node, no op
-            return;
-        }
-        node.isLoading = true;
-        setTimeout(function () {
-            var _a;
-            if (expand) {
-                var nodes = children.map(function (name) {
-                    return new DynamicFlatNode(name, node.level + 1, _this.database.isExpandable(name));
-                });
-                (_a = _this.data).splice.apply(_a, [index + 1, 0].concat(nodes));
-            }
-            else {
-                var count = 0;
-                for (var i = index + 1; i < _this.data.length
-                    && _this.data[i].level > node.level; i++, count++) { }
-                _this.data.splice(index + 1, count);
-            }
-            // notify the change
-            _this.dataChange.next(_this.data);
-            node.isLoading = false;
-        }, 1000);
-    };
-    DynamicDataSource = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_cdk_tree__WEBPACK_IMPORTED_MODULE_2__["FlatTreeControl"],
-            DynamicDatabase])
-    ], DynamicDataSource);
-    return DynamicDataSource;
-}());
-
 var BasicInfoComponent = /** @class */ (function () {
-    function BasicInfoComponent(_formBuilder, database) {
-        this._formBuilder = _formBuilder;
-        this.database = database;
+    function BasicInfoComponent(fb, state, placesService, proInfo) {
+        this.fb = fb;
+        this.state = state;
+        this.placesService = placesService;
+        this.proInfo = proInfo;
         this.isLinear = false;
-        this.getLevel = function (node) { return node.level; };
-        this.isExpandable = function (node) { return node.expandable; };
-        this.hasChild = function (_, _nodeData) { return _nodeData.expandable; };
-        this.treeControl = new _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_2__["FlatTreeControl"](this.getLevel, this.isExpandable);
-        this.dataSource = new DynamicDataSource(this.treeControl, database);
-        this.dataSource.data = database.initialData();
+        this.setNewForms();
     }
+    BasicInfoComponent.prototype.setNewForms = function () {
+        this.basicInfoForm = this.fb.group({
+            'proReferenceId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'registrationDate': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'proName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            'proAvatarUrl': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            'proIntro': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'proEmailAddress': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'proWebsite': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            'proVerified': [false, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            'proActive': [false, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            "proPhoneNumber": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+        });
+        this.proAreaOfServiceForm = this.fb.group({
+            "location": this.fb.group({
+                "longtude": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "latitude": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "street": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "county": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "zip": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "district": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "region": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "country": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            }),
+            "radius": [0, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+        });
+        this.proBusinessHoursForm = this.fb.group({
+            businessHours: this.fb.array([this.createBusinessDay("MONDAY")]),
+        });
+        this.proBusinessHours = this.proBusinessHoursForm.get('businessHours');
+        this.proBusinessHours.removeAt(0);
+        var days = this.proInfo.getDaysOfTheWeek();
+        for (var i = 0; i < days.length; i++) {
+            this.proBusinessHours.push(this.createBusinessDay(days[i].Id));
+        }
+    };
+    BasicInfoComponent.prototype.setNewBasicInfo = function () {
+        this.proInfoForm = this.fb.group({
+            'proReferenceId': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'registrationDate': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'proName': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            'proAvatarUrl': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            'proIntro': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'proEmailAddress': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            'proWebsite': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            'proVerified': [false, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            'proActive': [false, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            "proPhoneNumber": this.fb.group({
+                "phoneNumber": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "isPrimary": [true, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "contactMethod": ['CALL', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            }),
+            "proAddress": this.fb.group({
+                "longtude": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "latitude": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "street": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "county": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "zip": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "district": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "region": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "country": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            }),
+            "proAreaOfService": this.fb.group({
+                "location": this.fb.group({
+                    "longtude": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                    "latitude": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                    "street": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                    "county": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                    "zip": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                    "district": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                    "region": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                    "country": ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                }),
+                "radius": [0, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            }),
+            "proBusinessHours": this.fb.array([this.createBusinessDay("MONDAY")]),
+        });
+        this.proBusinessHours = this.basicInfoForm.get('proBusinessHours');
+        this.proBusinessHours.removeAt(0);
+        var days = this.proInfo.getDaysOfTheWeek();
+        for (var i = 0; i < days.length; i++) {
+            this.proBusinessHours.push(this.createBusinessDay(days[i].Id));
+        }
+    };
+    BasicInfoComponent.prototype.createBusinessDay = function (day) {
+        return this.fb.group({
+            "isSelected": [false, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            "dayOfWeek": [day, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            "startingHour": this.fb.group({
+                "hour": [8, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "minute": [0, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            }),
+            "endingHour": this.fb.group({
+                "hour": [17, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+                "minute": [0, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
+            }),
+        });
+    };
     BasicInfoComponent.prototype.ngOnInit = function () {
-        this.firstFormGroup = this._formBuilder.group({
-            firstCtrl: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
-        });
-        this.secondFormGroup = this._formBuilder.group({
-            secondCtrl: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
-        });
     };
     BasicInfoComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'dproz-basic-info',
             template: __webpack_require__(/*! ./basic-info.component.html */ "./src/app/services/basic-info/basic-info.component.html"),
             styles: [__webpack_require__(/*! ./basic-info.component.scss */ "./src/app/services/basic-info/basic-info.component.scss")],
-            providers: [DynamicDatabase]
         }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], DynamicDatabase])
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _shared_services_state_service__WEBPACK_IMPORTED_MODULE_4__["StateService"], _shared_services_places_service__WEBPACK_IMPORTED_MODULE_2__["PlacesService"], _shared_services_pro_info_service__WEBPACK_IMPORTED_MODULE_3__["ProInfoService"]])
     ], BasicInfoComponent);
     return BasicInfoComponent;
 }());
@@ -2281,6 +2258,8 @@ var DprozCredentialsComponent = /** @class */ (function () {
         this.pageSizeOptions = [5, 10, 25, 100];
         this.currentPage = 0;
         this.credentials = credentialService.getCredentiaTypes();
+        var cred = JSON.parse(localStorage.getItem("pro_details")).credentials;
+        this.initializeCredViewAll(cred);
         this.setNewForm();
     }
     DprozCredentialsComponent.prototype.pageChange = function (event) {
@@ -2288,6 +2267,9 @@ var DprozCredentialsComponent = /** @class */ (function () {
         this.credentialDataChunk =
             this.credentialData
                 .slice(event.pageIndex * event.pageSize, (event.pageIndex + 1) * event.pageSize);
+        //   this.length = 0;
+        this.pageSize = event.pageSize;
+        this.currentPage = event.pageIndex;
     };
     DprozCredentialsComponent.prototype.setPageSizeOptions = function (setPageSizeOptionsInput) {
         this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(function (str) { return +str; });
@@ -2432,13 +2414,7 @@ var DprozCredentialsComponent = /** @class */ (function () {
             .insertCredential(credential.getPostingData())
             .subscribe(function (cred) {
             //  this.credentialRefId = credId;
-            console.log(cred);
-            var creds = new _shared_domain_credential__WEBPACK_IMPORTED_MODULE_3__["CredentialClass"]();
-            _this.credentialData = creds.getList(JSON.stringify(cred));
-            _this.length = _this.credentialData.length;
-            _this.credentialDataChunk =
-                _this.credentialData
-                    .slice(0, _this.pageSize);
+            _this.initializeCredViewAll(cred);
             _this.viewOnly = false;
             _this.viewAll = true;
             _this.editForm = false;
@@ -2491,6 +2467,14 @@ var DprozCredentialsComponent = /** @class */ (function () {
         this.currentCred.attachment = attachment;
         this.credentialData[this.currentIndex] = this.currentCred;
         this.closeView();
+    };
+    DprozCredentialsComponent.prototype.initializeCredViewAll = function (cred) {
+        var creds = new _shared_domain_credential__WEBPACK_IMPORTED_MODULE_3__["CredentialClass"]();
+        this.credentialData = creds.getList(JSON.stringify(cred));
+        this.length = this.credentialData.length;
+        this.credentialDataChunk =
+            this.credentialData
+                .slice(0, this.pageSize);
     };
     DprozCredentialsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -2794,7 +2778,7 @@ module.exports = ".scrollbar {\r\n\tmargin-left: 22px;\r\n\tfloat: left;\r\n\the
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div   style=\"text-align:center; background-color:#F5F5F5; color: \t#50B2EC; margin: 10px 0px; padding: 10px 0px;\">\r\n    <h5 style=\"text-align:center; \">\r\n        Click on the Category to Expand\r\n    </h5>\r\n      <h6 style=\"text-align:center;\">\r\n          Select Services From the Items\r\n      </h6>\r\n</div>\r\n\r\n\r\n<div id=\"style-5\" style=\"overflow-y:auto; height:300px;\">\r\n\r\n<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\r\n    <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\r\n      <button mat-icon-button disabled></button>\r\n      <mat-checkbox class=\"checklist-leaf-node\"\r\n                    [checked]=\"checklistSelection.isSelected(node)\"\r\n                    (change)=\"checklistSelection.toggle(node);\">{{node.item}}</mat-checkbox>\r\n    </mat-tree-node>\r\n  \r\n    <mat-tree-node *matTreeNodeDef=\"let node; when: hasNoContent\" matTreeNodePadding>\r\n      <button mat-icon-button disabled></button>\r\n      <mat-form-field>\r\n        <input matInput #itemValue placeholder=\"New item...\">\r\n      </mat-form-field>\r\n      <button mat-button (click)=\"saveNode(node, itemValue.value)\">Save</button>\r\n    </mat-tree-node>\r\n  \r\n    <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\r\n      <button mat-icon-button matTreeNodeToggle\r\n              [attr.aria-label]=\"'toggle ' + node.filename\">\r\n        <mat-icon class=\"mat-icon-rtl-mirror\">\r\n          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n        </mat-icon>\r\n      </button>\r\n      <mat-checkbox [checked]=\"descendantsAllSelected(node)\"\r\n                    [indeterminate]=\"descendantsPartiallySelected(node)\"\r\n                    (change)=\"todoItemSelectionToggle(node)\">{{node.item}}</mat-checkbox>\r\n      <!-- <button mat-icon-button (click)=\"addNewItem(node)\"><mat-icon>add</mat-icon></button> -->\r\n    </mat-tree-node>\r\n   \r\n  </mat-tree>\r\n   \r\n</div>\r\n<div style=\"float:right\">\r\n    <button mat-icon-button (click)=\"onNoClick()\"><mat-icon>save</mat-icon></button>\r\n</div> \r\n "
+module.exports = "<div   style=\"text-align:center; background-color:#F5F5F5; color: \t#50B2EC; margin: 10px 0px; padding: 10px 0px;\">\r\n    <h5 style=\"text-align:center; \">\r\n        Click on the Category to Expand\r\n    </h5>\r\n      <h6 style=\"text-align:center;\">\r\n          Select Services From the Items\r\n      </h6>\r\n</div>\r\n\r\n\r\n<div id=\"style-5\" style=\"overflow-y:auto; height:300px;\">\r\n\r\n<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\r\n    <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\r\n      <button mat-icon-button disabled></button>\r\n      <mat-checkbox class=\"checklist-leaf-node\"\r\n                    [checked]=\"checklistSelection.isSelected(node)\"\r\n                    (change)=\"checklistSelection.toggle(node);\">{{node.item}}</mat-checkbox>\r\n    </mat-tree-node>\r\n  \r\n    <mat-tree-node *matTreeNodeDef=\"let node; when: hasNoContent\" matTreeNodePadding>\r\n      <button mat-icon-button disabled></button>\r\n      <mat-form-field>\r\n        <input matInput #itemValue placeholder=\"New item...\">\r\n      </mat-form-field>\r\n      <button mat-button (click)=\"saveNode(node, itemValue.value)\">Save</button>\r\n    </mat-tree-node>\r\n  \r\n    <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\r\n      <button mat-icon-button matTreeNodeToggle\r\n              [attr.aria-label]=\"'toggle ' + node.filename\">\r\n        <mat-icon class=\"mat-icon-rtl-mirror\">\r\n          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n        </mat-icon>\r\n      </button>\r\n      <mat-checkbox [checked]=\"descendantsAllSelected(node)\"\r\n                    [indeterminate]=\"descendantsPartiallySelected(node)\"\r\n                    (change)=\"ServiceItemSelectionToggle(node)\">{{node.item}}</mat-checkbox>\r\n      <!-- <button mat-icon-button (click)=\"addNewItem(node)\"><mat-icon>add</mat-icon></button> -->\r\n    </mat-tree-node>\r\n   \r\n  </mat-tree>\r\n   \r\n</div>\r\n<div style=\"float:right\">\r\n    <button mat-icon-button (click)=\"onNoClick()\"><mat-icon>save</mat-icon></button>\r\n</div> \r\n "
 
 /***/ }),
 
@@ -2805,7 +2789,7 @@ module.exports = "<div   style=\"text-align:center; background-color:#F5F5F5; co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"background-color:#F5F5F5; width: 100% \">\r\n  <div ><mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <div mat-card-avatar class=\"example-header-image\"></div>\r\n    <mat-card-title><span style=\"margin:10px;\">  {{user.firstName}} {{user.lastName}}</span></mat-card-title>\r\n    <mat-card-subtitle> <span style=\"margin:10px;\">  {{user.emailAddress}}</span></mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-actions>\r\n    <mat-tab-group>\r\n        <mat-tab label=\"User Profile\">\r\n            <mat-card-content>\r\n  \r\n            <dproz-prof-profile></dproz-prof-profile>\r\n  \r\n              </mat-card-content>\r\n           </mat-tab>\r\n      <mat-tab label=\"Basic Info\">\r\n          <mat-card-content>\r\n\r\n           <dproz-basic-info>\r\n\r\n           </dproz-basic-info>\r\n\r\n            </mat-card-content>\r\n         </mat-tab>\r\n      <mat-tab label=\"Services\">   <mat-card-content>\r\n          <div style=\"float:left; margin: 10px 20px; color: \t#50B2EC;\">\r\n              Click the (+) Sign to Add Services\r\n              </div>\r\n        <div style=\"float:right;\">\r\n          <button mat-icon-button (click)=\"openDialog()\">\r\n            <mat-icon>add</mat-icon></button>\r\n          </div>\r\n   <div style=\"clear: both;\">\r\n     <mat-accordion>\r\n       <div *ngFor=\"let category of categoryArray\" >\r\n          <mat-expansion-panel (opened)=\"panelOpenState = true\"\r\n          (closed)=\"panelOpenState = false\">\r\n      <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n      {{category.name}}\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n       <!-- {{panelOpenState ? 'open' : 'closed'}} -->\r\n      </mat-panel-description>\r\n      </mat-expansion-panel-header><ul style=\"list-style-type:square\">\r\n      <div *ngFor=\"let service of category.services\" style=\"clear:both; padding: 0px 0px 10px;\">\r\n        <li>\r\n          <div style=\"float:left;\">{{service.name}}</div><div style=\"float:right;\"><button mat-icon-button (click)=\"deleteService(service)\"> \r\n            <mat-icon>delete</mat-icon></button></div></li>\r\n      </div></ul>\r\n      </mat-expansion-panel>\r\n       </div>\r\n   \r\n</mat-accordion>\r\n   </div>\r\n      \r\n        </mat-card-content> </mat-tab>\r\n      <mat-tab label=\"Experience\">    <mat-card-content>\r\n          <dproz-experience>\r\n\r\n          </dproz-experience>\r\n          </mat-card-content> </mat-tab>\r\n\r\n          <mat-tab label=\"Credentials\">\r\n            <mat-card-content>\r\n  \r\n              <dproz-credentials>\r\n                \r\n              </dproz-credentials>\r\n\r\n           \r\n  \r\n              </mat-card-content>\r\n           </mat-tab>\r\n    </mat-tab-group>\r\n    <!-- <button >View All</button> -->\r\n  </mat-card-actions>\r\n  <!-- <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\"> -->\r\n\r\n \r\n</mat-card></div></div>"
+module.exports = "<div style=\"background-color:#F5F5F5; width: 100% \">\r\n  <div ><mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <div mat-card-avatar class=\"example-header-image\"></div>\r\n    <mat-card-title><span style=\"margin:10px;\">  {{user.firstName}} {{user.lastName}}</span></mat-card-title>\r\n    <mat-card-subtitle> <span style=\"margin:10px;\">  {{user.emailAddress}}</span></mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-actions>\r\n    <mat-tab-group>\r\n        <mat-tab label=\"User Profile\">\r\n            <ng-template matTabContent>\r\n  \r\n            <dproz-prof-profile></dproz-prof-profile>\r\n  \r\n            </ng-template>\r\n           </mat-tab>\r\n      <mat-tab label=\"Basic Info\">\r\n        <ng-template matTabContent>\r\n         \r\n\r\n           <dproz-basic-info>\r\n\r\n           </dproz-basic-info>\r\n\r\n          </ng-template>\r\n         </mat-tab>\r\n      <mat-tab label=\"Services\">   <ng-template matTabContent>\r\n          <div style=\"float:left; margin: 10px 20px; color: \t#50B2EC;\">\r\n              Click the (+) Sign to Add Services\r\n              </div>\r\n        <div style=\"float:right;\">\r\n          <button mat-icon-button (click)=\"openDialog()\">\r\n            <mat-icon>add</mat-icon></button>\r\n          </div>\r\n   <div style=\"clear: both;\">\r\n     <mat-accordion>\r\n       <div *ngFor=\"let category of categoryArray\" >\r\n          <mat-expansion-panel (opened)=\"panelOpenState = true\"\r\n          (closed)=\"panelOpenState = false\">\r\n      <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n      {{category.name}}\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n       <!-- {{panelOpenState ? 'open' : 'closed'}} -->\r\n      </mat-panel-description>\r\n      </mat-expansion-panel-header><ul style=\"list-style-type:square\">\r\n      <div *ngFor=\"let service of category.services\" style=\"clear:both; padding: 0px 0px 10px;\">\r\n        <li>\r\n          <div style=\"float:left;\">{{service.name}}</div><div style=\"float:right;\"><button mat-icon-button (click)=\"deleteService(service)\"> \r\n            <mat-icon>delete</mat-icon></button></div></li>\r\n      </div></ul>\r\n      </mat-expansion-panel>\r\n       </div>\r\n   \r\n</mat-accordion>\r\n   </div>\r\n      \r\n        </ng-template> </mat-tab>\r\n      <mat-tab label=\"Experience\">    <ng-template matTabContent>\r\n          <dproz-experience>\r\n\r\n          </dproz-experience>\r\n          </ng-template> </mat-tab>\r\n\r\n          <mat-tab label=\"Credentials\">\r\n              <ng-template matTabContent>\r\n  \r\n              <dproz-credentials>\r\n                \r\n              </dproz-credentials>\r\n\r\n           \r\n  \r\n              </ng-template>\r\n           </mat-tab>\r\n    </mat-tab-group>\r\n    <!-- <button >View All</button> -->\r\n  </mat-card-actions>\r\n  <!-- <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\"> -->\r\n\r\n \r\n</mat-card></div></div>"
 
 /***/ }),
 
@@ -2836,13 +2820,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChecklistDatabase", function() { return ChecklistDatabase; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServicesComponent", function() { return ServicesComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditServiceComponent", function() { return EditServiceComponent; });
-/* harmony import */ var _shared_services_services_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../shared/services/services.service */ "./src/app/shared/services/services.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
-/* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm5/tree.es5.js");
-/* harmony import */ var _angular_material_tree__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/tree */ "./node_modules/@angular/material/esm5/tree.es5.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_services_authentication_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../shared/services/authentication.service */ "./src/app/shared/services/authentication.service.ts");
+/* harmony import */ var _shared_services_services_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../shared/services/services.service */ "./src/app/shared/services/services.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
+/* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm5/tree.es5.js");
+/* harmony import */ var _angular_material_tree__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/tree */ "./node_modules/@angular/material/esm5/tree.es5.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2855,6 +2840,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+
 
 
 
@@ -2900,7 +2886,7 @@ var TREE_DATA = {};
 var ChecklistDatabase = /** @class */ (function () {
     function ChecklistDatabase(services) {
         this.services = services;
-        this.dataChange = new rxjs__WEBPACK_IMPORTED_MODULE_6__["BehaviorSubject"]([]);
+        this.dataChange = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"]([]);
         this.initialize();
     }
     Object.defineProperty(ChecklistDatabase.prototype, "data", {
@@ -2950,24 +2936,39 @@ var ChecklistDatabase = /** @class */ (function () {
         this.dataChange.next(this.data);
     };
     ChecklistDatabase = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        __metadata("design:paramtypes", [_shared_services_services_service__WEBPACK_IMPORTED_MODULE_0__["ServicesService"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
+        __metadata("design:paramtypes", [_shared_services_services_service__WEBPACK_IMPORTED_MODULE_1__["ServicesService"]])
     ], ChecklistDatabase);
     return ChecklistDatabase;
 }());
 
 var ServicesComponent = /** @class */ (function () {
-    function ServicesComponent(dialog, services) {
+    function ServicesComponent(dialog, services, auth) {
+        this.dialog = dialog;
+        this.services = services;
+        this.auth = auth;
+        this.categories = {};
+        this.categoryArray = new Array();
+        this.panelOpenState = true;
         // services.getServiceCategories().subscribe( c =>{
         //      this.categories = c;
         //      console.log(c);
         // });
-        this.dialog = dialog;
-        this.services = services;
-        this.categories = {};
-        this.categoryArray = new Array();
-        this.panelOpenState = true;
+        //this.setPro();
+        this.setPro();
     }
+    ServicesComponent.prototype.setPro = function () {
+        var businesses = JSON.parse(localStorage.getItem("user_details")).businesses;
+        if (businesses.length > 0) {
+            var proId = businesses[0];
+            this.proRef = proId;
+            this.auth.getPro(proId)
+                .subscribe(function (pro) {
+                console.log(pro);
+                localStorage.setItem("pro_details", JSON.stringify(pro));
+            });
+        }
+    };
     ServicesComponent.prototype.ngOnInit = function () {
         //  throw new Error("Method not implemented.");
         this.user_ref = localStorage.getItem("user-reference");
@@ -2988,13 +2989,19 @@ var ServicesComponent = /** @class */ (function () {
         dialogRef.afterClosed().subscribe(function (result) {
             console.log('The dialog was closed');
             var data = JSON.parse(localStorage.getItem("all_services"));
+            var postingString = "";
+            var count = 0;
             result._selection.forEach(function (element) {
+                if (count > 0)
+                    postingString.concat(",");
+                postingString.concat(element.value);
+                count++;
                 var serv = data.filter(function (v) {
-                    if (v.serviceId == element.value) {
+                    if (v.serviceNumber == element.value) {
                         console.log(element.value);
-                        console.log(v.serviceId);
+                        console.log(v.serviceNumber);
                     }
-                    return (v.serviceId == element.value);
+                    return (v.serviceNumber == element.value);
                 })[0];
                 console.log(serv);
                 var found = false;
@@ -3002,7 +3009,7 @@ var ServicesComponent = /** @class */ (function () {
                     if (c.name == serv.category.categoryName) {
                         var service = new IndividualService();
                         service.name = serv.serviceDescription;
-                        service.id = serv.serviceId;
+                        service.id = serv.serviceNumber;
                         c.services.push(service);
                         found = true;
                     }
@@ -3012,10 +3019,14 @@ var ServicesComponent = /** @class */ (function () {
                     newCat.name = serv.category.categoryName;
                     var service = new IndividualService();
                     service.name = serv.serviceDescription;
-                    service.id = serv.serviceId;
+                    service.id = serv.serviceNumber;
                     newCat.services.push(service);
                     _this.categoryArray.push(newCat);
                 }
+            });
+            _this.services.putServices(_this.proRef, postingString)
+                .subscribe(function (services) {
+                console.log(services);
             });
             console.log(_this.categoryArray);
             console.log(data);
@@ -3024,12 +3035,12 @@ var ServicesComponent = /** @class */ (function () {
         });
     };
     ServicesComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'dproz-services',
             template: __webpack_require__(/*! ./services.component.html */ "./src/app/services/services.component.html"),
             styles: [__webpack_require__(/*! ./services.component.scss */ "./src/app/services/services.component.scss")],
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _shared_services_services_service__WEBPACK_IMPORTED_MODULE_0__["ServicesService"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _shared_services_services_service__WEBPACK_IMPORTED_MODULE_1__["ServicesService"], _shared_services_authentication_service__WEBPACK_IMPORTED_MODULE_0__["AuthenticationService"]])
     ], ServicesComponent);
     return ServicesComponent;
 }());
@@ -3054,7 +3065,7 @@ var EditServiceComponent = /** @class */ (function () {
         /** The new item's name */
         this.newItemName = '';
         /** The selection for checklist */
-        this.checklistSelection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__["SelectionModel"](true /* multiple */);
+        this.checklistSelection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true /* multiple */);
         this.getLevel = function (node) { return node.level; };
         this.isExpandable = function (node) { return node.expandable; };
         this.getChildren = function (node) { return node.children; };
@@ -3076,9 +3087,9 @@ var EditServiceComponent = /** @class */ (function () {
             _this.nestedNodeMap.set(node, flatNode);
             return flatNode;
         };
-        this.treeFlattener = new _angular_material_tree__WEBPACK_IMPORTED_MODULE_5__["MatTreeFlattener"](this.transformer, this.getLevel, this.isExpandable, this.getChildren);
-        this.treeControl = new _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_4__["FlatTreeControl"](this.getLevel, this.isExpandable);
-        this.dataSource = new _angular_material_tree__WEBPACK_IMPORTED_MODULE_5__["MatTreeFlatDataSource"](this.treeControl, this.treeFlattener);
+        this.treeFlattener = new _angular_material_tree__WEBPACK_IMPORTED_MODULE_6__["MatTreeFlattener"](this.transformer, this.getLevel, this.isExpandable, this.getChildren);
+        this.treeControl = new _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_5__["FlatTreeControl"](this.getLevel, this.isExpandable);
+        this.dataSource = new _angular_material_tree__WEBPACK_IMPORTED_MODULE_6__["MatTreeFlatDataSource"](this.treeControl, this.treeFlattener);
         database.dataChange.subscribe(function (data) {
             _this.dataSource.data = data;
             console.trace();
@@ -3120,14 +3131,14 @@ var EditServiceComponent = /** @class */ (function () {
         this.dialogRef.close(this.checklistSelection);
     };
     EditServiceComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'edit-service',
             template: __webpack_require__(/*! ./edit-service-dialog.html */ "./src/app/services/edit-service-dialog.html"),
             styles: [__webpack_require__(/*! ./edit-service-dialog.css */ "./src/app/services/edit-service-dialog.css")],
             providers: [ChecklistDatabase],
         }),
-        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, ChecklistDatabase])
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], Object, ChecklistDatabase])
     ], EditServiceComponent);
     return EditServiceComponent;
 }());
@@ -3576,6 +3587,54 @@ var CredentialTypePipe = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/pipes/days-of-week.pipe.ts":
+/*!***************************************************!*\
+  !*** ./src/app/shared/pipes/days-of-week.pipe.ts ***!
+  \***************************************************/
+/*! exports provided: DaysOfWeekPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DaysOfWeekPipe", function() { return DaysOfWeekPipe; });
+/* harmony import */ var _services_pro_info_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../services/pro-info.service */ "./src/app/shared/services/pro-info.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DaysOfWeekPipe = /** @class */ (function () {
+    function DaysOfWeekPipe(proInfo) {
+        this.proInfo = proInfo;
+        this.daysOfTheWeek = proInfo.getDaysOfTheWeek();
+    }
+    DaysOfWeekPipe.prototype.transform = function (value, args) {
+        var newValue = value;
+        var filtered = this.daysOfTheWeek.filter(function (x) { return x.Id == value; });
+        if (filtered.length > 0)
+            newValue = filtered[0].Name;
+        return newValue;
+    };
+    DaysOfWeekPipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: 'daysOfWeek'
+        }),
+        __metadata("design:paramtypes", [_services_pro_info_service__WEBPACK_IMPORTED_MODULE_0__["ProInfoService"]])
+    ], DaysOfWeekPipe);
+    return DaysOfWeekPipe;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/services/authentication.service.ts":
 /*!***********************************************************!*\
   !*** ./src/app/shared/services/authentication.service.ts ***!
@@ -3632,6 +3691,9 @@ var AuthenticationService = /** @class */ (function () {
     };
     AuthenticationService.prototype.getUser = function (userReference) {
         return this.http.get(_constants_constants__WEBPACK_IMPORTED_MODULE_2__["SERVICING_DOMAIN"] + "/api/dproz/users/" + userReference);
+    };
+    AuthenticationService.prototype.getPro = function (proReferenceId) {
+        return this.http.get(_constants_constants__WEBPACK_IMPORTED_MODULE_2__["SERVICING_DOMAIN"] + "/api/dproz/pros/" + proReferenceId);
     };
     AuthenticationService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
@@ -3702,11 +3764,11 @@ var CredentialsService = /** @class */ (function () {
         return credentials;
     };
     CredentialsService.prototype.getProReferenceId = function () {
-        var proReferenceId = JSON.parse(this.state.getCurrentUser()).businesses[0];
-        if (proReferenceId != undefined)
-            return proReferenceId;
-        else
-            return "";
+        var proReferenceId = "no-business";
+        var proReferences = JSON.parse(this.state.getCurrentUser()).businesses;
+        if (proReferences.length > 0)
+            proReferenceId = proReferences[0];
+        return proReferenceId;
     };
     CredentialsService.prototype.insertCredential = function (credentialData) {
         return this.http.put(_constants_constants__WEBPACK_IMPORTED_MODULE_2__["SERVICING_DOMAIN"] + "/api/dproz/pros/" + this.getProReferenceId() + "/credentials", credentialData);
@@ -3762,9 +3824,9 @@ var DocumentService = /** @class */ (function () {
     DocumentService.prototype.postDocument = function (file, attachmentParentReferenceId, attachmentCategory, attachmentDescription, thumbnail) {
         var options = {
             params: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
-                .set('attachmentParentReferenceId', attachmentParentReferenceId)
-                .set('attachmentCategory', attachmentCategory)
-                .set('attachmentDescription', attachmentDescription)
+                .set('parentReferenceId', attachmentParentReferenceId)
+                .set('category', attachmentCategory)
+                .set('description', attachmentDescription)
                 .set('thumbnail', thumbnail)
         };
         var uploadData = new FormData();
@@ -3840,6 +3902,70 @@ var PlacesService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], PlacesService);
     return PlacesService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/services/pro-info.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/services/pro-info.service.ts ***!
+  \*****************************************************/
+/*! exports provided: ProInfoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProInfoService", function() { return ProInfoService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ProInfoService = /** @class */ (function () {
+    function ProInfoService() {
+    }
+    ProInfoService.prototype.getDaysOfTheWeek = function () {
+        var days;
+        days = [
+            {
+                Id: "MONDAY", Name: "Monday",
+            },
+            {
+                Id: "TUESDAY", Name: "Tuesday",
+            },
+            {
+                Id: "WEDNESDAY", Name: "Wednesday",
+            },
+            {
+                Id: "THURSDAY ", Name: "Thurday",
+            },
+            {
+                Id: "FRIDAY ", Name: "Friday",
+            },
+            {
+                Id: "SATURDAY ", Name: "Saturday",
+            },
+            {
+                Id: "SUNDAY ", Name: "Sunday",
+            }
+        ];
+        return days;
+    };
+    ProInfoService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProInfoService);
+    return ProInfoService;
 }());
 
 
@@ -3945,6 +4071,9 @@ var ServicesService = /** @class */ (function () {
     };
     ServicesService.prototype.getServices = function () {
         return this.http.get(_constants_constants__WEBPACK_IMPORTED_MODULE_2__["SERVICING_DOMAIN"] + "/api/dproz/services");
+    };
+    ServicesService.prototype.putServices = function (proReferenceId, serviceNumbers) {
+        return this.http.put(_constants_constants__WEBPACK_IMPORTED_MODULE_2__["SERVICING_DOMAIN"] + "/api/dproz/pros/" + proReferenceId + "/services/" + serviceNumbers, null);
     };
     ServicesService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -4076,6 +4205,33 @@ var UserService = /** @class */ (function () {
     }
     UserService.prototype.updateprofile = function (referenceId, profile) {
         return this.http.put(_constants_constants__WEBPACK_IMPORTED_MODULE_2__["SERVICING_DOMAIN"] + "/api/dproz/users/" + referenceId, profile);
+    };
+    UserService.prototype.getDaysOfTheWeek = function () {
+        var daysOfTheWeek;
+        daysOfTheWeek = [
+            {
+                Id: "MONDAY", Name: "Monday",
+            },
+            {
+                Id: "TUESDAY", Name: "Membership",
+            },
+            {
+                Id: "WEDNESDAY", Name: "Wednesday",
+            },
+            {
+                Id: "THURSDAY ", Name: "Thursday",
+            },
+            {
+                Id: "FRIDAY ", Name: "Friday",
+            },
+            {
+                Id: "SATURDAY ", Name: "Saturday",
+            },
+            {
+                Id: "SUNDAY ", Name: "Sunday",
+            },
+        ];
+        return daysOfTheWeek;
     };
     UserService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
