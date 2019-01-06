@@ -18,7 +18,7 @@ import { DprozAboutUsComponent } from './dproz-about-us/dproz-about-us.component
 import { DocumentService } from './shared/services/document.service';
 import { ServicesComponent, EditServiceComponent } from './services/services.component';
 import { MatMenuModule, MatCardModule, MatTabsModule, MatStepperModule, MatListModule, MatDialogModule, MatInputModule, MatFormFieldModule, MatTreeModule, MatIconModule, MatProgressBarModule, MatCheckboxModule, MatButtonModule, MatIconRegistry, MatExpansionModule, MatDatepickerModule, MatNativeDateModule, MatOptionModule, MatSelectModule, MatPaginatorModule, MatChipsModule } from '@angular/material';
-import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { ServiceModule } from './service/service.module';
@@ -26,9 +26,6 @@ import { BasicInfoComponent } from './services/basic-info/basic-info.component';
 import { DprozProfProfileComponent } from './dproz-prof-profile/dproz-prof-profile.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DprozExperienceComponent } from './services/dproz-experience/dproz-experience.component';
-import { AngularFileUploaderModule } from "angular-file-uploader";
-import { MatFileUploadModule } from 'angular-material-fileupload';
-import { FileDropModule } from 'ngx-file-drop';
 import { DprozCredentialsComponent } from './services/dproz-credentials/dproz-credentials.component';
 
 import { ResponsiveMenuDirective } from './shared/directives/responsive-menu.directive';
@@ -40,25 +37,25 @@ export const httpInterceptorProviders = [
 ];
 @NgModule({
   declarations: [
-    AppComponent, ResponsiveMenuDirective,CredentialTypePipe, DaysOfWeekPipe,
+    AppComponent, ResponsiveMenuDirective, CredentialTypePipe, DaysOfWeekPipe,
     HeaderComponent,
     DprozContactUsComponent,
     DprozAboutUsComponent,
     ServicesComponent, EditServiceComponent, BasicInfoComponent, DprozProfProfileComponent, DprozExperienceComponent, DprozCredentialsComponent,
-   
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule,
-    // Routing  
+    // Routing
     AppRoute, AngularFontAwesomeModule, MatOptionModule, MatSelectModule, MatPaginatorModule, MatChipsModule,
-    DprozModule, FormsModule,ReactiveFormsModule, MatFormFieldModule, MatStepperModule,MatInputModule, MatTreeModule, MatIconModule,MatProgressBarModule,
-    MatCardModule, MatTabsModule, BrowserAnimationsModule, MatListModule, MatDialogModule, 
+    DprozModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatStepperModule, MatInputModule, MatTreeModule, MatIconModule, MatProgressBarModule,
+    MatCardModule, MatTabsModule, BrowserAnimationsModule, MatListModule, MatDialogModule,
     ServiceModule, MatCheckboxModule, MatButtonModule, MatIconModule, MatMenuModule, MatExpansionModule, MatDatepickerModule, MatNativeDateModule,
-    MatCheckboxModule, AngularFileUploaderModule,FileDropModule
+    MatCheckboxModule
   ],
-  entryComponents: [EditServiceComponent,],
+  entryComponents: [EditServiceComponent, ],
   providers: [
     AuthenticationService,
     StateService,
