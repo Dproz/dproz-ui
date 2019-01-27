@@ -44,7 +44,7 @@ export const httpInterceptorProviders = [
     HeaderComponent,
     DprozContactUsComponent,
     DprozAboutUsComponent,
-    ServicesComponent, EditServiceComponent, BasicInfoComponent, DprozProfProfileComponent, DprozExperienceComponent, 
+    ServicesComponent, EditServiceComponent, BasicInfoComponent, DprozProfProfileComponent, DprozExperienceComponent,
     DprozCredentialsComponent
   ],
   imports: [

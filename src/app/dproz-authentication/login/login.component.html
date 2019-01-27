@@ -1,50 +1,89 @@
-<div class="form-container overlay">
-    <div class="row">
-      <div *ngIf="activeForm==='loginForm'" class="offset-md-5 offset-sm-3 col-md-14 col-sm-18 form">
-        <div class="form-text">
-          <h2 class="overlay-text">Log Into Your Provider or Consumer Account</h2>
-        </div>
-        <div class="form-inputs">
-          <div class="form-icon"> 
-            <p>LOGIN</p>
+  <div>Hey I am {{activeForm}}</div>
+  <div *ngIf="activeForm==='loginForm'" class="row singup_row_style form_top_row_style">
+      <div class="col-lg-6 col-md-6  col-sm-4 col-xs-4"></div>
+      <div class="col-lg-12 col-md-12 col-sm-16 col-xs-16 signup_style login_style">
+        <div div class="main-login main-center card " style="padding: 0px 10px;">
+          <div class="top_s_style info-color white-text">
+            <h4 class="text-center">
+              <i class="fa fa-lock"></i> LOGIN
+            </h4>
           </div>
-          <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" novalidate>
-            <p *ngIf="loginErrorResponse" class="error" style="text-align: center">Either emailId or password were incorrect. Please try again.</p>
-            <div>
-              <label for="email">USERNAME</label>
-              <input type="text" name="" id="email" placeholder="Email Address" formControlName="username">
-              <span *ngIf="loginForm.get('username').errors && loginForm.get('username').touched" class="error">Please enter an emailId.</span>
-            </div>
-            <div style="margin-bottom: 12px;">
-              <label for="email">PASSWORD</label>
-              <input type="password" name="" id="password" placeholder="Email Password" formControlName="password">
-              <span *ngIf="loginForm.get('password').errors && loginForm.get('password').touched" class="error">Please enter a password.</span>
-              <span style="display: none;" >Recover Password</span>
-            </div>
-            <p><a href="javascript:;" (click)="toggleForm()">*Recover Password</a></p>
-            <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">LOG IN</button>                
-          </form>
+        <div class="row">
+          <div class="col-sm-4 col-xs-8"></div>
+          <div class="col-sm-16 col-xs-8">
+            <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" novalidate>
+              <div class="row">
+              <p *ngIf="loginErrorResponse" class="error" style="text-align: center; color:red">Either emailId or password were incorrect.
+                              Please try again.</p>
+
+                <div class="col-sm-24">
+                  <div class="form-group">
+                        <mat-form-field  class="full-width">
+                          <input matInput placeholder="Enter Email"  id="email" formControlName="username">
+                          <mat-error *ngIf="!loginForm.controls['username'].valid">Please enter a valid email address</mat-error>
+                        </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-sm-24">
+                  <div class="form-group">
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Enter Password" id="password" type="password" formControlName="password">
+                        </mat-form-field>
+                  </div>
+                </div>
+                <div class="form_new text-center ">
+                  <div class="input input--hoshi text-left">
+                    <label for="" class=" ">
+                      <span class="fa fa-key"> </span><span class=" text-capitalize"><a class="theme_text_color" href="javascript:;" (click)="toggleForm()">
+                          Recovery Password</a></span>
+                      </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form_sub_btn_style text-center pt-3">
+                <button class="btn btn_style" type="submit" [disabled]="loginForm.invalid">Login</button>
+              </div>
+              
+            </form>
+          </div>
+          <div class="col-sm-4 col-xs-8"></div>
+        </div>  
         </div>
       </div>
-      <div *ngIf="activeForm==='forgotPasswordForm'" class="offset-md-5 offset-sm-3 col-md-14 col-sm-18 form">
-        <div class="form-text">
-          <h2 class="overlay-text">Enter your Email address</h2>
-        </div>
-        <div class="form-inputs">
-          <div class="form-icon"> 
-            <p>Forgot Password</p>
-          </div>
-          <form [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPasswordSubmit()" novalidate>
-            <p *ngIf="fpErrorResponse" class="error" style="text-align: center">Either emailId or password were incorrect. Please try again.</p>
-            <div style="margin-bottom: 12px;">
-              <label for="email">Email Address</label>
-              <input type="text" name="" id="email" placeholder="Email Address" formControlName="emailAddress">
-              <span *ngIf="forgotPasswordForm.get('emailAddress').errors && forgotPasswordForm.get('emailAddress').touched" class="error">Please enter an emailId.</span>
-            </div>
-            <p><a  href="javascript:;" (click)="toggleForm()">*Go to Login Page</a></p>
-            <button class="btn btn-primary" type="submit" [disabled]="forgotPasswordForm.invalid">Submit</button>                
-          </form>
-        </div>
-      </div>
-    </div>
+      <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4"></div>
   </div>
+
+<div *ngIf="activeForm==='forgotPasswordForm'" class="row singup_row_style form_top_row_style">
+    <div class="col-lg-6 col-md-6  col-sm-4 col-xs-4"></div>
+          <div class="col-lg-12 col-md-12 col-sm-16 col-xs-16 signup_style login_style">
+        <div div class="main-login main-center card " style="padding: 0px 10px;">
+          <div class="top_s_style info-color white-text">
+            <h4 class="text-center">
+              <i class="fa fa-lock"></i> RECOVERY PASSWORD
+            </h4>
+          </div>
+              <div class="row">
+                <div class="col-sm-4 col-xs-8"></div>
+                <div class="col-sm-16 col-xs-8">
+        <form [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPasswordSubmit()" novalidate>
+          <div class="col-sm-24">
+                      <p *ngIf="fpErrorResponse" class="error" style="text-align: center; color: red">Not a registered Email</p>
+            <div class="form-group">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Enter Email" id="emailAddress" formControlName="emailAddress">
+                <mat-error *ngIf="!forgotPasswordForm.controls['emailAddress'].valid">Please enter a valid email address</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-group form_sub_btn_style text-center pt-3">
+            <button class="btn btn_style" type="submit" [disabled]="forgotPasswordForm.invalid">Send Email</button>
+          </div>
+        </form>
+          <div class="col-sm-4 col-xs-8"></div>
+        </div>
+      </div>
+  </div>   
+</div>
+<div *ngIf="activeForm==='emailConfirmationForm'" class="row singup_row_style form_top_row_style">
+ <div>Hey I am thereeeee {{activeForm}}</div>
+</div>

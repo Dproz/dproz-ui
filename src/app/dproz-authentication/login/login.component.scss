@@ -1,1 +1,93 @@
-@import '../../shared/style/form'
+@import '../../shared/style/form';
+
+
+.full-width {
+  width: 100%;
+}
+.form_new {
+  width: 100%
+}
+.input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 3px;
+	max-width: 388px;
+	width: calc(100% - 2em);
+	vertical-align: top;
+}
+
+.graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
+}
+
+.icon {
+	color: #ddd;
+	font-size: 150%;
+}
+
+.form_sub_btn_style .btn_style{
+    color: #fff;
+    background: #03a9f4; 
+    border:none;
+    border-radius: 12px;
+    padding: 8px 130px;
+    font-size: 19px;
+}
+
+.login_style{
+	padding: 10; 
+	padding-top: 0px!important;
+	overflow: hidden;
+}
+
+@media only screen and (max-width: 900px) and (min-width: 300px) {
+  .contain_style h4 {
+    font-size: 21px !important;
+  }
+  .form_sub_btn_style .btn_style {
+    padding: 9px 60px;
+  }
+  .top_s_style h4 {
+    font-size: 17px;
+  }
+}
+
+.form-control:focus {
+    color: #495057;
+   /* background-color: #fff;*/
+    border-color: #b7b7b7;
+    color: #214444;
+    box-shadow:none;
+}
+.form-control{
+	font-family: "TT Norms","proxima-nova","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.singup_row_style {
+  margin: 0px;
+  font-family: "TT Norms", "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+}
+
+.form_top_row_style{
+	background: #eae9e9;
+	padding-top:9em!important;
+	padding-bottom: 0;
+	padding-bottom: 1em;	
+}
+
+.top_s_style{
+	padding-top: 11px;
+	box-shadow: 0px 1px 1px rgba(230, 230, 230, 0.5);
+}
+.top_s_style h4{
+	padding: 7px;
+	color: #a5a5a5;
+}
+.top_s_style .close{
+	font-size: 31px;
+	color: #9f9f9f;
+}

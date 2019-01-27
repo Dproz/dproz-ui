@@ -8,11 +8,14 @@ import { RouterModule } from '@angular/router';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule
@@ -21,7 +24,7 @@ import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
   providers: [
     {
       provide: RECAPTCHA_SETTINGS,
-      useValue: { siteKey: "6Lejo2kUAAAAAKpLBaJ4NtKM6tuv8wgIB9Wr0big" } as RecaptchaSettings,
+      useValue: { siteKey: '6Lejo2kUAAAAAKpLBaJ4NtKM6tuv8wgIB9Wr0big' } as RecaptchaSettings,
     }
   ]
 })
