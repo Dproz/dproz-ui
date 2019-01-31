@@ -103,6 +103,9 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  onConfirmedEmail() {
+    // do nothing here
+  }
   onForgotPasswordSubmit() {
     this.service
       .forgotPassword(this.forgotPasswordForm.getRawValue())

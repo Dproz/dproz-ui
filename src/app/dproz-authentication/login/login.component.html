@@ -1,5 +1,4 @@
-  <div>Hey I am {{activeForm}}</div>
-  <div *ngIf="activeForm==='loginForm'" class="row singup_row_style form_top_row_style">
+<div *ngIf="activeForm==='loginForm'" class="row singup_row_style form_top_row_style">
       <div class="col-lg-6 col-md-6  col-sm-4 col-xs-4"></div>
       <div class="col-lg-12 col-md-12 col-sm-16 col-xs-16 signup_style login_style">
         <div div class="main-login main-center card " style="padding: 0px 10px;">
@@ -84,6 +83,33 @@
       </div>
   </div>   
 </div>
+</div>
 <div *ngIf="activeForm==='emailConfirmationForm'" class="row singup_row_style form_top_row_style">
- <div>Hey I am thereeeee {{activeForm}}</div>
+      <div class="col-lg-6 col-md-6  col-sm-4 col-xs-4"></div>
+      <div class="col-lg-12 col-md-12 col-sm-16 signup_style login_style p-3">
+        <div class="main-login main-center card  px-2">
+          <div class="top_s_style info-color white-text ">
+            <h4 class="text-center">
+              <i class="fa fa-lock"></i> RECOVERY PASSWORD
+            </h4>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-xs-8"></div>
+            <div class="col-sm-16 col-xs-8">
+              <form [formGroup]="emailConfirmationForm" (ngSubmit)="onConfirmedEmail()" novalidate>
+                <div class="text-center py-5">
+                  <img src="../../assets/images/checkimg.png" style="width: 70px;">
+                  <h5>An email has been sent to your Registered email</h5>
+                </div>
+                <div class="text-center email_btn">
+                  <a class="theme_text_color" href="javascript:;" (click)="goToLoginPage()"><span class="text-center theme_text_color">Go to Login Email</span></a>
+                </div>
+      
+              </form>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3"></div>
 </div>
