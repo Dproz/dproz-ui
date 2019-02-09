@@ -5,4 +5,71 @@
     margin-right: 2vw;
     min-width: 123px;
   }
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
+
+.btn.disabled, .btn:disabled {
+    opacity: 0.15;
+}
+
+.form_sub_btn_style .btn_style{
+    color: #fff;
+    background: #03a9f4; 
+    border:none;
+    border-radius: 12px;
+    padding: 8px 130px;
+    font-size: 19px;
+}
+
+.chackbox_style1 .sclass{
+text-align: justify!important;	
+}
+.sclass {
+  font-size: 14px;
+}
+.sclass b{
+	color: #606096;
+	text-align: justify;
+}
+
+.submission_error {
+  color: red;
+}
+
+@media only screen and (max-width: 900px) and (min-width: 300px) {
+  .form_sub_btn_style .btn_style {
+    padding: 9px 60px;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.top_s_style{
+	padding-top: 11px;
+	box-shadow: 0px 1px 1px rgba(230, 230, 230, 0.5);
+}
+.top_s_style h4{
+	padding: 7px;
+	color: #a5a5a5;
+}
+
+.mat-radio-button{
+  margin: 0 5px;
+}
+
+.raido-hint{
+  font-size: 12px;
+  color: rgba(0,0,0,.54);
+}
+
+.radio-button-txt{
+  color: rgba(0,0,0,.54);
+}
+
+.radio-label{
+  color: rgba(0,0,0,.54);
+}
+

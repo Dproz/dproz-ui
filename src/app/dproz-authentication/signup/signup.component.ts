@@ -1,6 +1,6 @@
 import { debounce } from 'rxjs/operators';
 import { Component, OnInit, } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { StateService } from '../../shared/services/state.service';
@@ -10,6 +10,10 @@ import { PlacesService } from '../../shared/services/places.service';
 import { timer } from 'rxjs';
 import { passwordMatchValidator } from '../../shared/validators/professional-profile';
 import { PASS_PATTERN } from '../../shared/constants/constants';
+import { PHONE_PATTERN } from '../../shared/constants/constants';
+import { MatRadioChange } from '@angular/material/radio';
+import { MatSelectChange } from '@angular/material';
+import { MatCheckbox } from '@angular/material';
 
 
 
@@ -30,14 +34,19 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   user = '';
+  countries = [];
   states = [];
+  regions = [];
   cities = [];
   counties = [];
   streets = [];
-  selectedState = '';
+  selectedRegion = '';
   selectedCity = '';
   selectedCounty = '';
-  
+  selectedCountry = '';
+  selectedStreet = '';
+  submissionError = undefined;
+
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -48,74 +57,79 @@ export class SignupComponent implements OnInit {
       emailAddress: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', [Validators.pattern(PASS_PATTERN)]],
       repeatPassword: ['', Validators.required],
-      // profilePictureUrl: null,
       lastChangedPasswordOn: null,
       verificationDate: null,
       verified: true,
       recaptcha: [null, Validators.required],
-      phone: this.fb.group({
-        phoneNumber: '',
-        primary: true,
-        contactMethod: 'CALL'
-      }),
-      address: this.fb.group({
-        longitude: [0, [this.requiredValidator.bind(this)]],
-        latitude: [0, this.requiredValidator.bind(this)],
-        street: ['', this.requiredValidator.bind(this)],
-        city: ['', this.requiredValidator.bind(this)],
-        county: ['', this.requiredValidator.bind(this)],
-        region: ['', this.requiredValidator.bind(this)],
-        country: ['', this.requiredValidator.bind(this)],
-        postcode: ['', this.requiredValidator.bind(this)],
-        timezone: ['', this.requiredValidator.bind(this)]
-      })
+      agreeToTerms: [false, Validators.requiredTrue]
     });
 
-    let password = this.signupForm.get('password') as FormControl;
-    let repeatPassword = this.signupForm.get('repeatPassword') as FormControl;
+    const password = this.signupForm.get('password') as FormControl;
+    const repeatPassword = this.signupForm.get('repeatPassword') as FormControl;
 
-    password.valueChanges.pipe( debounce( ()=> timer(1000)))
-                         .subscribe( pass =>{
-
-                          console.log(pass);
+    password.valueChanges.pipe( debounce( () => timer(1000)))
+                         .subscribe( pass => {
                           repeatPassword.setValidators(passwordMatchValidator(pass));
-              
                          });
-
-                  
-
-    this.placesService.getRegions().subscribe(regions => {
-      this.states = regions;
-      console.log(this.states);
-
+    this.placesService.getCountries().subscribe(countries => {
+      this.countries = countries;
+      console.log(this.countries);
     });
-
-    this.userChange();
   }
 
   onSubmit() {
     if (this.signupForm.get('password').value !== this.signupForm.get('repeatPassword').value) {
-      this.signupForm.get('repeatPassword').setErrors({ passMismatch: "password" })
+      this.signupForm.get('repeatPassword').setErrors({ passMismatch: 'password' });
     }
-    if (!isEmail.validate(this.signupForm.get('emailAddress').value))
+    if (!isEmail.validate(this.signupForm.get('emailAddress').value)) {
       this.signupForm.get('emailAddress').setErrors({ invalidEmail: 'error' });
-
+    }
     if (this.signupForm.valid) {
-      let form = this.signupForm.getRawValue();
-      // if (form.userType === 'USER') {
-      //   delete form.address;
-      // }
+      const form = this.signupForm.value;
       this.service.signup(form).subscribe(({ userReferenceId }) => {
         window.sessionStorage.setItem('encoded', window.btoa(this.signupForm.get('emailAddress').value));
         this.state.setReferenceId(userReferenceId);
-        this.state.setIdentity({ emailAddress: form.emailAddress })
+        this.state.setIdentity({ emailAddress: form.emailAddress });
         this.router.navigate(['../dproz/authenticate']);
       }, error => {
-        window.sessionStorage.setItem('encoded', window.btoa(this.signupForm.get('emailAddress').value));
-        // this.router.navigate(['../dproz/authenticate']);
-        console.log(error, `Error!!!!`)
+          window.sessionStorage.setItem('encoded', window.btoa(this.signupForm.get('emailAddress').value));
+          this.submissionError = 'Error occured during signUp. Please try again later';
+        this.signupForm.reset();
       });
 
+    }
+  }
+
+  /**
+   * For non PRO user send address and phone as null.
+   */
+  removeFormElements() {
+    if (!this.isProUser()) {
+      this.signupForm.removeControl('address');
+      this.signupForm.removeControl('phone');
+    }
+  }
+
+  addProFormElements() {
+    if (this.isProUser) {
+      this.signupForm.addControl('address', this.fb.group(
+        {
+          longitude: [0, [this.requiredValidator.bind(this)]],
+          latitude: [0, this.requiredValidator.bind(this)],
+          street: ['', this.requiredValidator.bind(this)],
+          city: ['', this.requiredValidator.bind(this)],
+          county: ['', this.requiredValidator.bind(this)],
+          region: ['', this.requiredValidator.bind(this)],
+          country: ['', this.requiredValidator.bind(this)],
+          postcode: ['', this.requiredValidator.bind(this)],
+          timezone: ['', this.requiredValidator.bind(this)]
+        }
+      ));
+      this.signupForm.addControl('phone', this.fb.group({
+        phoneNumber: ['', [this.requiredValidator.bind(this), this.phonePatternValidator.bind(this)]],
+        primary: true,
+        contactMethod: 'CALL'
+      }));
     }
   }
 
@@ -123,77 +137,99 @@ export class SignupComponent implements OnInit {
     console.log(`Resolved captcha with response ${captchaResponse}:`);
   }
 
-  userChange() {
-    this.signupForm.get('userType').valueChanges.subscribe(v => {
-      Object.keys((this.signupForm.get('address') as FormGroup).controls).forEach(element => {
-        this.signupForm.get('address').get(element).updateValueAndValidity();
-      });
-    })
+  countryChanged(countrySelectionChange: MatSelectChange) {
+    this.placesService.getRegions(countrySelectionChange.value).subscribe(regions => {
+     this.regions = regions;
+    });
+    this.selectedCountry = countrySelectionChange.value;
   }
 
-  addressChange(e) {
-    if (e.target.id === 'state') {
-      this.selectedState = e.target.value;
-      this.signupForm.get('address').get('region').setValue(null);
-      this.signupForm.get('address').get('county').setValue(null);
-      this.signupForm.get('address').get('street').setValue(null);
-      this.placesService.getCities(this.selectedState).subscribe(cities => {
-        this.cities = cities;
-      })
-    } else if (e.target.id === 'city') {
-      this.signupForm.get('address').get('county').setValue(null);
-      this.signupForm.get('address').get('street').setValue(null);
-      this.selectedCity = e.target.value
-      this.placesService.getCounties(this.selectedState, this.selectedCity).subscribe(counties => {
-        this.counties = counties;
-      })
-    } else if (e.target.id === 'county') {
-      this.signupForm.get('address').get('street').setValue(null);
-      this.selectedCounty = e.target.value;
-      this.placesService.getStreets(this.selectedState, this.selectedCity, this.selectedCounty).subscribe(streets => {
+  regionChanged(regionSelectionChange: MatSelectChange) {
+    this.placesService.getCities(regionSelectionChange.value, this.selectedCountry).subscribe(cities => {
+      this.cities = cities;
+    });
+    this.selectedRegion = regionSelectionChange.value;
+  }
+
+  cityChanged(citySelectionChange: MatSelectChange) {
+    this.placesService.getCounties(this.selectedRegion, citySelectionChange.value, this.selectedCountry).subscribe(counties => {
+      this.counties = counties;
+    });
+    this.selectedCity = citySelectionChange.value;
+  }
+
+  countyChanged(countySelectionChange: MatSelectChange) {
+    this.placesService.getStreets(this.selectedRegion, this.selectedCity, countySelectionChange.value,
+      this.selectedCountry).subscribe(streets => {
         this.streets = streets;
-      })
-    } else if (e.target.id === 'street') {
-      let addressSelected: any = this.streets.find(el => el._street === e.target.value && el._county === this.selectedCounty);
-
-      this.signupForm.patchValue({
-        address: {
-          longitude: addressSelected._longitude,
-          latitude: addressSelected._latitude,
-          street: addressSelected._street,
-          city: addressSelected._city,
-          county: addressSelected._county,
-          postcode: addressSelected._postcode,
-          region: addressSelected._region,
-          country: addressSelected._country,
-          timezone: addressSelected._timezone
-        }
-      });
-      console.log(this.signupForm.get('address'));
-    }
+    });
+    this.selectedCounty = countySelectionChange.value;
   }
 
-  userType(e) {
+  streetChanged(streetSelectionChange: MatSelectChange) {
+    const currentStreet: any = streetSelectionChange.value;
+    this.selectedStreet = streetSelectionChange.value;
+    console.log(currentStreet);
+    this.signupForm.patchValue({
+      address: {
+        longitude: currentStreet._longitude,
+        latitude: currentStreet._latitude,
+        street: currentStreet._street,
+        city: currentStreet._city,
+        county: currentStreet._county,
+        postcode: currentStreet._postcode,
+        region: currentStreet._region,
+        country: currentStreet._country,
+        timezone: currentStreet._timezone
+      }
+    });
+  }
 
-    this.user = e.target.id;
-    let { checked } = e.target;
-    if (checked)
-      this.signupForm.get('userType').setValue(this.user);
-    else
-      this.signupForm.get('userType').setValue('');
+  // IF not populated correctly - you could get aggregated FormGroup errors object
+getErrors (formGroup: FormGroup, errors: any = {}) {
+  Object.keys(formGroup.controls).forEach(field => {
+    const control = formGroup.get(field);
+    if (control instanceof FormControl) {
+      errors[field] = control.errors;
+    } else if (control instanceof FormGroup) {
+      errors[field] = this.getErrors(control);
+    }
+  });
+  return errors;
+}
+
+
+
+  isProUser() {
+    return !this.signupForm || this.signupForm.get('userType').value === 'PRO';
+  }
+
+  userTypeChange(userTypeChanged: MatRadioChange) {
+    this.signupForm.userType = userTypeChanged.value;
+    this.addProFormElements();
+    this.removeFormElements();
+    this.submissionError = undefined;
   }
 
   userTypeError() {
-    this.signupForm.get('userType').errors
+   return this.signupForm.get('userType').errors;
   }
 
-  hasError(input, type?: string) {
+  misMatchPassword() {
+    return this.signupForm.get('password').value !== this.signupForm.get('repeatPassword').value;
+  }
+
+  hasError(input: any, type?: string) {
     return (type ? this.signupForm.get(input).getError(type) : this.signupForm.get(input).errors)
       && this.signupForm.get(input).touched;
   }
 
-  requiredValidator(c) {
-    return (this.user === 'PRO' && !c.value) ? { required: true } : null;
+  requiredValidator(c: any) {
+    return ( this.isProUser() && !c.value) ? { required: true } : null;
   }
 
+  phonePatternValidator(c: any) {
+    return (this.isProUser() ? PHONE_PATTERN.test(c.value) ? null :
+      { 'pattern': { 'requiredPattern': PHONE_PATTERN.toString(), 'actualValue': c.value } } : null);
+  }
 }

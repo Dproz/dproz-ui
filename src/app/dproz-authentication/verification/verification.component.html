@@ -1,32 +1,68 @@
-<div class="form-container overlay">
-    <div class="row">
-      <div class="offset-md-5 offset-sm-3 col-md-14 col-sm-18 form">
-        <div class="form-text">
-          <h2 class="overlay-text">{{ pageIntent }}</h2>
-          <p class="overlay-text" *ngIf="activeForm==='verificationForm'">Please fill in your verification code sent over the email<strong style="color: black" *ngIf="email">: {{ email }} </strong>you registered.</p>
-        </div>
-        <div class="form-inputs">
-          <div class="form-icon"> 
-            <p>{{ activeForm==='verificationForm' ? 'VERIFICATION' : 'ENTER EMAIL' }}</p>
-          </div>
-          <div *ngIf="activeForm==='verificationForm'">
-            <form [formGroup]="verificationForm" (ngSubmit)="onSubmit()" novalidate>
-              <label for="code">CODE</label>
-              <input type="text" name="" id="code" placeholder="Enter Code" formControlName="code">
-              <span *ngIf="this.verificationForm.errors" class="error">Please enter the verification code.</span>
-              <button class="btn btn-primary" type="submit" value="Verify" [disabled]="!verificationForm.valid">VERIFY</button>            
-            </form>
-          </div>
-          <div *ngIf="activeForm==='resendTokenForm'">
-            <form [formGroup]="resendTokenForm" (ngSubmit)="onSubmit()" novalidate>
-              <label for="emailId">EMAIL</label>
-              <input type="text" name="emailId" id="code" placeholder="Enter Email" formControlName="emailId">
-              <span *ngIf="this.resendTokenForm.errors" class="error">Please enter the Email address.</span>
-              <button class="btn btn-primary" type="submit" value="Submit" [disabled]="!resendTokenForm.valid">Submit</button>            
-            </form>
-          </div>
-        </div>
+<div *ngIf="activeForm==='verificationForm'" class="row singup_row_style form_top_row_style">
+  <div class="col-lg-6 col-md-6  col-sm-4 col-xs-4"></div>
+  <div class="col-lg-12 col-md-12 col-sm-16 col-xs-16 signup_style login_style">
+    <div div class="main-login main-center card " style="padding: 0px 10px;">
+      <div class="top_s_style info-color white-text">
+        <h4 class="text-center">
+          <i class="fa fa-lock"></i> VERIFICATION
+        </h4>
       </div>
-  
+      <div class="row">
+        <div class="col-sm-4 col-xs-8"></div>
+        <div class="col-sm-16 col-xs-8">
+          <form [formGroup]="verificationForm" (ngSubmit)="onSubmit()" novalidate>
+                      <div class="col-sm-24">
+                        <div class="form-group">
+                          <mat-form-field class="full-width">
+                            <input matInput placeholder="Enter Verification Code" id="code" formControlName="code">
+                            <mat-error *ngIf="this.verificationForm.errors">Please enter the verification code.
+                            </mat-error>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="form-group form_sub_btn_style text-center pt-3">
+                        <button class="btn btn_style" type="submit" value="Verify" [disabled]="!verificationForm.valid">VERIFY</button>
+                        <p class="pt-3">Click on <span style="color:#0f8bce;"><a class="theme_text_color" href="javascript:;"
+                              (click)="toggleForm()"> Resend </a></span> the verification code again</p>
+                      </div>
+            </form>
+        </div>
+        <div class="col-sm-4 col-xs-8"></div>
+      </div>
     </div>
   </div>
+  <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4"></div>
+</div>
+<div *ngIf="activeForm==='resendTokenForm'" class="row singup_row_style form_top_row_style">
+  <div class="col-lg-6 col-md-6  col-sm-4 col-xs-4"></div>
+  <div class="col-lg-12 col-md-12 col-sm-16 col-xs-16 signup_style login_style">
+    <div div class="main-login main-center card " style="padding: 0px 10px;">
+      <div class="top_s_style info-color white-text">
+        <h4 class="text-center">
+          <i class="fa fa-lock"></i> RESEND TOKEN
+        </h4>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-xs-8"></div>
+        <div class="col-sm-16 col-xs-8">
+          <form [formGroup]="resendTokenForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="col-sm-24">
+              <div class="form-group">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Enter Email" id="emailId" formControlName="emailId">
+                  <mat-error *ngIf="this.resendTokenForm.errors">Please enter the Email address.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-group form_sub_btn_style text-center pt-3">
+              <button class="btn btn_style" type="submit" value="Submit" [disabled]="!resendTokenForm.valid">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-4 col-xs-8"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4"></div>
+</div>

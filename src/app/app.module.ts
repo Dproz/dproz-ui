@@ -55,7 +55,7 @@ export const httpInterceptorProviders = [
     AppRoute, AngularFontAwesomeModule, MatOptionModule, MatSelectModule, MatPaginatorModule, MatChipsModule,
     DprozModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatStepperModule, MatInputModule,
     MatTreeModule, MatIconModule, MatProgressBarModule, MatCardModule, MatTabsModule, BrowserAnimationsModule,
-    MatListModule, MatDialogModule, ServiceModule, MatCheckboxModule, MatButtonModule, MatIconModule,
+    MatListModule, MatDialogModule, ServiceModule, MatCheckboxModule, MatButtonModule,
     MatMenuModule, MatExpansionModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule
   ],
   entryComponents: [EditServiceComponent, ],

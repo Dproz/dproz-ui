@@ -1,81 +1,151 @@
-<div class="form-container overlay">
-  <div class="row">
-    <div class="offset-md-5 offset-sm-3 col-md-14 col-sm-18 form">
-      <div class="form-text">
-        <h2 class="overlay-text">Create An Account</h2>
-        <p class="overlay-text">Please fill in your information and choose to be Provider or Consumer.</p>
-      </div>
-      <div class="form-inputs">
-        <div class="form-icon"> 
-          <p>SIGNUP</p>
-        </div>
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
-          <div class="form-element">
-            <label for="first-name">FIRST NAME</label>
-            <input type="text" name="" id="first-name"  placeholder="Enter First Name" formControlName="firstName">
-            <span *ngIf="hasError('firstName', 'required')" class="error">Please enter first name.</span>
-            <span *ngIf="hasError('firstName', 'minlength')" class="error">First Name should be at least 2 characters.</span>
+<div class="row singup_row_style form_top_row_style">
+      <div class="col-lg-6 col-md-6  col-sm-4"></div>
+      <div class="col-lg-12 col-md-12  col-sm-16 signup_style">
+        <div class="main-login main-center card px-2">
+          <div class="top_s_style  white-text ">
+            <h4 class="text-center">
+              <i class="fa fa-user" style="color:#c6c6c6;"></i> SIGNUP
+            </h4>
           </div>
-          <div class="form-element">
-            <label for="last-name">LAST NAME</label>
-            <input type="text" name="" id="last-name" placeholder="Enter Last Name" formControlName="lastName">
-            <span *ngIf="hasError('lastName', 'required')" class="error">Please enter last name.</span>
-            <span *ngIf="hasError('lastName', 'minlength')" class="error">Last Name should be at least 2 characters.</span>
-          </div>
-          <div class="form-element">
-            <label for="email">EMAIL</label>
-            <input type="text" name="" id="email" placeholder="Enter Email" formControlName="emailAddress">
-            <span *ngIf="hasError('emailAddress', 'required')" class="error">Please enter your email.</span>
-            <span *ngIf="hasError('emailAddress', 'invalidEmail')" class="error">Please enter a valid email.</span>
-            <span *ngIf="hasError('emailAddress', 'email')" class="error">Please enter a valid email.</span>
-          </div>
-          <div class="form-element">
-            <label for="password">PASSWORD</label>
-            <input type="password" name="password" id="password" placeholder="Enter Password" formControlName="password">
-            <span *ngIf="hasError('password', 'required')" class="error">Please enter a password.</span>
-            <span *ngIf="hasError('password', 'pattern')" class="error">Password should be at least 8 characters, one Upper case, number and one non-alphanumeric.</span>
-          </div>
-          <div class="form-element">
-            <label for="name">RE-TYPE PASSWORD</label>
-            <input type="password" name="" id="retype-password" placeholder="Re-Enter Password" formControlName="repeatPassword">
-            <span *ngIf="hasError('repeatPassword', 'required')" class="error">Please re-enter your password.</span>
-             <span *ngIf="signupForm.get('repeatPassword').getError('passMismatch')" class="error">The passwords do not match. Please retry.</span>
-            <span *ngIf="signupForm.get('repeatPassword').getError('confirmedPassword')" class="error">The your passwords do not match. Please retry.</span>
-     
-          </div>
-          <div class="user-type form-element">
-            <p>USER TYPE</p>
-            <input type="checkbox" name="Service Provider" id="PRO" (click)="userType($event)" [checked]="user==='PRO'">
-            <label for="PRO">Service Provider</label>
-            <input type="checkbox" name="Service Consumer" id="USER" (click)="userType($event)" [checked]="user==='USER'">
-            <label for="USER">Service Consumer</label>
-          </div>
-          <span *ngIf="hasError('userType')" class="error">Please choose service type.</span>
-          <div *ngIf="signupForm.get('userType').value==='PRO'" class="form-element">
-            <select id="state" (change)="addressChange($event)">
-              <option [value]=null style="display: none">Select State</option>
-              <option *ngFor="let state of states" [value]="state._region" [selected]="signupForm.getRawValue().address.region===state._region">{{state._region}}</option>
-            </select>
-            <select id="city" (change)="addressChange($event)">
-              <option [value]=null style="display: none">Select City</option>
-              <option *ngFor="let city of cities" [value]="city._city" [selected]="signupForm.getRawValue().address.city===city._city">{{city._city}}</option>
-            </select>
-            <select id="county" (change)="addressChange($event)">
-              <option [value]=null style="display: none">Select County</option>
-              <option *ngFor="let county of counties" [value]="county._county" [selected]="signupForm.getRawValue().address.county===county._county">{{county._county}}</option>
-            </select>
-            <select id="street" (change)="addressChange($event)">
-              <option [value]=null style="display: none">Select Street</option>
-              <option *ngFor="let street of streets" [value]="street._street" [selected]="signupForm.getRawValue().address.street===street._street">{{street._street}}</option>
-            </select>
-            <!-- <span *ngIf="signupForm.get('repeatPassword').getError('passMismatch')" class="error">The passwords do not match. Please retry.</span> -->
-          </div>
-          <re-captcha [formControlName]="'recaptcha'" (resolved)="resolved($event)" siteKey="6Lejo2kUAAAAAKpLBaJ4NtKM6tuv8wgIB9Wr0big"></re-captcha>
-          <button class="btn btn-primary" type="submit" value="Submit" [disabled]="signupForm.invalid">SUBMIT</button>
-        </form>
-        
-      </div>
-    </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-24 col-md-16 form_stylefild">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+              <div class="row">
+                <div class="col-sm-24">
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="First Name" id="firstName" formControlName="firstName">
+                      <mat-error *ngIf="hasError('firstName', 'required')" class="error">Please enter first name</mat-error>
+                      <mat-error *ngIf="hasError('firstName', 'minlength')" class="error">Firts Name should be at least 2 characters.</mat-error>
+                    </mat-form-field>
+                  </div>
 
-  </div>
-</div>
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Last Name" id="lastName" formControlName="lastName">
+                      <mat-error *ngIf="hasError('lastName', 'required')" class="error">Please enter last name</mat-error>
+                      <mat-error *ngIf="hasError('lastName', 'minlength')" class="error">Last name should be at least 2 characters.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Email" id="email" formControlName="emailAddress">
+                      <mat-hint>You can use your email to log in when you come back to Dproz. We will not spam you, or sell or rent your email address</mat-hint>
+                      <mat-error *ngIf="hasError('emailAddress', 'required')" class="error">Please enter your email.</mat-error>
+                      <mat-error *ngIf="hasError('emailAddress', 'invalidEmail')" class="error">Please enter a valid email.</mat-error>
+                      <mat-error *ngIf="hasError('emailAddress', 'email')" class="error">Please enter a valid email.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Enter Password" id="password" formControlName="password" type="password">
+                      <mat-icon matSuffix>lock</mat-icon>
+                      <mat-hint>Longer passwords with upper and lower-case letters, numbers and/or symbols are more secure. You can change your password later.</mat-hint>
+                      <mat-error *ngIf="hasError('password', 'required')" class="error">Please enter a password.</mat-error>
+                      <mat-error *ngIf="hasError('password', 'pattern')" class="error">Password should be at least 8 characters, one Upper case,
+                              number and one lower case letter.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Confirm Password" id="repeatPassword" formControlName="repeatPassword" type="password">
+                      <mat-icon matSuffix>lock</mat-icon>
+                      <mat-error *ngIf="hasError('repeatPassword', 'required')" class="error">Please re-enter your password.</mat-error>
+                      <mat-error *ngIf="misMatchPassword()" class="error">Password and confirm password do not match.Please retry.</mat-error>
+                      <mat-error *ngIf="signupForm.get('repeatPassword').getError('confirmedPassword')" class="error">The your passwords do not
+                        match. Please retry.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-element">
+                    <p class="radio-label">User Type</p>
+                    <mat-radio-group formControlName="userType" name="userType" (change)="userTypeChange($event)" > 
+                      <mat-radio-button value="PRO" class="radio-button-txt">Service Provider</mat-radio-button>
+                      <mat-radio-button value="USER" class="radio-button-txt">Service Consumer</mat-radio-button>
+                      <p class="mat-hint raido-hint">Choose Service Provider, if you provide services, if you are just consumer of services select Service Consumer</p>
+                    </mat-radio-group>
+                  </div>
+                 <div *ngIf="isProUser()">
+                   <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <mat-select placeholder="Country" (selectionChange)="countryChanged($event)">
+                        <mat-option *ngFor="let country of countries" [value]="country._country">
+                          {{country._country}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                   </div>
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <mat-select placeholder="Region" (selectionChange)="regionChanged($event)">
+                        <mat-option *ngFor="let region of regions" [value]="region._region">
+                          {{region._region}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <mat-select placeholder="City" (selectionChange)="cityChanged($event)">
+                        <mat-option *ngFor="let city of cities" [value]="city._city">
+                          {{city._city}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <mat-select placeholder="County" (selectionChange)="countyChanged($event)">
+                        <mat-option *ngFor="let county of counties" [value]="county._county">
+                          {{county._county}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-element">
+                    <mat-form-field class="full-width">
+                      <mat-select placeholder="Street" (selectionChange)="streetChanged($event)">
+                        <mat-option *ngFor="let street of streets" [value]="street">
+                          {{street._street}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-element" formGroupName="phone">
+                    <mat-form-field class="full-width">
+                      <mat-label>Phone Number</mat-label>
+                      <input matInput formControlName="phoneNumber" placeholder="Enter Phone Number">
+                      <mat-icon matSuffix>call</mat-icon>
+                      <mat-error *ngIf="hasError('phone.phoneNumber', 'required')" class="error">Phone number is a required.Please enter a valid phone number</mat-error>
+                      <mat-error *ngIf="hasError('phone.phoneNumber', 'pattern')" class="error">Invalid phone number it can be +255XXXXXXXXX or 0XXXXXXXXX.</mat-error>
+                      <mat-hint>Phone number which service consumers can use to reach out to you</mat-hint>
+                    </mat-form-field>
+                  </div>
+                 </div>
+              <div class="form-element">
+              <re-captcha [formControlName]="'recaptcha'"
+                            siteKey="6Lejo2kUAAAAAKpLBaJ4NtKM6tuv8wgIB9Wr0big"></re-captcha>
+              </div>
+            <div class="form-element">
+                <span class="sclass">I have read, understood and consent to the language and authorizations outlined in Dproz ESIGN
+                  Act Consent, <a href=""><b> Privacy Policy</b></a>, <a href=""><b>Terms of Use</b> </a> and <a href=""><b>
+                      Arbitration Agreement.</b></a> We recommend that you retain a copy for your reference. </span>
+                  <div class="chackbox_style1 pb-3">
+                    <input class=" " type="checkbox" formControlName="agreeToTerms" value="true" style="width: 17px;"><span>I Agree</span>                                
+                  </div>
+            </div>
+            <div *ngIf='submissionError' class="submission_error">
+              <span>{{submissionError}}</span>                
+            </div>
+              <div class="form-group form_sub_btn_style text-center pt-3">
+                  <button class="btn btn_style" type="submit" [disabled]="signupForm.invalid">Signup</button>
+              </div>
+             </div>
+            </div>  
+            </form>
+          </div>
+          <div class="col-sm-4"></div>
+        </div>
+      </div>
+</div>          
+  
