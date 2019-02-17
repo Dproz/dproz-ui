@@ -3,11 +3,10 @@ import { AuthenticationService } from '../../shared/services/authentication.serv
 import { StateService } from '../../shared/services/state.service';
 import { FormGroup, Validators, FormBuilder, AbstractControl, ValidatorFn } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpErrorResponse } from "@angular/common/http";
+import { HttpErrorResponse } from '@angular/common/http';
 
 const passwordValidation: ValidatorFn = (fg: FormGroup) => {
-
-  return null
+  return null;
 };
 @Component({
   selector: 'dproz-password-reset',
@@ -30,19 +29,18 @@ export class PasswordResetComponent implements OnInit {
   ngOnInit() {
     this.isLoggedIn =  this.state.getState().loggedIn;
     this.changePasswordForm = this.fb.group({
-      oldPassword: ['Dproz@123', this.activeForm==='forgotPasswordForm' ? [Validators.required] : []],
+      oldPassword: ['Dproz@123', this.activeForm === 'forgotPasswordForm' ? [Validators.required] : []],
       newPassword: ['Dproz@1234', Validators.required],
       confirmPassword: ['Dproz@1234', Validators.required],
       userReferenceId: ['', Validators.required]
-    }, { validator: passwordValidation })
-    
+    }, { validator: passwordValidation });
     // this.forgotPasswordForm = this.fb.group({
     //   emailAddress: ['', Validators.required]
     // })
 
     this.route.params.subscribe(data => {
       if (data.code && !this.isLoggedIn) {
-        let a = 'eyJhbGciOiJIUzUxMiIsInppcCI6IkRFRiJ9.eNo0jMEOgjAQRP9lz4RsS2laTl698gcLXZQohbRWjMZ_d010LpNM3rwX5DJAB_d8prSQ1vZwWmi-1uO6QAVUwsxxZCFKvMR1jzKOienGATrVNlp5J2WdrWDOWbhdUoctrc-fo2ROPU9fzVFOgEjeGtOixWCc1wO6RhkV_DQgORPkwo_tb_fYNu8PAAAA__8.4n83875p9g0xa--8v80ztPwJZK0jEOQwDHa3UAB462v2FblfZoIuN0NcfOL1531hP6nCXiRtvH2pnpqlH60DCA';
+        const a = 'eyJhbGciOiJIUzUxMiIsInppcCI6IkRFRiJ9.eNo0jMEOgjAQRP9lz4RsS2laTl698gcLXZQohbRWjMZ_d010LpNM3rwX5DJAB_d8prSQ1vZwWmi-1uO6QAVUwsxxZCFKvMR1jzKOienGATrVNlp5J2WdrWDOWbhdUoctrc-fo2ROPU9fzVFOgEjeGtOixWCc1wO6RhkV_DQgORPkwo_tb_fYNu8PAAAA__8.4n83875p9g0xa--8v80ztPwJZK0jEOQwDHa3UAB462v2FblfZoIuN0NcfOL1531hP6nCXiRtvH2pnpqlH60DCA';
         this.service.verifyEmail(data.code).subscribe(({Authorization, userReferenceId}) => {
           window.localStorage.setItem('auth-token', Authorization);
           this.changePasswordForm.get('userReferenceId').setValue(userReferenceId);
@@ -50,7 +48,7 @@ export class PasswordResetComponent implements OnInit {
 
         }, error => {
           this.activeForm = 'inActive';
-          this.errorMessage = 'Unable to retrieve account Info.'
+          this.errorMessage = 'Unable to retrieve account Info.';
         });
       } else if (!data.code && !this.isLoggedIn) {
         this.router.navigate(['../dproz/login']);
@@ -58,7 +56,7 @@ export class PasswordResetComponent implements OnInit {
         this.activeForm = 'changePasswordForm';
         this.changePasswordForm.get('userReferenceId').setValue(this.state.getState().userReferenceId);
       }
-    })
+    });
   }
 
   formValidator(c) {
@@ -85,7 +83,7 @@ export class PasswordResetComponent implements OnInit {
   onSubmit() {
 
     if (this.changePasswordForm.valid) {
-      let formData = this.changePasswordForm.getRawValue();
+      const formData = this.changePasswordForm.getRawValue();
       // if (this.activeForm==='forgotPasswordForm') {
       //   delete formData.oldPassword;
       // }
@@ -99,7 +97,7 @@ export class PasswordResetComponent implements OnInit {
 
         }
         console.log(error, `Error while resetting password`);
-      })
+      });
     }
   }
 
