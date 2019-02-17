@@ -6,6 +6,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { BehaviorSubject } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
 
 
 export class ServiceItemNode {
@@ -136,17 +137,20 @@ export class ServicesComponent implements OnInit {
 
   setPro() {
 
+    console.log("pro"); 
     let businesses = JSON.parse(localStorage.getItem("user_details")).businesses;
     if (businesses.length > 0) {
       let proId = businesses[0];
       this.proRef = proId;
       this.auth.getPro(proId)
         .subscribe(pro => {
+         
           console.log(pro);
           localStorage.setItem("pro_details", JSON.stringify(pro));
 
 
         });
+        console.log("pro"); 
 
     }
   }
@@ -172,6 +176,9 @@ export class ServicesComponent implements OnInit {
     //      console.log(c);
     // });
     //this.setPro();
+    // const options = { params: new HttpParams().set('country', 'Tanzania') };
+    // console.log(JSON.stringify(options));
+    console.log("lllll");
     this.setPro();
   }
 

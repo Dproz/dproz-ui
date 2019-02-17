@@ -1,10 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DaysOfTheWeek } from '../domain/common_data';
+import { SERVICING_DOMAIN } from '../constants/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProInfoService {
+
+  postProInfo(proInfo)
+  {
+    return this.http.post(`${SERVICING_DOMAIN}/api/dproz/pros`, proInfo);
+  }
 
   getDaysOfTheWeek():DaysOfTheWeek[]
   {
@@ -39,5 +46,5 @@ export class ProInfoService {
     return days
   }
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 }
