@@ -7,9 +7,14 @@ import { DaysOfTheWeek } from '../../shared/domain/common_data';
 import { StateService } from '../../shared/services/state.service';
 import { ProClass } from '../../shared/domain/pro-class';
 import { CredentialClass } from '../../shared/domain/credential';
+import { forEach } from '@angular/router/src/utils/collection';
 
 class HourOfService
 {
+
+  dayOfWeek:any;
+  endingHour:any;
+  startingHour:any;
 
   getHour(hour, minute){
 
@@ -83,7 +88,35 @@ export class BasicInfoComponent implements OnInit {
     this.basicInfoForm.get('proEmailAddress').setValue( this.bussinessDetails["proEmailAddress"]);
     this.basicInfoForm.get('proWebsite').setValue( this.bussinessDetails["proWebsite"]);
     this.basicInfoForm.get('proPhoneNumber').setValue( this.bussinessDetails["proPhoneNumber"]["phoneNumber"]);
-   
+
+    // this.basicInfoForm.get('proAreaOfServiceForm').setValue( this.bussinessDetails["proPhoneNumber"]["phoneNumber"]);
+    // this.basicInfoForm.get('proAreaOfServiceForm').setValue( this.bussinessDetails["proPhoneNumber"]["phoneNumber"]);
+    // this.basicInfoForm.get('proAreaOfServiceForm').setValue( this.bussinessDetails["proPhoneNumber"]["phoneNumber"]);
+    this.proAreaOfServiceForm.setValue( this.bussinessDetails["proAreaOfService"]);
+    let hoursFromMemory:HourOfService[]  = this.bussinessDetails["proBusinessHours"];
+    //updateBusinessDay(day: string, startingHour: number,startingMinute: number,endingHour: number, endingMinute: number);
+    
+    let hour: HourOfService = new HourOfService();
+    let hours:[] = this.proBusinessHoursForm.controls["businessHours"]["controls"];
+    let len = hours.length;
+
+    let hoursToSubmit: any[] = [];
+
+
+    for( let i = 0; i< len; i++){
+      let control:any = hours[i]["controls"];
+      let dayOfWeek:string = control["dayOfWeek"]["value"];
+    
+      let h = hoursFromMemory.filter( x => x.dayOfWeek == dayOfWeek )[0];
+
+      this.proBusinessHoursForm.controls["businessHours"]["controls"][i]["controls"]["dayOfWeek"]["value"] = h.dayOfWeek;
+      this.proBusinessHoursForm.controls["businessHours"]["controls"][i]["controls"]["startingHour"]["controls"]["hour"]["value"] = h.startingHour["hour"];
+      this.proBusinessHoursForm.controls["businessHours"]["controls"][i]["controls"]["startingHour"]["controls"]["minute"]["value"] = h.startingHour["minute"];
+      this.proBusinessHoursForm.controls["businessHours"]["controls"][i]["controls"]["endingHour"]["controls"]["hour"]["value"] = h.endingHour["hour"];
+      this.proBusinessHoursForm.controls["businessHours"]["controls"][i]["controls"]["endingHour"]["controls"]["minute"]["value"] = h.endingHour["minute"];
+    
+    }
+
   }
   setPlaces(){
 
@@ -99,7 +132,7 @@ export class BasicInfoComponent implements OnInit {
 
     });
 
-    this.proAreaOfServiceForm.controls["location"].get("district").valueChanges.subscribe( value => {
+    this.proAreaOfServiceForm.controls["location"].get("city").valueChanges.subscribe( value => {
       
       this.selectedCity = value;
       this.placesService.getCounties(this.selectedRegion, this.selectedCity).subscribe( values => {
@@ -132,15 +165,16 @@ export class BasicInfoComponent implements OnInit {
       "proPhoneNumber": ['', Validators.compose([Validators.required])],
     });
 
+    // "district": ['', Validators.compose([Validators.required])],
     this.proAreaOfServiceForm = this.fb.group({
 
       "location": this.fb.group({
-        "longtude": ['', Validators.compose([Validators.required])],
+        "longitude": ['', Validators.compose([Validators.required])],
         "latitude": ['', Validators.compose([Validators.required])],
         "street": ['', Validators.compose([Validators.required])],
         "county": ['', Validators.compose([Validators.required])],
         "zip": ['', Validators.compose([Validators.required])],
-        "district": ['', Validators.compose([Validators.required])],
+        "city": ['', Validators.compose([Validators.required])],
         "region": ['', Validators.compose([Validators.required])],
         "country": ['', Validators.compose([Validators.required])],
       }),
@@ -190,7 +224,7 @@ export class BasicInfoComponent implements OnInit {
         "street": ['', Validators.compose([Validators.required])],
         "county": ['', Validators.compose([Validators.required])],
         "zip": ['', Validators.compose([Validators.required])],
-        "district": ['', Validators.compose([Validators.required])],
+         "city": ['', Validators.compose([Validators.required])],
         "region": ['', Validators.compose([Validators.required])],
         "country": ['', Validators.compose([Validators.required])],
       }),
@@ -203,7 +237,7 @@ export class BasicInfoComponent implements OnInit {
           "street": ['', Validators.compose([Validators.required])],
           "county": ['', Validators.compose([Validators.required])],
           "zip": ['', Validators.compose([Validators.required])],
-          "district": ['', Validators.compose([Validators.required])],
+          "city": ['', Validators.compose([Validators.required])],
           "region": ['', Validators.compose([Validators.required])],
           "country": ['', Validators.compose([Validators.required])],
         }),
@@ -243,6 +277,25 @@ export class BasicInfoComponent implements OnInit {
 
         "hour": [17, Validators.compose([Validators.required])],
         "minute": [0, Validators.compose([Validators.required])],
+      }),
+
+    });
+  }
+
+  updateBusinessDay(day: string, startingHour: number,startingMinute: number,endingHour: number, endingMinute: number): FormGroup {
+
+    return this.fb.group({
+
+      "isSelected": [false, Validators.compose([Validators.required])],
+      "dayOfWeek": [day, Validators.compose([Validators.required])],
+      "startingHour": this.fb.group({
+        "hour": [startingHour, Validators.compose([Validators.required])],
+        "minute": [startingMinute, Validators.compose([Validators.required])],
+      }),
+      "endingHour": this.fb.group({
+
+        "hour": [endingHour, Validators.compose([Validators.required])],
+        "minute": [endingMinute, Validators.compose([Validators.required])],
       }),
 
     });

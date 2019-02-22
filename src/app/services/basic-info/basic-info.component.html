@@ -19,7 +19,7 @@
       <div class="label">Country:</div><div class="value"> {{bussinessDetails.proPointOfContact.address.country}}</div>
       <div class="label">Region:</div><div class="value"> {{bussinessDetails.proPointOfContact.address.region}}</div>
       <div class="label">County:</div><div class="value"> {{bussinessDetails.proPointOfContact.address.county}}</div>
-      <div class="label">District:</div><div class="value"> {{bussinessDetails.proPointOfContact.address.district}}</div>
+      <!-- <div class="label">District:</div><div class="value"> {{bussinessDetails.proPointOfContact.address.district}}</div> -->
       <div class="label">Street:</div><div class="value"> {{bussinessDetails.proPointOfContact.address.street}}</div>
     </div>
       <div class="label">Phone Number:</div><div class="value"> {{bussinessDetails.proPhoneNumber.phoneNumber}}</div>
@@ -98,7 +98,7 @@
 
           <mat-form-field>
             <mat-label>City</mat-label>
-            <mat-select matInput formControlName="district" placeholder="Select City">
+            <mat-select matInput formControlName="city" placeholder="Select City">
               <mat-option *ngFor="let city of cities" [value]="city._city">{{city._city}}</mat-option>
             </mat-select>
           </mat-form-field>
