@@ -16,7 +16,7 @@ import { AuthTokenInterceptor } from './shared/http-interceptors/auth-token-inte
 import { DprozContactUsComponent } from './dproz-contact-us/dproz-contact-us.component';
 import { DprozAboutUsComponent } from './dproz-about-us/dproz-about-us.component';
 import { DocumentService } from './shared/services/document.service';
-import { ServicesComponent, EditServiceComponent } from './services/services.component';
+import { ServicesComponent, EditServiceDialogComponent } from './services/services.component';
 import { MatMenuModule, MatCardModule, MatTabsModule, MatStepperModule, MatListModule,
    MatDialogModule, MatInputModule, MatFormFieldModule, MatTreeModule, MatIconModule, MatProgressBarModule,
    MatCheckboxModule, MatButtonModule, MatIconRegistry, MatExpansionModule, MatDatepickerModule,
@@ -33,6 +33,7 @@ import { DprozCredentialsComponent } from './services/dproz-credentials/dproz-cr
 
 import { ResponsiveMenuDirective } from './shared/directives/responsive-menu.directive';
 import { CredentialTypePipe } from './shared/pipes/credential-type.pipe';
+import { EditServiceComponent } from './services/edit-service/edit-service.component';
 
 
 export const httpInterceptorProviders = [
@@ -44,8 +45,8 @@ export const httpInterceptorProviders = [
     HeaderComponent,
     DprozContactUsComponent,
     DprozAboutUsComponent,
-    ServicesComponent, EditServiceComponent, BasicInfoComponent, DprozProfProfileComponent, DprozExperienceComponent,
-    DprozCredentialsComponent
+    ServicesComponent, EditServiceDialogComponent, BasicInfoComponent, DprozProfProfileComponent, DprozExperienceComponent,
+    DprozCredentialsComponent, EditServiceComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,7 @@ export const httpInterceptorProviders = [
     MatListModule, MatDialogModule, ServiceModule, MatCheckboxModule, MatButtonModule,
     MatMenuModule, MatExpansionModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule
   ],
-  entryComponents: [EditServiceComponent, ],
+  entryComponents: [EditServiceDialogComponent],
   providers: [
     AuthenticationService,
     StateService,
@@ -69,5 +70,3 @@ export const httpInterceptorProviders = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-platformBrowserDynamic().bootstrapModule(AppModule);

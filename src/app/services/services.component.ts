@@ -29,8 +29,9 @@ export class Category {
   name: string;
   equals(name: string): boolean {
 
-    if (this.name = name)
+    if (this.name = name) {
       return true;
+    }
 
     return false;
   }
@@ -59,7 +60,7 @@ export class ChecklistDatabase {
 
   initialize() {
 
-    TREE_DATA = JSON.parse(localStorage.getItem("service_tree"));
+    TREE_DATA = JSON.parse(localStorage.getItem('service_tree'));
 
     //  console.log(TREE_DATA);
     const data = this.buildFileTree(TREE_DATA, 0);
@@ -130,27 +131,45 @@ export interface DialogData {
 })
 export class ServicesComponent implements OnInit {
 
+  constructor(public dialog: MatDialog, private services: ServicesService, private auth: AuthenticationService) {
+
+    // services.getServiceCategories().subscribe( c =>{
+    //      this.categories = c;
+    //      console.log(c);
+    // });
+    // this.setPro();
+    // const options = { params: new HttpParams().set('country', 'Tanzania') };
+    // console.log(JSON.stringify(options));
+    console.log('lllll');
+    this.setPro();
+  }
+
   private categories = {};
   private categoryArray: Category[] = new Array();
   panelOpenState = true;
   proRef;
 
+  animal: string;
+  name: string;
+  user_ref: string;
+  user;
+
   setPro() {
 
     console.log("pro"); 
-    let businesses = JSON.parse(localStorage.getItem("user_details")).businesses;
+    let businesses = JSON.parse(localStorage.getItem('user_details')).businesses;
     if (businesses.length > 0) {
       let proId = businesses[0];
       this.proRef = proId;
       this.auth.getPro(proId)
         .subscribe(pro => {
-         
+
           console.log(pro);
-          localStorage.setItem("pro_details", JSON.stringify(pro));
+          localStorage.setItem('pro_details', JSON.stringify(pro));
 
 
         });
-        console.log("pro"); 
+        console.log('pro');
 
     }
   }
@@ -158,73 +177,56 @@ export class ServicesComponent implements OnInit {
 
   ngOnInit(): void {
     //  throw new Error("Method not implemented.");
-    this.user_ref = localStorage.getItem("user-reference");
-    this.user = JSON.parse(localStorage.getItem("user_details"));
+    this.user_ref = localStorage.getItem('user-reference');
+    this.user = JSON.parse(localStorage.getItem('user_details'));
 
     //  this.user
   }
 
-  animal: string;
-  name: string;
-  user_ref: string;
-  user;
-
-  constructor(public dialog: MatDialog, private services: ServicesService, private auth: AuthenticationService) {
-
-    // services.getServiceCategories().subscribe( c =>{
-    //      this.categories = c;
-    //      console.log(c);
-    // });
-    //this.setPro();
-    // const options = { params: new HttpParams().set('country', 'Tanzania') };
-    // console.log(JSON.stringify(options));
-    console.log("lllll");
-    this.setPro();
-  }
-
   deleteService(service) {
 
-    if (confirm("Are you sure to delete service " + service.name)) {
-      console.log("deleted");
+    if (confirm('Are you sure to delete service ' + service.name)) {
+      console.log('deleted');
     }
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(EditServiceComponent, {
-      //width: '600px',
+    const dialogRef = this.dialog.open(EditServiceDialogComponent, {
+      // width: '600px',
 
       data: { name: this.name, animal: this.animal }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      let data = JSON.parse(localStorage.getItem("all_services"));
-      let postingString = "";
+      const data = JSON.parse(localStorage.getItem('all_services'));
+      const postingString = '';
       let count = 0;
 
       result._selection.forEach(element => {
 
-        if(count > 0)
-        postingString.concat(",");
+        if (count > 0) {
+        postingString.concat(',');
+        }
 
         postingString.concat(element.value);
         count++;
 
-        let serv = data.filter(v => {
-          if (v.serviceNumber == element.value) {
+        const serv = data.filter(v => {
+          if (v.serviceNumber === element.value) {
             console.log(element.value);
             console.log(v.serviceNumber);
           }
 
-          return (v.serviceNumber == element.value)
+          return (v.serviceNumber === element.value);
 
         })[0];
 
         console.log(serv);
-        let found: boolean = false;
+        let found = false;
         this.categoryArray.forEach(c => {
-          if (c.name == serv.category.categoryName) {
-            let service = new IndividualService();
+          if (c.name === serv.category.categoryName) {
+            const service = new IndividualService();
             service.name = serv.serviceDescription;
             service.id = serv.serviceNumber;
             c.services.push(service);
@@ -234,9 +236,9 @@ export class ServicesComponent implements OnInit {
 
 
         if (!found) {
-          let newCat = new Category();
+          const newCat = new Category();
           newCat.name = serv.category.categoryName;
-          let service = new IndividualService();
+          const service = new IndividualService();
           service.name = serv.serviceDescription;
           service.id = serv.serviceNumber;
           newCat.services.push(service);
@@ -267,7 +269,7 @@ export class ServicesComponent implements OnInit {
   providers: [ChecklistDatabase],
 })
 
-export class EditServiceComponent {
+export class EditServiceDialogComponent {
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<ServiceItemFlatNode, ServiceItemNode>();
 
@@ -294,7 +296,7 @@ export class EditServiceComponent {
   //    {
 
   //    }
-  constructor(public dialogRef: MatDialogRef<EditServiceComponent>,
+  constructor(public dialogRef: MatDialogRef<EditServiceDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData, private database: ChecklistDatabase) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this.getLevel,
       this.isExpandable, this.getChildren);
