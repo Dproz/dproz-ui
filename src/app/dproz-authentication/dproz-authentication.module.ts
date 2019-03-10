@@ -8,7 +8,10 @@ import { RouterModule } from '@angular/router';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import {
+  MatFormFieldModule, MatInputModule, MatIconModule, MatRadioModule, MatOptionModule,
+  MatSelectModule, MatCheckboxModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -16,6 +19,11 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
+    MatRadioModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatCheckboxModule,
     RouterModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule

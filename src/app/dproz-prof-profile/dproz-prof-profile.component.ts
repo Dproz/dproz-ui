@@ -62,7 +62,7 @@ export class DprozProfProfileComponent implements OnInit {
       })
     });
 
-    this.placesService.getRegions().subscribe(regions => {
+    this.placesService.getRegions(this.selectedCounty).subscribe(regions => {
       this.states = regions;
       // console.log(this.states);
 
@@ -71,8 +71,9 @@ export class DprozProfProfileComponent implements OnInit {
     this.state.user.subscribe(u => {
       this.user = u;
       // console.log(u);
-      if (this.user.identity)
+      if (this.user.identity) {
         this.profileForm.patchValue(this.user.identity);
+      }
 
       if (this.user.identity && this.user.identity.address) {
 
@@ -85,10 +86,9 @@ export class DprozProfProfileComponent implements OnInit {
 
   onFileChange(event) {
     if (event.target.files.length > 0) {
-      let file = event.target.files[0];
+      const file = event.target.files[0];
       this.docService.postDocument(file, this.user.identity.userReferenceId, 'PHOTO_ID', 'thumbnail', 'true').subscribe(d => {
         console.log(d);
-        
       });
     }
   }
@@ -117,21 +117,21 @@ export class DprozProfProfileComponent implements OnInit {
       this.selectedCounty = county;
       this.selectedState = region;
       if (this.profileForm.get('address').value.city) {
-        this.placesService.getCities(region).subscribe(cities => {
-          this.cities = cities;          
+        this.placesService.getCities(region, 'Tanzania').subscribe(cities => {
+          this.cities = cities;
           console.log(this.state.getState().identity.address.region);
           if (this.profileForm.get('address').value.county) {
-            this.placesService.getCounties(region, city).subscribe(counties => {
+            this.placesService.getCounties(region, city, 'Tanzania').subscribe(counties => {
               this.counties = counties;
               if (this.profileForm.get('address').value.street) {
-                this.placesService.getStreets(region, city, county).subscribe(streets => {
+                this.placesService.getStreets(region, city, county, 'Tanzania').subscribe(streets => {
                   this.streets = streets;
-                  
-                })
+
+                });
               }
-          })
+          });
         }
-      })
+      });
     }
   }
 }
@@ -151,24 +151,24 @@ export class DprozProfProfileComponent implements OnInit {
       this.profileForm.get('address').get('region').setValue(null);
       this.profileForm.get('address').get('county').setValue(null);
       this.profileForm.get('address').get('street').setValue(null);
-      this.placesService.getCities(this.selectedState).subscribe(cities => {
-        this.cities = cities;
-      })
+    //  this.placesService.getCities(this.selectedState).subscribe(cities => {
+      //  this.cities = cities;
+      // });
     } else if (e.target.id === 'city') {
       this.profileForm.get('address').get('county').setValue(null);
       this.profileForm.get('address').get('street').setValue(null);
-      this.selectedCity = e.target.value
-      this.placesService.getCounties(this.selectedState, this.selectedCity).subscribe(counties => {
-        this.counties = counties;
-      })
+      this.selectedCity = e.target.value;
+      // this.placesService.getCounties(this.selectedState, this.selectedCity).subscribe(counties => {
+        // this.counties = counties;
+      // });
     } else if (e.target.id === 'county') {
       this.profileForm.get('address').get('street').setValue(null);
       this.selectedCounty = e.target.value;
-      this.placesService.getStreets(this.selectedState, this.selectedCity, this.selectedCounty).subscribe(streets => {
-        this.streets = streets;
-      })
+      // this.placesService.getStreets(this.selectedState, this.selectedCity, this.selectedCounty).subscribe(streets => {
+       // this.streets = streets;
+      // });
     } else if (e.target.id === 'street') {
-      let addressSelected: any = this.streets.find(el => el._street === e.target.value && el._county === this.selectedCounty);
+      const addressSelected: any = this.streets.find(el => el._street === e.target.value && el._county === this.selectedCounty);
 
       this.profileForm.patchValue({
         address: {
@@ -190,20 +190,22 @@ export class DprozProfProfileComponent implements OnInit {
   userType(e) {
 
     this.user = e.target.id;
-    let { checked } = e.target;
-    if (checked)
+    const { checked } = e.target;
+    if (checked) {
       this.profileForm.get('userType').setValue(this.user);
-    else
+    } else {
       this.profileForm.get('userType').setValue('');
+    }
   }
 
   onSubmit() {
     // this.profileForm.disable();
-    if (!isEmail.validate(this.profileForm.get('emailAddress').value))
+    if (!isEmail.validate(this.profileForm.get('emailAddress').value)) {
       this.profileForm.get('emailAddress').setErrors({ invalidEmail: 'error' });
+    }
 
     if (this.profileForm.valid) {
-      let form = this.profileForm.getRawValue();
+      const form = this.profileForm.getRawValue();
       // if (form.userType === 'USER') {f
       // }
       this.userService.updateprofile(this.state.getState().userReferenceId, form).subscribe((data) => {
@@ -212,7 +214,7 @@ export class DprozProfProfileComponent implements OnInit {
         this.toggleEdit();
       }, error => {
         this.toggleEdit();
-        console.log(error, `Error!!!!`)
+        console.log(error, `Error!!!!`);
       });
 
     }

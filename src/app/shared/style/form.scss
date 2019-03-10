@@ -90,7 +90,59 @@
   
   
   }
-  
+
+.full-width {
+  width: 100%;
+}
+.form_new {
+  width: 100%
+}
+
+@media only screen and (max-width: 900px) and (min-width: 300px) {
+  .contain_style h4 {
+    font-size: 21px !important;
+  }
+  .form_sub_btn_style .btn_style {
+    padding: 9px 60px;
+  }
+  .top_s_style h4 {
+    font-size: 17px;
+  }
+}
+
+.top_s_style{
+	padding-top: 11px;
+	box-shadow: 0px 1px 1px rgba(230, 230, 230, 0.5);
+}
+.top_s_style h4{
+	padding: 7px;
+	color: #a5a5a5;
+}
+.top_s_style .close{
+	font-size: 31px;
+	color: #9f9f9f;
+}
+
+.form_sub_btn_style .btn_style{
+    color: #fff;
+    background: #03a9f4; 
+    border:none;
+    border-radius: 12px;
+    padding: 8px 130px;
+    font-size: 19px;
+}
+
+.singup_row_style {
+  margin: 0px;
+  font-family: "TT Norms", "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+}
+
+.form_top_row_style{
+	background: #eae9e9;
+	padding-top:9em!important;
+	padding-bottom: 0;
+	padding-bottom: 1em;	
+}
   .form-container {
     background: url('../../../assets/images/signup.png') no-repeat;
     background-size: 100% 260px;

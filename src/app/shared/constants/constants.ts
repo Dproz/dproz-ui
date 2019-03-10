@@ -6,4 +6,5 @@ export const PLACES_PORT = `3000`;
 export const PLACES_DOMAIN = `${DOMAIN}:${PLACES_PORT}`;
 export const SERVICING_DOMAIN = `${DOMAIN}:${SERVICING_PORT}`;
 
-export const PASS_PATTERN:RegExp =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+export const PASS_PATTERN: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
+export const PHONE_PATTERN: RegExp = /^0[0-9]{9}$|^\+255[0-9]{9}$/;
