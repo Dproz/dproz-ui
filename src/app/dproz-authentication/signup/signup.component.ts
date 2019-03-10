@@ -205,7 +205,6 @@ getErrors (formGroup: FormGroup, errors: any = {}) {
   }
 
   userTypeChange(userTypeChanged: MatRadioChange) {
-    this.signupForm.userType = userTypeChanged.value;
     this.addProFormElements();
     this.removeFormElements();
     this.submissionError = undefined;
